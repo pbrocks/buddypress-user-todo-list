@@ -1,11 +1,11 @@
 <?php
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-$todo_cats = get_terms( 'todo_category', 'orderby=name&hide_empty=0' );
+$todo_cats = get_terms('todo_category', 'orderby=name&hide_empty=0');
 
 //Save todo items
-if( isset( $_POST['todo_create'] ) ) {
+if (isset($_POST['todo_create'])) {
 	$cat = $_POST['todo_cat'];
 	$title = $_POST['todo_title'];
 	$summary = $_POST['todo_summary'];
@@ -19,13 +19,13 @@ if( isset( $_POST['todo_create'] ) ) {
 		'post_content' => $_POST['todo_summary'],
 		'post_author' => get_current_user_id(),
 	);
-	$post_id = wp_insert_post( $args );
+	$post_id = wp_insert_post($args);
 
-	update_post_meta( $post_id, 'todo_status', 'incomplete' );
-	update_post_meta( $post_id, 'todo_due_date', $due_date );
-	update_post_meta( $post_id, 'todo_last_day_mail_sent', 'no' );
+	update_post_meta($post_id, 'todo_status', 'incomplete');
+	update_post_meta($post_id, 'todo_due_date', $due_date);
+	update_post_meta($post_id, 'todo_last_day_mail_sent', 'no');
 
-	wp_set_object_terms( $post_id, $cat, $taxonomy );
+	wp_set_object_terms($post_id, $cat, $taxonomy);
 }
 ?>
 <form action="" method="post">
@@ -37,16 +37,16 @@ if( isset( $_POST['todo_create'] ) ) {
 			<td width="80%">
 				<select name="todo_cat" id="bp_todo_categories" required>
 					<option value="">--Select--</option>
-					<?php if( isset( $todo_cats ) ) {?>
-						<?php foreach( $todo_cats as $todo_cat ) {?>
-							<option value="<?php echo $todo_cat->name;?>">
-								<?php echo $todo_cat->name;?>
+					<?php if (isset($todo_cats)) {?>
+						<?php foreach ($todo_cats as $todo_cat) {?>
+							<option value="<?php echo $todo_cat->name; ?>">
+								<?php echo $todo_cat->name; ?>
 							</option>
 						<?php }?>
 					<?php }?>
 				</select>
 				<a href="javascript:void(0);" class="add-todo-category">
-					<img src="<?php echo BPTODO_PLUGIN_URL.'assets/images/add.png';?>">
+					<img src="<?php echo BPTODO_PLUGIN_URL.'assets/images/add.png'; ?>">
 				</a>
 			</td>
 		</tr>
