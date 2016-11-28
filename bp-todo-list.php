@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: BP Todo List
+Plugin Name: BP User To Do List
 Plugin URI: https://wbcomdesigns.com/contact/
 Description: This plugin allows users to create to do items in their prfile section and manage them accordingly.
-Version: 1.0
+Version: 1.0.0
 Author: Wbcom Designs
 Author URI: http://wbcomdesigns.com
 License: GPLv2+
