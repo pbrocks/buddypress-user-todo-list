@@ -1,5 +1,5 @@
 === BP Todo List ===
-Contributors: wbcomdesigns
+Contributors: wbcomdesigns,vapvarun
 Donate link: https://wbcomdesigns.com/contact/
 Tags: buddypress, cpt, todo
 Requires at least: 3.0.1
