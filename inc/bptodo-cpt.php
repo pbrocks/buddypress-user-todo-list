@@ -1,22 +1,21 @@
 <?php
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 //Class to add admin menu to manage general settings
-if( !class_exists( 'BP_Todo_CPT' ) ) {
-	class BP_Todo_CPT{
+if (!class_exists('BP_Todo_CPT')) {
+	class BP_Todo_CPT {
 
 		//constructor
 		function __construct() {
-			add_action( 'init', array( $this, 'bptodo_create_cpt' ) );
-			add_action( 'init', array( $this, 'bptodo_create_cpt_category' ) );
+			add_action('init', array($this, 'bptodo_create_cpt'));
+			add_action('init', array($this, 'bptodo_create_cpt_category'));
 		}
 
 		/**
 		 * Actions performed on loading init: creating cpt
 		 */
 		function bptodo_create_cpt() {
-			$icon_url = BPTODO_PLUGIN_URL.'admin/assets/images/todo-list.png';
 			$labels = array(
 				'name' => 'Todo Items',
 				'singular_name' => 'Todo Item',
@@ -32,19 +31,19 @@ if( !class_exists( 'BP_Todo_CPT' ) ) {
 			$args = array(
 				'labels' => $labels,
 				'public' => true,
-				'menu_icon' => $icon_url,
+				//'menu_icon' => '',
 				'publicly_queryable' => true,
 				'show_ui' => true,
 				'show_in_menu' => true,
 				'query_var' => true,
-				'rewrite' => array( 'slug' => 'todo', 'with_front' => false ),
+				'rewrite' => array('slug' => 'todo', 'with_front' => false),
 				'capability_type' => 'post',
 				'has_archive' => true,
 				'hierarchical' => false,
 				'menu_position' => null,
-				'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+				'supports' => array('title', 'editor', 'author', 'thumbnail'),
 			);
-			register_post_type( 'bp-todo', $args );
+			register_post_type('bp-todo', $args);
 		}
 
 		/**
@@ -72,9 +71,9 @@ if( !class_exists( 'BP_Todo_CPT' ) ) {
 				'show_admin_column' => true,
 				'public' => true,
 				'query_var' => true,
-				'rewrite' => array( 'slug' => 'todo_category' ),
+				'rewrite' => array('slug' => 'todo_category'),
 			);
-			register_taxonomy( 'todo_category', array( 'bp-todo' ), $tax_args );
+			register_taxonomy('todo_category', array('bp-todo'), $tax_args);
 		}
 	}
 	new BP_Todo_CPT();

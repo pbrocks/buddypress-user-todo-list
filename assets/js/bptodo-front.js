@@ -1,7 +1,6 @@
 jQuery(document).ready(function(){
-
-	//Datepicker
-	jQuery( '.todo_due_date' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	webshims.setOptions('forms-ext', {types: 'date'});
+	webshims.polyfill('forms forms-ext');
 
 	//Export My Tasks
 	jQuery(document).on('click', '#export_my_tasks', function(){
