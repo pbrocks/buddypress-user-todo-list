@@ -12,9 +12,7 @@ if (!class_exists('BP_Todo_CPT')) {
 			add_action('init', array($this, 'bptodo_create_cpt_category'));
 		}
 
-		/**
-		 * Actions performed on loading init: creating cpt
-		 */
+		//Actions performed on loading init: creating cpt
 		function bptodo_create_cpt() {
 			$labels = array(
 				'name' => 'Todo Items',
@@ -28,10 +26,11 @@ if (!class_exists('BP_Todo_CPT')) {
 				'not_found' => 'No Todo Item Found',
 				'not_found_in_trash' => 'No Todo Item Found In Trash',
 			);
+			$icon_url = BPTODO_PLUGIN_URL.'admin/assets/images/todo-list.png';
 			$args = array(
 				'labels' => $labels,
 				'public' => true,
-				//'menu_icon' => '',
+				'menu_icon' => $icon_url,
 				'publicly_queryable' => true,
 				'show_ui' => true,
 				'show_in_menu' => true,
@@ -46,9 +45,7 @@ if (!class_exists('BP_Todo_CPT')) {
 			register_post_type('bp-todo', $args);
 		}
 
-		/**
-		 * Actions performed on loading init: creating cpt category
-		 */
+		//Actions performed on loading init: creating cpt category
 		function bptodo_create_cpt_category() {
 			$tax_labels = array(
 				'name' => 'Category',
