@@ -48,7 +48,7 @@ if (!class_exists('BPTodoAjax')) {
 		//Actions Performed To Add BP Todo Category
 		function bptodo_add_todo_category_front() {
 			if (isset($_POST['action']) && $_POST['action'] === 'bptodo_add_todo_category_front') {
-				$term = $_POST['name'];
+				$term = sanitize_text_field( $_POST['name'] );
 				$taxonomy = 'todo_category';
 				$termExists = term_exists($term, $taxonomy);
 				if ($termExists === 0 || $termExists === null) {

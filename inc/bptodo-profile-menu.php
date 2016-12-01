@@ -18,7 +18,7 @@ if (!class_exists('BP_Profile_Todo')) {
 			if (bp_is_my_profile()) {
 				$name = bp_get_displayed_user_username();
 				$tab_args = array(
-					'name' => 'Todo',
+					'name' => __( 'Todo', 'wb-todo' ),
 					'slug' => 'todo',
 					'screen_function' => array($this, 'todo_tab_function_to_show_screen'),
 					'position' => 75,
@@ -32,7 +32,7 @@ if (!class_exists('BP_Profile_Todo')) {
 				//Add subnav add new todo item
 				bp_core_new_subnav_item(
 					array(
-						'name' => 'Add',
+						'name' => __( 'Add', 'wb-todo' ),
 						'slug' => 'add',
 						'parent_url' => $bp->loggedin_user->domain.$parent_slug.'/',
 						'parent_slug' => $parent_slug,
@@ -45,7 +45,7 @@ if (!class_exists('BP_Profile_Todo')) {
 				//Add subnav todo list items
 				bp_core_new_subnav_item(
 					array(
-						'name' => 'Todo List',
+						'name' => __( 'Todo List', 'wb-todo' ),
 						'slug' => 'list',
 						'parent_url' => $bp->loggedin_user->domain.$parent_slug.'/',
 						'parent_slug' => $parent_slug,
@@ -73,9 +73,9 @@ if (!class_exists('BP_Profile_Todo')) {
 
 		function add_todo_tab_function_to_show_title() {
 			if (isset($_GET['args'])) {
-				echo 'Edit Your Todo Item';
+				echo __( 'Edit Your Todo Item', 'wb-todo' );
 			} else {
-				echo 'Add Your Todo Item';
+				echo __( 'Add Your Todo Item', 'wb-todo' );
 			}
 		}
 
@@ -95,9 +95,9 @@ if (!class_exists('BP_Profile_Todo')) {
 		}
 
 		function list_todo_tab_function_to_show_title() {
-			echo 'List Of Todo Items';
+			echo __( 'List Of Todo Items', 'wb-todo' );
 			?>
-			<input type="submit" value="Export My Tasks" id="export_my_tasks">
+			<input type="button" id="export_my_tasks" value="<?php echo __( 'Export My Tasks', 'wb-todo' );?>">
 			<?php
 		}
 

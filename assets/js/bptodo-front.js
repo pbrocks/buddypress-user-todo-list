@@ -1,12 +1,13 @@
 jQuery(document).ready(function(){
-	webshims.setOptions('forms-ext', {types: 'date'});
-	webshims.polyfill('forms forms-ext');
+
+	//Datepicker
+	jQuery( '.todo_due_date' ).datepicker({ dateFormat: 'yy-mm-dd' });
 
 	//Export My Tasks
 	jQuery(document).on('click', '#export_my_tasks', function(){
 		jQuery( '#export_my_tasks' ).val( 'Exporting..' );
 		jQuery.post(
-			bptodo_ajax_object.ajax_url,
+			ajaxurl,
 			{
 				'action' : 'bptodo_export_my_tasks'
 			},
@@ -32,21 +33,25 @@ jQuery(document).ready(function(){
 	//Add BP Todo Category
 	jQuery(document).on('click', '#add-todo-cat', function(){
 		var name = jQuery('#todo-category-name').val();
-		jQuery( this ).val('Adding...');
-		jQuery.post(
-			bptodo_ajax_object.ajax_url,
-			{
-				'action' : 'bptodo_add_todo_category_front',
-				'name' : name,
-			},
-			function( response ) {
-				if( response == 'todo-category-added'){
-					var html = '<option value="'+name+'">'+name+'</option>';
-					jQuery('#bp_todo_categories').append(html);
-					jQuery('.add-todo-cat-row').hide();
+		if( name == '' ) {
+			alert("Please name your category!");
+		} else {
+			jQuery( this ).val('Adding...');
+			jQuery.post(
+				ajaxurl,
+				{
+					'action' : 'bptodo_add_todo_category_front',
+					'name' : name,
+				},
+				function( response ) {
+					if( response == 'todo-category-added'){
+						var html = '<option value="'+name+'">'+name+'</option>';
+						jQuery('#bp_todo_categories').append(html);
+						jQuery('.add-todo-cat-row').hide();
+					}
 				}
-			}
-		);
+			);
+		}
 	});
 });
 
