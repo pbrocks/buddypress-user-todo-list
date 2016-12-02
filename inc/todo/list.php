@@ -6,20 +6,20 @@ $name = bp_get_displayed_user_username();
 
 //Delete a todo item
 if (isset($_POST['delete'])) {
-	$todo_id = $_POST['todo_id'];
+	$todo_id = sanitize_text_field( $_POST['todo_id'] );
 	wp_delete_post($todo_id, true);
 }
 
 $class = "todo-completed";
 //Mark complete a todo item
 if (isset($_POST['complete'])) {
-	$todo_id = $_POST['todo_id'];
+	$todo_id = sanitize_text_field( $_POST['todo_id'] );
 	update_post_meta($todo_id, 'todo_status', 'complete');
 }
 
 //Edit a todo item
 if (isset($_POST['edit'])) {
-	$todo_id = $_POST['todo_id'];
+	$todo_id = sanitize_text_field( $_POST['todo_id'] );
 	$url = home_url('/members/'.$name.'/todo/add?args='.$todo_id);
 	?>
 	<script>

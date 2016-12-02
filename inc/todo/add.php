@@ -8,7 +8,7 @@ $add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 //Save todo items
 if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_create_todo_data_nonce'], 'wp-bp-todo' ) ) {
 
-	$cat = $_POST['todo_cat'];
+	$cat = sanitize_text_field( $_POST['todo_cat'] );
 
 	$title = sanitize_text_field( $_POST['todo_title'] );
 	$summary = sanitize_text_field( $_POST['todo_summary'] );
