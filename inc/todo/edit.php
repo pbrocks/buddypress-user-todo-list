@@ -2,7 +2,7 @@
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
-$todo_id = $_GET['args'];
+$todo_id = sanitize_text_field( $_GET['args'] );
 $add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 
 //Save todo items
@@ -15,7 +15,7 @@ if( isset( $_POST['todo_update'] ) && wp_verify_nonce( $_POST['save_update_todo_
 
 	$taxonomy = 'todo_category';
 	$args = array(
-		'ID' => $_GET['args'],
+		'ID' => $todo_id,
 		'post_type' => 'bp-todo',
 		'post_status' => 'publish',
 		'post_title' => $title,
