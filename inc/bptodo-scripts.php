@@ -28,7 +28,7 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 		//Actions performed for enqueuing scripts and styles for admin panel.
 		function bptodo_admin_variables() {
 			if( isset( $_GET['post'] ) ) {
-				$post_id = $_GET['post'];
+				$post_id = sanitize_text_field( $_GET['post'] );
 				$post_type = get_post_type( $post_id );
 				if( $post_type == 'bp-todo' ) {
 					//jQuery UI Datepicker
