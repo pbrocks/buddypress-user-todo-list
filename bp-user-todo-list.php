@@ -61,7 +61,7 @@ function bptodo_plugin_admin_notice() {
 	$bp_plugin = __( 'BuddyPress', 'wb-todo' );
 
 	echo '<div class="error"><p>'
-	. sprintf(__('%1$s requires %2$s to function correctly. Please activate %2$s before activating %1$s.', 'wb-todo'), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>')
+	. sprintf(__('%1$s is ineffective now as it requires %2$s to function correctly.', 'wb-todo'), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>')
 	. '</p></div>';
 	if (isset($_GET['activate'])) unset($_GET['activate']);
 }
