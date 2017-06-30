@@ -22,12 +22,7 @@ jQuery(document).ready(function(){
 
 	//Add BP Todo Category Show Row
 	jQuery(document).on('click', '.add-todo-category', function(){
-		jQuery('.add-todo-cat-row').show();
-	});
-
-	//Add BP Todo Category Close Row
-	jQuery(document).on('click', '#todo-cat-close', function(){
-		jQuery('.add-todo-cat-row').hide();
+		jQuery('.add-todo-cat-row').slideToggle('slow');
 	});
 
 	//Add BP Todo Category

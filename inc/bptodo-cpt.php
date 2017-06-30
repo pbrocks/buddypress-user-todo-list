@@ -37,6 +37,11 @@ if (!class_exists('BP_Todo_CPT')) {
 				'query_var' => true,
 				'rewrite' => array('slug' => 'todo', 'with_front' => false),
 				'capability_type' => 'post',
+				'capabilities' => array(
+					'create_posts' => false,
+					'delete_posts' => false,
+					'edit_post' => false,
+				),
 				'has_archive' => true,
 				'hierarchical' => false,
 				'menu_position' => null,

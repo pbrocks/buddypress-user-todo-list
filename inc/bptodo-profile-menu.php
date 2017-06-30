@@ -15,14 +15,22 @@ if (!class_exists('BP_Profile_Todo')) {
 		function bptodo_member_profile_todo_tab() {
 			global $bp;
 
+			$args = array(
+				'post_type' => 'bp-todo',
+				'author'    => bp_displayed_user_id(),
+				'post_staus'=> 'publish',
+				'posts_per_page' => -1
+			);
+			$todos = get_posts($args);
+
 			if (bp_is_my_profile()) {
 				$name = bp_get_displayed_user_username();
 				$tab_args = array(
-					'name' => __( 'Todo', 'wb-todo' ),
+					'name' => __( 'Todo <span class="count">'.count( $todos ).'</span>', 'wb-todo' ),
 					'slug' => 'todo',
 					'screen_function' => array($this, 'todo_tab_function_to_show_screen'),
 					'position' => 75,
-					'default_subnav_slug' => 'todo_sub',
+					'default_subnav_slug' => 'list',
 					'show_for_displayed_user' => true,
 				);
 				bp_core_new_nav_item($tab_args);
@@ -57,13 +65,6 @@ if (!class_exists('BP_Profile_Todo')) {
 			}
 		}
 
-		//Screen function for todo menu item
-		function todo_tab_function_to_show_screen() {
-			$name = bp_get_displayed_user_username();
-			$myTodoURL = home_url().'/members/'.$name.'/todo/add';
-			header('Location: '.$myTodoURL);
-		}
-
 		//Screen function for add todo menu item
 		function bptodo_add_todo_show_screen() {
 			add_action('bp_template_title', array($this, 'add_todo_tab_function_to_show_title'));
@@ -96,9 +97,20 @@ if (!class_exists('BP_Profile_Todo')) {
 
 		function list_todo_tab_function_to_show_title() {
 			echo __( 'List Of Todo Items', 'wb-todo' );
-			?>
-			<input type="button" id="export_my_tasks" value="<?php echo __( 'Export My Tasks', 'wb-todo' );?>">
-			<?php
+			$args = array(
+				'post_type' => 'bp-todo',
+				'author'    => bp_displayed_user_id(),
+				'post_staus'=> 'publish',
+				'posts_per_page' => -1
+			);
+			$todos = get_posts($args);
+			if( count( $todos ) != 0 ) {
+				?>
+				<div id="bptodo-export-btn" class="generic-button">
+					<a href="javascript:void(0);" id="export_my_tasks"><?php _e( 'Export My Tasks', 'wb-todo' );?></a>
+				</div>
+				<?php
+			}
 		}
 
 		function list_todo_tab_function_to_show_content() {

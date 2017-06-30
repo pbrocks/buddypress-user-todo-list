@@ -1,7 +1,10 @@
 .todo-completed{
 	text-decoration: line-through;
 }
-
 .add-todo-cat-row{
 	display: none;
+	margin-top: 15px;
+}
+.bptodo-text-input{
+	width: 50%;
 }

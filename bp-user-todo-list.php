@@ -20,10 +20,10 @@ define('BPTODO_PLUGIN_URL', plugin_dir_url(__FILE__));
 //Include needed files
 function run_wp_bptodo_list() {
 	$include_files = array(
-		'admin/bptodo-metabox.php',
 		'inc/bptodo-scripts.php',
 		'inc/bptodo-ajax.php',
 		'inc/bptodo-cpt.php',
+		'inc/bptodo-hooks.php',
 		'inc/bptodo-profile-menu.php'
 	);
 	foreach ($include_files  as $include_file) include $include_file;
