@@ -8,3 +8,6 @@
 .bptodo-text-input{
 	width: 50%;
 }
+.bptodo-expires-today, .bptodo-expired{
+	color: red;
+}

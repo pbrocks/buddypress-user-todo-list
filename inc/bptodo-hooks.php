@@ -40,6 +40,7 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 
 		public function bptodo_due_date_column_heading( $defaults ) {
 			$defaults['due_date'] = __( 'Due Date', 'wb-todo' );
+			$defaults['status'] = __( 'Status', 'wb-todo' );
 			return $defaults;
 		}
 
@@ -47,6 +48,29 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			if( $column_name == 'due_date' ) {
 				$due_date = get_post_meta( $post_id, 'todo_due_date', true );
 				echo date("F jS, Y", strtotime($due_date));
+			}
+
+			if( $column_name == 'status' ) {
+				$todo_status = get_post_meta($post_id, 'todo_status', true);
+
+				$due_date_str = $due_date_td_class = '';
+				$curr_date = date_create(date('Y-m-d'));
+				$due_date = date_create(get_post_meta($post_id, 'todo_due_date', true));
+				$diff = date_diff($curr_date, $due_date);
+				$diff_days = $diff->format("%R%a");
+				if ($diff_days < 0) {
+					$due_date_str = 'Expired '.abs($diff_days).' days ago!';
+				} else if ($diff_days == 0) {
+					$due_date_str = 'Today is the last day to complete. Hurry Up!';
+				} else {
+					$due_date_str = abs($diff_days).' days left to complete the task!';
+				}
+
+				if( $todo_status == 'complete' ) {
+					$due_date_str = 'Completed!';
+				}
+
+				echo $due_date_str;
 			}
 		}
 	}
