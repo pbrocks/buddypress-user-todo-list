@@ -1,11 +1,11 @@
 jQuery(document).ready(function(){
 
 	//Datepicker
-	jQuery( '.todo_due_date' ).datepicker({ dateFormat: 'yy-mm-dd' });
+	jQuery( '.todo_due_date' ).datepicker({ dateFormat: 'yy-mm-dd', minDate : 0 });
 
 	//Export My Tasks
 	jQuery(document).on('click', '#export_my_tasks', function(){
-		jQuery( '#export_my_tasks' ).val( 'Exporting..' );
+		jQuery( '#export_my_tasks' ).html( 'Exporting..' );
 		jQuery.post(
 			ajaxurl,
 			{

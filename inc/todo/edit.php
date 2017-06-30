@@ -28,6 +28,12 @@ if( isset( $_POST['todo_update'] ) && wp_verify_nonce( $_POST['save_update_todo_
 	update_post_meta( $post_id, 'todo_due_date', $due_date );
 
 	wp_set_object_terms( $post_id, $cat, $taxonomy );
+
+	$str = '';
+	$str .= '<div id="message" class="updated">';
+	$str .= '<p>'.__( 'Todo item updated successfully.', 'wb-todo' ).'</p>';
+	$str .= '</div>';
+	echo $str;
 }
 
 $todo_cats = get_terms( 'todo_category', 'orderby=name&hide_empty=0' );
@@ -42,60 +48,53 @@ $todo_due_date = get_post_meta( $todo_id, 'todo_due_date', true );
 	<table class="add-todo-block">
 		<tr>
 			<td width="20%">
-				<?php _e('Todo Category', 'wb-todo');?>
+				<?php _e('Category', 'wb-todo');?>
 			</td>
 			<td width="80%">
-				<select name="todo_cat" id="bp_todo_categories" required>
-					<option value=""><?php _e('--Select--', 'bptodo');?></option>
-					<?php if( isset( $todo_cats ) ) {?>
-						<?php foreach( $todo_cats as $todo_cat ) {?>
-							<option <?php if( $todo_cat_id == $todo_cat->term_id ) echo 'selected="selected"';?> value="<?php echo esc_html( $todo_cat->name );?>">
-								<?php echo esc_html( $todo_cat->name );?>
-							</option>
+				<div>
+					<select name="todo_cat" id="bp_todo_categories" required>
+						<option value=""><?php _e('--Select--', 'bptodo');?></option>
+						<?php if( isset( $todo_cats ) ) {?>
+							<?php foreach( $todo_cats as $todo_cat ) {?>
+								<option <?php if( $todo_cat_id == $todo_cat->term_id ) echo 'selected="selected"';?> value="<?php echo esc_html( $todo_cat->name );?>">
+									<?php echo esc_html( $todo_cat->name );?>
+								</option>
+							<?php }?>
 						<?php }?>
-					<?php }?>
-				</select>
-				<a href="javascript:void(0);" class="add-todo-category">
-					<img src="<?php echo esc_url( $add_img );?>">
-				</a>
-			</td>
-		</tr>
-
-		<!-- Add Todo Category -->
-		<tr class="add-todo-cat-row">
-			<td>
-				<input type="text" id="todo-category-name" placeholder="<?php _e('Todo category', 'wb-todo');?>">
-			</td>
-			<td>
-				<input type="button" id="add-todo-cat" value="<?php _e('Add', 'wb-todo');?>">
-				<input type="button" value="<?php _e('Close', 'wb-todo');?>" id="todo-cat-close">
+					</select>
+					<a href="javascript:void(0);" class="add-todo-category"><img src="<?php echo esc_url( $add_img );?>"></a>
+				</div>
+				<div class="add-todo-cat-row">
+					<input type="text" id="todo-category-name" placeholder="<?php _e('Todo category', 'wb-todo');?>">
+					<input type="button" id="add-todo-cat" value="<?php _e('Add', 'wb-todo');?>">
+				</div>
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Todo Title', 'wb-todo');?>
+				<?php _e('Title', 'wb-todo');?>
 			</td>
 			<td width="80%">
-				<input value="<?php echo esc_html( $todo->post_title );?>" type="text" placeholder="<?php _e('Todo Title', 'wb-todo');?>" name="todo_title" required>
+				<input value="<?php echo esc_html( $todo->post_title );?>" type="text" placeholder="<?php _e('Title', 'wb-todo');?>" name="todo_title" required class="bptodo-text-input">
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Todo Summary', 'wb-todo');?>
+				<?php _e('Summary', 'wb-todo');?>
 			</td>
 			<td width="80%">
-				<textarea placeholder="<?php _e('Todo Summary', 'wb-todo');?>" name="todo_summary"><?php echo esc_textarea( $todo->post_content ); ?></textarea>
+				<textarea placeholder="<?php _e('Summary', 'wb-todo');?>" name="todo_summary" class="bptodo-text-input"><?php echo esc_textarea( $todo->post_content ); ?></textarea>
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Todo Due Date', 'wb-todo');?>
+				<?php _e('Due Date', 'wb-todo');?>
 			</td>
 			<td width="80%">
-				<input type="date" class="todo_due_date" name="todo_due_date" value="<?php echo esc_html( $todo_due_date );?>" required>
+				<input type="text" placeholder="<?php _e('Due Date', 'wb-todo');?>" class="todo_due_date bptodo-text-input" name="todo_due_date" value="<?php echo esc_html( $todo_due_date );?>" required>
 			</td>
 		</tr>
 

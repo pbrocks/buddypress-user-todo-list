@@ -29,6 +29,12 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 	update_post_meta( $post_id, 'todo_last_day_mail_sent', 'no' );
 
 	wp_set_object_terms( $post_id, $cat, $taxonomy );
+
+	$str = '';
+	$str .= '<div id="message" class="updated">';
+	$str .= '<p>'.__( 'Todo item created successfully.', 'wb-todo' ).'</p>';
+	$str .= '</div>';
+	echo $str;
 }
 ?>
 <form action="" method="post">
