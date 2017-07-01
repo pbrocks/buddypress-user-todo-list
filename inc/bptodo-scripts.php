@@ -14,8 +14,9 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 
 		//Actions performed for enqueuing scripts and styles for front end.
 		function bptodo_custom_variables() {
-			$curr_url = $_SERVER['REQUEST_URI'];
-			if( strpos( $curr_url, 'todo' ) !== false ) {
+			global $bptodo;
+			$profile_menu_slug = $bptodo->profile_menu_slug;
+			if( strpos( $_SERVER['REQUEST_URI'], $profile_menu_slug ) !== false ) {
 				//jQuery UI Datepicker
 				wp_enqueue_script('bptodo-js-ui', BPTODO_PLUGIN_URL.'assets/js/jquery-ui.min.js', array('jquery'));
 				wp_enqueue_style('bptodo-css-ui', BPTODO_PLUGIN_URL.'assets/css/jquery-ui.min.css');
@@ -27,16 +28,13 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 
 		//Actions performed for enqueuing scripts and styles for admin panel.
 		function bptodo_admin_variables() {
-			if( isset( $_GET['post'] ) ) {
-				$post_id = sanitize_text_field( $_GET['post'] );
-				$post_type = get_post_type( $post_id );
-				if( $post_type == 'bp-todo' ) {
-					//jQuery UI Datepicker
-					wp_enqueue_script('bptodo-js-date', BPTODO_PLUGIN_URL.'assets/js/jquery-ui.min.js', array('jquery'));
-					wp_enqueue_style('bptodo-front-css', BPTODO_PLUGIN_URL.'assets/css/jquery-ui.min.css');
+			if( strpos( $_SERVER['REQUEST_URI'], 'bp-todo' ) !== false ) {
+				//jQuery UI Datepicker
+				wp_enqueue_script('bptodo-js-date', BPTODO_PLUGIN_URL.'assets/js/jquery-ui.min.js', array('jquery'));
+				wp_enqueue_style('bptodo-front-css', BPTODO_PLUGIN_URL.'assets/css/jquery-ui.min.css');
 
-					wp_enqueue_script('bptodo-js-admin',BPTODO_PLUGIN_URL.'admin/assets/js/bptodo-admin.js', array('jquery'));
-				}
+				wp_enqueue_style('bptodo-css-admin', BPTODO_PLUGIN_URL.'admin/assets/css/bptodo-admin.css');
+				wp_enqueue_script('bptodo-js-admin',BPTODO_PLUGIN_URL.'admin/assets/js/bptodo-admin.js', array('jquery'));
 			}
 		}
 	}

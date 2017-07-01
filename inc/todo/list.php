@@ -2,6 +2,9 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+global $bptodo;
+$profile_menu_slug = $bptodo->profile_menu_slug;
+
 $name = bp_get_displayed_user_username();
 
 //Delete a todo item
@@ -10,7 +13,7 @@ if (isset($_POST['delete'])) {
 	wp_delete_post($todo_id, true);
 	$str = '';
 	$str .= '<div id="message" class="updated">';
-	$str .= '<p>'.__( 'Todo item deleted successfully.', 'wb-todo' ).'</p>';
+	$str .= '<p>'.__( 'Todo item deleted successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
 	$str .= '</div>';
 	echo $str;
 }
@@ -22,7 +25,7 @@ if (isset($_POST['complete'])) {
 	update_post_meta($todo_id, 'todo_status', 'complete');
 	$str = '';
 	$str .= '<div id="message" class="updated">';
-	$str .= '<p>'.__( 'Todo item marked completed successfully.', 'wb-todo' ).'</p>';
+	$str .= '<p>'.__( 'Todo item marked completed successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
 	$str .= '</div>';
 	echo $str;
 }
@@ -30,7 +33,7 @@ if (isset($_POST['complete'])) {
 //Edit a todo item
 if (isset($_POST['edit'])) {
 	$todo_id = sanitize_text_field( $_POST['todo_id'] );
-	$url = home_url('/members/'.$name.'/todo/add?args='.$todo_id);
+	$url = home_url('/members/'.$name.'/'.$profile_menu_slug.'/add?args='.$todo_id);
 	?>
 	<script>
 		var url = '<?php echo $url; ?>';
@@ -52,7 +55,7 @@ $todos = $result->posts;
 
 <?php if (empty($todos)) {?>
 <div id="message" class="info">
-	<p><?php _e( 'Sorry, No todo item found.', 'wb-todo' ); ?></p>
+	<p><?php _e( 'Sorry, No todo item found.', BPTODO_TEXT_DOMAIN ); ?></p>
 </div>
 <?php } else {?>
 <table class="list-todo-block">

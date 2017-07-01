@@ -8,26 +8,30 @@ if (!class_exists('BP_Profile_Todo')) {
 
 		//constructor
 		function __construct() {
-			add_action('bp_setup_nav', array($this, 'bptodo_member_profile_todo_tab'));
+			add_action( 'bp_setup_nav', array( $this, 'bptodo_member_profile_todo_tab' ) );
 		}
 
 		//Actions performed on loading init: creating profile menu tab
 		function bptodo_member_profile_todo_tab() {
-			global $bp;
-
-			$args = array(
-				'post_type' => 'bp-todo',
-				'author'    => bp_displayed_user_id(),
-				'post_staus'=> 'publish',
-				'posts_per_page' => -1
-			);
-			$todos = get_posts($args);
-
 			if (bp_is_my_profile()) {
+				global $bp, $bptodo;
+				
+				$profile_menu_label = $bptodo->profile_menu_label;
+				$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
+				$profile_menu_slug = $bptodo->profile_menu_slug;
+
+				$args = array(
+					'post_type' => 'bp-todo',
+					'author'    => bp_displayed_user_id(),
+					'post_staus'=> 'publish',
+					'posts_per_page' => -1
+				);
+				$todos = get_posts($args);
+
 				$name = bp_get_displayed_user_username();
 				$tab_args = array(
-					'name' => __( 'Todo <span class="count">'.count( $todos ).'</span>', 'wb-todo' ),
-					'slug' => 'todo',
+					'name' => __( $profile_menu_label.' <span class="count">'.count( $todos ).'</span>', BPTODO_TEXT_DOMAIN ),
+					'slug' => $profile_menu_slug,
 					'screen_function' => array($this, 'todo_tab_function_to_show_screen'),
 					'position' => 75,
 					'default_subnav_slug' => 'list',
@@ -35,12 +39,12 @@ if (!class_exists('BP_Profile_Todo')) {
 				);
 				bp_core_new_nav_item($tab_args);
 
-				$parent_slug = 'todo';
+				$parent_slug = $profile_menu_slug;
 
 				//Add subnav add new todo item
 				bp_core_new_subnav_item(
 					array(
-						'name' => __( 'Add', 'wb-todo' ),
+						'name' => __( 'Add', BPTODO_TEXT_DOMAIN ),
 						'slug' => 'add',
 						'parent_url' => $bp->loggedin_user->domain.$parent_slug.'/',
 						'parent_slug' => $parent_slug,
@@ -53,7 +57,7 @@ if (!class_exists('BP_Profile_Todo')) {
 				//Add subnav todo list items
 				bp_core_new_subnav_item(
 					array(
-						'name' => __( 'Todo List', 'wb-todo' ),
+						'name' => __( $profile_menu_label_plural, BPTODO_TEXT_DOMAIN ),
 						'slug' => 'list',
 						'parent_url' => $bp->loggedin_user->domain.$parent_slug.'/',
 						'parent_slug' => $parent_slug,
@@ -73,10 +77,14 @@ if (!class_exists('BP_Profile_Todo')) {
 		}
 
 		function add_todo_tab_function_to_show_title() {
+			global $bptodo;
+			$profile_menu_slug = $bptodo->profile_menu_slug;
 			if (isset($_GET['args'])) {
-				echo __( 'Edit Your Todo Item', 'wb-todo' );
+				$todo_id = sanitize_text_field( $_GET['args'] );
+				$todo = get_post( $todo_id );
+				echo __( 'Edit '.$profile_menu_slug.': '.$todo->post_title, BPTODO_TEXT_DOMAIN );
 			} else {
-				echo __( 'Add Your Todo Item', 'wb-todo' );
+				echo __( 'Add a new '.$profile_menu_slug.' in your list', BPTODO_TEXT_DOMAIN );
 			}
 		}
 
@@ -96,7 +104,9 @@ if (!class_exists('BP_Profile_Todo')) {
 		}
 
 		function list_todo_tab_function_to_show_title() {
-			echo __( 'List Of Todo Items', 'wb-todo' );
+			global $bptodo;
+			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
+			echo __( $profile_menu_label_plural.' list', BPTODO_TEXT_DOMAIN );
 			$args = array(
 				'post_type' => 'bp-todo',
 				'author'    => bp_displayed_user_id(),
@@ -107,7 +117,7 @@ if (!class_exists('BP_Profile_Todo')) {
 			if( count( $todos ) != 0 ) {
 				?>
 				<div id="bptodo-export-btn" class="generic-button">
-					<a href="javascript:void(0);" id="export_my_tasks"><?php _e( 'Export My Tasks', 'wb-todo' );?></a>
+					<a href="javascript:void(0);" id="export_my_tasks"><?php _e( 'Export', BPTODO_TEXT_DOMAIN );?></a>
 				</div>
 				<?php
 			}

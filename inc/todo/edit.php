@@ -2,6 +2,9 @@
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
+global $bptodo;
+$profile_menu_label = $bptodo->profile_menu_label;
+
 $todo_id = sanitize_text_field( $_GET['args'] );
 $add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 
@@ -31,7 +34,7 @@ if( isset( $_POST['todo_update'] ) && wp_verify_nonce( $_POST['save_update_todo_
 
 	$str = '';
 	$str .= '<div id="message" class="updated">';
-	$str .= '<p>'.__( 'Todo item updated successfully.', 'wb-todo' ).'</p>';
+	$str .= '<p>'.__( 'Todo item updated successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
 	$str .= '</div>';
 	echo $str;
 }
@@ -48,7 +51,7 @@ $todo_due_date = get_post_meta( $todo_id, 'todo_due_date', true );
 	<table class="add-todo-block">
 		<tr>
 			<td width="20%">
-				<?php _e('Category', 'wb-todo');?>
+				<?php _e('Category', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
 				<div>
@@ -65,36 +68,36 @@ $todo_due_date = get_post_meta( $todo_id, 'todo_due_date', true );
 					<a href="javascript:void(0);" class="add-todo-category"><img src="<?php echo esc_url( $add_img );?>"></a>
 				</div>
 				<div class="add-todo-cat-row">
-					<input type="text" id="todo-category-name" placeholder="<?php _e('Todo category', 'wb-todo');?>">
-					<input type="button" id="add-todo-cat" value="<?php _e('Add', 'wb-todo');?>">
+					<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label.' category', BPTODO_TEXT_DOMAIN);?>">
+					<input type="button" id="add-todo-cat" value="<?php _e('Add', BPTODO_TEXT_DOMAIN);?>">
 				</div>
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Title', 'wb-todo');?>
+				<?php _e('Title', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
-				<input value="<?php echo esc_html( $todo->post_title );?>" type="text" placeholder="<?php _e('Title', 'wb-todo');?>" name="todo_title" required class="bptodo-text-input">
+				<input value="<?php echo esc_html( $todo->post_title );?>" type="text" placeholder="<?php _e('Title', BPTODO_TEXT_DOMAIN);?>" name="todo_title" required class="bptodo-text-input">
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Summary', 'wb-todo');?>
+				<?php _e('Summary', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
-				<textarea placeholder="<?php _e('Summary', 'wb-todo');?>" name="todo_summary" class="bptodo-text-input"><?php echo esc_textarea( $todo->post_content ); ?></textarea>
+				<textarea placeholder="<?php _e('Summary', BPTODO_TEXT_DOMAIN);?>" name="todo_summary" class="bptodo-text-input"><?php echo esc_textarea( $todo->post_content ); ?></textarea>
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Due Date', 'wb-todo');?>
+				<?php _e('Due Date', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
-				<input type="text" placeholder="<?php _e('Due Date', 'wb-todo');?>" class="todo_due_date bptodo-text-input" name="todo_due_date" value="<?php echo esc_html( $todo_due_date );?>" required>
+				<input type="text" placeholder="<?php _e('Due Date', BPTODO_TEXT_DOMAIN);?>" class="todo_due_date bptodo-text-input" name="todo_due_date" value="<?php echo esc_html( $todo_due_date );?>" required>
 			</td>
 		</tr>
 
@@ -102,7 +105,7 @@ $todo_due_date = get_post_meta( $todo_id, 'todo_due_date', true );
 			<td width="20%"></td>
 			<td width="80%">
 				<?php wp_nonce_field( 'wp-bp-todo', 'save_update_todo_data_nonce'); ?>
-				<input type="submit" name="todo_update" value="<?php _e('Update Todo', 'wb-todo');?>">
+				<input type="submit" name="todo_update" value="<?php _e('Update '.$profile_menu_label, BPTODO_TEXT_DOMAIN);?>">
 			</td>
 		</tr>
 	</table>

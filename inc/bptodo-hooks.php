@@ -19,28 +19,30 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		* @author   Wbcom Designs
 		*/
 		public function __construct() {
-			add_action( 'bp_member_header_actions', array( $this, 'bupr_add_review_button_on_member_header' ) );
-			add_filter('manage_bp-todo_posts_columns', array( $this, 'bptodo_due_date_column_heading' ), 10);
-			add_action('manage_bp-todo_posts_custom_column', array( $this, 'bptodo_due_date_column_content' ), 10, 2);
+			add_action( 'bp_member_header_actions', array( $this, 'bptodo_add_review_button_on_member_header' ) );
+			add_filter( 'manage_bp-todo_posts_columns', array( $this, 'bptodo_due_date_column_heading' ), 10);
+			add_action( 'manage_bp-todo_posts_custom_column', array( $this, 'bptodo_due_date_column_content' ), 10, 2);
 		}
 
 		/**
 		 * Actions performed to add a review button on member header
 		 */
-		public function bupr_add_review_button_on_member_header() {
+		public function bptodo_add_review_button_on_member_header() {
+			global $bptodo;
+			$profile_menu_label = $bptodo->profile_menu_label;
 			if( bp_displayed_user_id() === bp_loggedin_user_id() ) {
 				$todo_add_url = bp_core_get_userlink( bp_displayed_user_id(), false, true ).'todo/add';
 				?>
 				<div id="bptodo-add-todo-btn" class="generic-button">
-					<a href="<?php echo $todo_add_url;?>" class="add-todo"><?php _e( 'Add Todo', 'wb-todo' );?></a>
+					<a href="<?php echo $todo_add_url;?>" class="add-todo"><?php _e( 'Add '.$profile_menu_label, BPTODO_TEXT_DOMAIN );?></a>
 				</div>
 				<?php
 			}
 		}
 
 		public function bptodo_due_date_column_heading( $defaults ) {
-			$defaults['due_date'] = __( 'Due Date', 'wb-todo' );
-			$defaults['status'] = __( 'Status', 'wb-todo' );
+			$defaults['due_date'] = __( 'Due Date', BPTODO_TEXT_DOMAIN );
+			$defaults['status'] = __( 'Status', BPTODO_TEXT_DOMAIN );
 			return $defaults;
 		}
 

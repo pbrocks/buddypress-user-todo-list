@@ -5,6 +5,9 @@ defined( 'ABSPATH' ) || exit;
 $todo_cats = get_terms( 'todo_category', 'orderby=name&hide_empty=0' );
 $add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 
+global $bptodo;
+$profile_menu_label = $bptodo->profile_menu_label;
+
 //Save todo items
 if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_data_nonce'], 'wp-bp-todo' ) ) {
 
@@ -32,7 +35,7 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 
 	$str = '';
 	$str .= '<div id="message" class="updated">';
-	$str .= '<p>'.__( 'Todo item created successfully.', 'wb-todo' ).'</p>';
+	$str .= '<p>'.__( 'Todo item created successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
 	$str .= '</div>';
 	echo $str;
 }
@@ -41,12 +44,12 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 	<table class="add-todo-block">
 		<tr>
 			<td width="20%">
-				<?php _e('Category', 'wb-todo');?>
+				<?php _e('Category', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
 				<div>
 					<select name="todo_cat" id="bp_todo_categories" required>
-						<option value=""><?php _e('--Select--', 'wb-todo');?></option>
+						<option value=""><?php _e('--Select--', BPTODO_TEXT_DOMAIN);?></option>
 						<?php if( isset( $todo_cats ) ) {?>
 							<?php foreach( $todo_cats as $todo_cat ) {?>
 								<option value="<?php echo $todo_cat->name;?>"><?php echo $todo_cat->name;?></option>
@@ -56,36 +59,36 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 					<a href="javascript:void(0);" class="add-todo-category"><img src="<?php echo esc_url( $add_img );?>"></a>
 				</div>
 				<div class="add-todo-cat-row">
-					<input type="text" id="todo-category-name" placeholder="<?php _e('Todo category', 'wb-todo');?>">
-					<input type="button" id="add-todo-cat" value="<?php _e('Add', 'wb-todo');?>">
+					<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label.' category', BPTODO_TEXT_DOMAIN);?>">
+					<input type="button" id="add-todo-cat" value="<?php _e('Add', BPTODO_TEXT_DOMAIN);?>">
 				</div>
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Title', 'wb-todo');?>
+				<?php _e('Title', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
-				<input type="text" placeholder="<?php _e('Title', 'wb-todo');?>" name="todo_title" required class="bptodo-text-input">
+				<input type="text" placeholder="<?php _e('Title', BPTODO_TEXT_DOMAIN);?>" name="todo_title" required class="bptodo-text-input">
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Summary', 'wb-todo');?>
+				<?php _e('Summary', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
-				<textarea placeholder="<?php _e('Summary', 'wb-todo');?>" name="todo_summary" class="bptodo-text-input"></textarea>
+				<textarea placeholder="<?php _e('Summary', BPTODO_TEXT_DOMAIN);?>" name="todo_summary" class="bptodo-text-input"></textarea>
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e('Due Date', 'wb-todo');?>
+				<?php _e('Due Date', BPTODO_TEXT_DOMAIN);?>
 			</td>
 			<td width="80%">
-				<input type="text" placeholder="<?php _e('Due Date', 'wb-todo');?>" name="todo_due_date" class="todo_due_date bptodo-text-input" required>
+				<input type="text" placeholder="<?php _e('Due Date', BPTODO_TEXT_DOMAIN);?>" name="todo_due_date" class="todo_due_date bptodo-text-input" required>
 			</td>
 		</tr>
 
@@ -93,7 +96,7 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 			<td width="20%"></td>
 			<td width="80%">
 				<?php wp_nonce_field( 'wp-bp-todo', 'save_new_todo_data_nonce'); ?>
-				<input type="submit" name="todo_create" value="<?php _e('Add Todo', 'wb-todo');?>">
+				<input type="submit" name="todo_create" value="<?php _e('Submit '.$profile_menu_label, BPTODO_TEXT_DOMAIN);?>">
 			</td>
 		</tr>
 	</table>

@@ -54,7 +54,7 @@ if (!class_exists('BP_Todo_CPT')) {
 		function bptodo_create_cpt_category() {
 			$tax_labels = array(
 				'name' => 'Category',
-				'singular_name' => 'Todo Item Category',
+				'singular_name' => 'Category',
 				'search_items' => 'Search Todo Items Categories',
 				'all_items' => 'All Todo Items Categories',
 				'parent_item' => 'Parent Todo Item Category',
@@ -63,7 +63,7 @@ if (!class_exists('BP_Todo_CPT')) {
 				'update_item' => 'Update Category',
 				'add_new_item' => 'Add Todo Item Category',
 				'not_found' => 'No Todo Item Categories Found',
-				'menu_name' => 'Todo Item Category',
+				'menu_name' => 'Category',
 				
 			);
 			$tax_args = array(
