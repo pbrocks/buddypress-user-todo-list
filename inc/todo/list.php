@@ -30,6 +30,17 @@ if (isset($_POST['complete'])) {
 	echo $str;
 }
 
+//Undo complete a todo item
+if (isset($_POST['undo_complete'])) {
+	$todo_id = sanitize_text_field( $_POST['todo_id'] );
+	update_post_meta($todo_id, 'todo_status', 'incomplete');
+	$str = '';
+	$str .= '<div id="message" class="updated">';
+	$str .= '<p>'.__( 'Todo item marked incompleted successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
+	$str .= '</div>';
+	echo $str;
+}
+
 //Edit a todo item
 if (isset($_POST['edit'])) {
 	$todo_id = sanitize_text_field( $_POST['todo_id'] );
@@ -120,6 +131,8 @@ $todos = $result->posts;
 						<?php if ($todo_status !== 'complete') {?>
 							<input type="submit" name="edit" value="Edit">
 							<input type="submit" name="complete" value="Mark Complete">
+						<?php } else {?>
+							<input type="submit" name="undo_complete" value="Undo Complete">
 						<?php }?>
 					</form>
 				</td>
