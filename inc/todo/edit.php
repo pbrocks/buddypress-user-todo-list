@@ -4,11 +4,12 @@ defined( 'ABSPATH' ) || exit;
 
 global $bptodo;
 $profile_menu_label = $bptodo->profile_menu_label;
+$profile_menu_slug = $bptodo->profile_menu_slug;
 
 $todo_id = sanitize_text_field( $_GET['args'] );
 $add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 
-//Save todo items
+//Update todo items
 if( isset( $_POST['todo_update'] ) && wp_verify_nonce( $_POST['save_update_todo_data_nonce'], 'wp-bp-todo' ) ) {
 	$cat = sanitize_text_field( $_POST['todo_cat'] );
 
@@ -37,6 +38,15 @@ if( isset( $_POST['todo_update'] ) && wp_verify_nonce( $_POST['save_update_todo_
 	$str .= '<p>'.__( 'Todo item updated successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
 	$str .= '</div>';
 	echo $str;
+
+	$name = bp_get_displayed_user_username();
+	$url = home_url( "/members/$name/$profile_menu_slug/list/" );
+	?>
+	<script>
+		var url = '<?php echo $url; ?>';
+		window.location.href = url;
+	</script>
+	<?php
 }
 
 $todo_cats = get_terms( 'todo_category', 'orderby=name&hide_empty=0' );

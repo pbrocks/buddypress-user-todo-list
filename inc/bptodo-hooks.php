@@ -30,8 +30,9 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		public function bptodo_add_review_button_on_member_header() {
 			global $bptodo;
 			$profile_menu_label = $bptodo->profile_menu_label;
+			$profile_menu_slug = $bptodo->profile_menu_slug;
 			if( bp_displayed_user_id() === bp_loggedin_user_id() ) {
-				$todo_add_url = bp_core_get_userlink( bp_displayed_user_id(), false, true ).'todo/add';
+				$todo_add_url = bp_core_get_userlink( bp_displayed_user_id(), false, true ).$profile_menu_slug.'/add';
 				?>
 				<div id="bptodo-add-todo-btn" class="generic-button">
 					<a href="<?php echo $todo_add_url;?>" class="add-todo"><?php _e( 'Add '.$profile_menu_label, BPTODO_TEXT_DOMAIN );?></a>

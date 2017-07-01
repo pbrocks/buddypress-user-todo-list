@@ -7,6 +7,7 @@ $add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 
 global $bptodo;
 $profile_menu_label = $bptodo->profile_menu_label;
+$profile_menu_slug = $bptodo->profile_menu_slug;
 
 //Save todo items
 if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_data_nonce'], 'wp-bp-todo' ) ) {
@@ -38,6 +39,15 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 	$str .= '<p>'.__( 'Todo item created successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
 	$str .= '</div>';
 	echo $str;
+
+	$name = bp_get_displayed_user_username();
+	$url = home_url( "/members/$name/$profile_menu_slug/list/" );
+	?>
+	<script>
+		var url = '<?php echo $url; ?>';
+		window.location.href = url;
+	</script>
+	<?php
 }
 ?>
 <form action="" method="post">
