@@ -29,8 +29,14 @@ function run_wp_bptodo_list() {
 	);
 	foreach ($include_files  as $include_file) include $include_file;
 
+	//Initialize admin class
+	new Bptodo_Admin();
+	
+	//Initialize globals class
 	global $bptodo;
 	$bptodo = new Bptodo_Globals();
+
+	
 }
 
 //Settings link for this plugin

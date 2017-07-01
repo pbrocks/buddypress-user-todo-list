@@ -2,8 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 //Add admin page for price quote settings
-if( !class_exists( 'bptodo_AdminPage' ) ) {
-	class bptodo_AdminPage{
+if( !class_exists( 'Bptodo_Admin' ) ) {
+	class Bptodo_Admin{
 
 		private $plugin_slug = 'user-todo-list-settings',
 				$plugin_settings_tabs = array(),
@@ -15,6 +15,8 @@ if( !class_exists( 'bptodo_AdminPage' ) ) {
 
 			add_action('admin_init', array($this, 'bptodo_register_general_settings'));
 			add_action('admin_init', array($this, 'bptodo_register_support_settings'));
+
+			$this->bptodo_save_general_settings();
 		}
 
 		//Actions performed on loading admin_menu
@@ -70,6 +72,23 @@ if( !class_exists( 'bptodo_AdminPage' ) ) {
 				require_once( dirname(__FILE__) . '/inc/bptodo-general-settings.php' );
 			}
 		}
+
+		public function bptodo_save_general_settings(){
+			if( isset( $_POST['bptodo-save-settings'] ) && wp_verify_nonce( $_POST['bptodo-general-settings-nonce'], 'bptodo' ) ) {
+
+				//Profile menu label
+				$settings['profile_menu_label'] = sanitize_text_field( $_POST['bptodo_profile_menu_label'] );
+				if( isset( $_POST['bptodo_send_notification'] ) ) {
+					$settings['send_notification'] = sanitize_text_field( $_POST['bptodo_send_notification'] );
+				}
+				if( isset( $_POST['bptodo_send_mail'] ) ) {
+					$settings['send_mail'] = sanitize_text_field( $_POST['bptodo_send_mail'] );
+				}
+				
+				//echo '<pre>'; print_r( $settings ); die;
+				update_option('user_todo_list_settings', $settings);
+				echo '<div class="notice notice-success"><p>Settings Saved.</p></div>';
+			}
+		}
 	}
-	new bptodo_AdminPage();
 }

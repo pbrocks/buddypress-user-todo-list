@@ -93,17 +93,6 @@ $todos = $result->posts;
 				$due_date_str = 'Expired '.abs($diff_days).' days ago!';
 				$due_date_td_class = 'bptodo-expired';
 			} else if ($diff_days == 0) {
-
-				//Send mail
-				if (get_post_meta($todo->ID, 'todo_last_day_mail_sent', true) === 'no') {
-					$author_id = $todo->post_author;
-					$author = get_userdata($author_id);
-					$author_email = $author->data->user_email;
-					$subject = 'BP Task - Wordpress';
-					$messsage = 'Your task: '.$todo->post_title.' is going to exipre tomorrow. Kindly finish it up! Thanks!';
-					wp_mail($author_email, $subject, $messsage);
-					update_post_meta($todo->ID, 'todo_last_day_mail_sent', 'yes');
-				}
 				$due_date_str = 'Today is the last day to complete. Hurry Up!';
 				$due_date_td_class = 'bptodo-expires-today';
 			} else {

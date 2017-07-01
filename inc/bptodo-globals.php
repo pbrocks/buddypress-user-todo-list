@@ -12,7 +12,9 @@ if( !class_exists( 'Bptodo_Globals' ) ) {
 
 		public  $profile_menu_label,
 				$profile_menu_label_plural,
-				$profile_menu_slug;
+				$profile_menu_slug,
+				$send_mail,
+				$send_notification;
 		/**
 		* Constructor.
 		*
@@ -38,6 +40,18 @@ if( !class_exists( 'Bptodo_Globals' ) ) {
 			}
 			$this->profile_menu_label_plural = $this->pluralize( $this->profile_menu_label );
 			$this->profile_menu_slug = str_replace( ' ', '-', strtolower( $this->profile_menu_label ) );
+
+			//Send Notification
+			$this->send_notification = 'no';
+			if( !empty( $settings['send_notification'] ) ) {
+				$this->send_notification = 'yes';
+			}
+
+			//Send Mail
+			$this->send_mail = 'no';
+			if( !empty( $settings['send_mail'] ) ) {
+				$this->send_mail = 'yes';
+			}
 		}
 
 		public static function pluralize($singular, $plural=null) {
