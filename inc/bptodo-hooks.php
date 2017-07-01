@@ -20,6 +20,7 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		*/
 		public function __construct() {
 			add_action( 'bp_member_header_actions', array( $this, 'bptodo_add_review_button_on_member_header' ) );
+			add_action( 'bp_setup_admin_bar', array( $this, 'bptodo_setup_admin_bar' ), 80 );
 			add_filter( 'manage_bp-todo_posts_columns', array( $this, 'bptodo_due_date_column_heading' ), 10);
 			add_action( 'manage_bp-todo_posts_custom_column', array( $this, 'bptodo_due_date_column_content' ), 10, 2);
 		}
@@ -38,6 +39,43 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 					<a href="<?php echo $todo_add_url;?>" class="add-todo"><?php _e( 'Add '.$profile_menu_label, BPTODO_TEXT_DOMAIN );?></a>
 				</div>
 				<?php
+			}
+		}
+
+		/**
+		 *
+		 */
+		public function bptodo_setup_admin_bar( $wp_admin_nav = array() ) {
+			global $wp_admin_bar, $bptodo;
+			$profile_menu_slug = $bptodo->profile_menu_slug;
+			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
+
+			$base_url = bp_loggedin_user_domain().$profile_menu_slug;
+			$todo_add_url = $base_url.'/add';
+			$todo_list_url = $base_url.'/list';
+			if ( is_user_logged_in() ) {
+				$wp_admin_bar->add_menu( array(
+					'parent' => 'my-account-buddypress',
+					'id' => 'my-account-'.$profile_menu_slug,
+					'title' => __( $profile_menu_label_plural, BPTODO_TEXT_DOMAIN ),
+					'href' => trailingslashit( $todo_list_url )
+				) );
+
+				// Add add-new submenu
+				$wp_admin_bar->add_menu( array(
+					'parent' => 'my-account-'.$profile_menu_slug,
+					'id'     => 'my-account-'.$profile_menu_slug.'-'.'list',
+					'title'  => __( 'List', BPTODO_TEXT_DOMAIN ),
+					'href'   => trailingslashit( $todo_list_url )
+				) );
+
+				// Add add-new submenu
+				$wp_admin_bar->add_menu( array(
+					'parent' => 'my-account-'.$profile_menu_slug,
+					'id'     => 'my-account-'.$profile_menu_slug.'-'.'add',
+					'title'  => __( 'Add', BPTODO_TEXT_DOMAIN ),
+					'href'   => trailingslashit( $todo_add_url )
+				) );
 			}
 		}
 
