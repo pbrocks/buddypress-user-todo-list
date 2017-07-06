@@ -11,3 +11,104 @@
 .bptodo-expires-today, .bptodo-expired{
 	color: red;
 }
+
+/* TODO LIST CSS */
+.bptodo-adming-setting{
+	float: left;
+	width: 100%;
+}
+button.bptodo-item {
+	background-color: hsl(0, 0%, 87%);
+	border: medium none;
+	color: hsl(0, 0%, 27%);
+	cursor: pointer;
+	font-size: 15px;
+	margin-bottom: 15px;
+	outline: medium none;
+	padding: 15px 20px;
+	text-align: left;
+	transition: all 0.4s ease 0s;
+	width:100%;
+}
+button.bptodo-item.active, button.bptodo-item:hover {
+	background-color: hsl(207, 90%, 54%);
+	color:white;
+}
+div.panel {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	margin:0px 5%;
+}
+button.bptodo-item::after {
+	color: hsl(0, 0%, 47%);
+	content: "+";
+	float: right;
+	font-size: 13px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+button.bptodo-item::after:hover {
+	color: white;
+}
+button.bptodo-item.active::after {
+	content: "−";
+	color:white;
+}
+.bptodo-admin-row{
+	clear: both;  
+	overflow: hidden;
+	padding-bottom: 5px;
+}
+.bptodo-item-accord{
+	margin-left: 0px;
+}
+.bptodo-admin-row div.panel {
+    margin: 0px;
+}
+table.bp-todo-reminder
+ th {
+    background: #f9f9f9;
+    border: none;
+    text-align: center;
+}
+table.bp-todo-reminder {
+    border: none;
+}
+
+table.bp-todo-reminder tbody
+ td.bp-to-do-actions ul li {
+    display: inline-block;
+    margin: 0px 6px;
+    
+}
+
+table.bp-todo-reminder tbody
+ td.bp-to-do-actions ul li a {
+    
+    background: #dedede;
+    border-radius: 50px;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    display: block;
+    text-align: center;
+    color: #313131;
+    transition: all .3s;
+}
+
+table.bp-todo-reminder tbody
+ td.bp-to-do-actions ul li a:hover {
+    color: #fff;
+    background: #2094f4;
+}
+table.bp-todo-reminder tbody
+ td {
+    text-align: center;
+}
+
+td.bp-to-do-actions ul {
+    margin: 0px;
+}

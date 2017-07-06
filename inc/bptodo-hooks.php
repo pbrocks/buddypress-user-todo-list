@@ -119,6 +119,7 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			global $wp_admin_bar, $bptodo;
 			$profile_menu_slug = $bptodo->profile_menu_slug;
 			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
+			$my_todo_items = $bptodo->my_todo_items;
 
 			$base_url = bp_loggedin_user_domain().$profile_menu_slug;
 			$todo_add_url = $base_url.'/add';
@@ -127,7 +128,7 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 				$wp_admin_bar->add_menu( array(
 					'parent' => 'my-account-buddypress',
 					'id' => 'my-account-'.$profile_menu_slug,
-					'title' => __( $profile_menu_label_plural, BPTODO_TEXT_DOMAIN ),
+					'title' => __( $profile_menu_label_plural.' <span class="count">'.$my_todo_items.'</span>', BPTODO_TEXT_DOMAIN ),
 					'href' => trailingslashit( $todo_list_url )
 				) );
 

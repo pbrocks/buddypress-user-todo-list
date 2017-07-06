@@ -19,18 +19,11 @@ if (!class_exists('BP_Profile_Todo')) {
 				$profile_menu_label = $bptodo->profile_menu_label;
 				$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
 				$profile_menu_slug = $bptodo->profile_menu_slug;
-
-				$args = array(
-					'post_type' => 'bp-todo',
-					'author'    => bp_displayed_user_id(),
-					'post_staus'=> 'publish',
-					'posts_per_page' => -1
-				);
-				$todos = get_posts($args);
+				$my_todo_items = $bptodo->my_todo_items;
 
 				$name = bp_get_displayed_user_username();
 				$tab_args = array(
-					'name' => __( $profile_menu_label.' <span class="count">'.count( $todos ).'</span>', BPTODO_TEXT_DOMAIN ),
+					'name' => __( $profile_menu_label.' <span class="count">'.$my_todo_items.'</span>', BPTODO_TEXT_DOMAIN ),
 					'slug' => $profile_menu_slug,
 					'screen_function' => array($this, 'todo_tab_function_to_show_screen'),
 					'position' => 75,

@@ -14,7 +14,8 @@ if( !class_exists( 'Bptodo_Globals' ) ) {
 				$profile_menu_label_plural,
 				$profile_menu_slug,
 				$send_mail,
-				$send_notification;
+				$send_notification,
+				$my_todo_items;
 		/**
 		* Constructor.
 		*
@@ -52,6 +53,9 @@ if( !class_exists( 'Bptodo_Globals' ) ) {
 			if( !empty( $settings['send_mail'] ) ) {
 				$this->send_mail = 'yes';
 			}
+
+			//Count my todo items
+			$this->my_todo_items = $this->bptodo_count_my_todo_items();
 		}
 
 		public static function pluralize($singular, $plural=null) {
@@ -66,6 +70,17 @@ if( !class_exists( 'Bptodo_Globals' ) ) {
 				default:
 					return $singular.'s';
 			}
+		}
+
+		private function bptodo_count_my_todo_items(){
+			$args = array(
+				'post_type' => 'bp-todo',
+				'author'    => bp_displayed_user_id(),
+				'post_staus'=> 'publish',
+				'posts_per_page' => -1
+			);
+			$todos = get_posts($args);
+			return count( $todos );
 		}
 	}
 }

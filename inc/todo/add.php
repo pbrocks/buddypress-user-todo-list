@@ -31,6 +31,7 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 	update_post_meta( $post_id, 'todo_status', 'incomplete' );
 	update_post_meta( $post_id, 'todo_due_date', $due_date );
 	update_post_meta( $post_id, 'todo_last_day_mail_sent', 'no' );
+	update_post_meta( $post_id, 'todo_last_day_notification_sent', 'no' );
 
 	wp_set_object_terms( $post_id, $cat, $taxonomy );
 
