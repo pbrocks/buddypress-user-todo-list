@@ -1,6 +1,6 @@
 <?php
-// Exit if accessed directly
-defined('ABSPATH') || exit;
+defined('ABSPATH') || exit; // Exit if accessed directly
+
 global $bptodo;
 $profile_menu_slug = $bptodo->profile_menu_slug;
 
@@ -35,7 +35,7 @@ foreach( $todos as $todo ) {
 
 if (empty($todos)) {?>
 <div id="message" class="info">
-	<p><?php _e( 'Sorry, No todo item found.', BPTODO_TEXT_DOMAIN ); ?></p>
+	<p><?php _e( 'Sorry, no '.$profile_menu_slug.' found.', BPTODO_TEXT_DOMAIN ); ?></p>
 </div>
 <?php } else {?>
 <div class="bptodo-adming-setting">
@@ -51,12 +51,12 @@ if (empty($todos)) {?>
 							<div class="todo-detail">
 								<table class="bp-todo-reminder">
 									<thead>
-									<tr>
-										<th></th>
-										<th>Task</th>
-										<th>Due Date</th>
-										<th>Actions</th>
-									</tr>
+										<tr>
+											<th></th>
+											<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+											<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+											<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
+										</tr>
 									</thead>
 									<tbody>
 										<?php $count = 1;?>
@@ -122,12 +122,12 @@ if (empty($todos)) {?>
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
-										<tr>
-											<th></th>
-											<th>Task</th>
-											<th>Due Date</th>
-											<th>Actions</th>
-										</tr>
+											<tr>
+												<th></th>
+												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
+											</tr>
 										</thead>
 										<tbody>
 											<?php $count = 1;?>
@@ -193,12 +193,12 @@ if (empty($todos)) {?>
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
-										<tr>
-											<th></th>
-											<th>Task</th>
-											<th>Due Date</th>
-											<th>Actions</th>
-										</tr>
+											<tr>
+												<th></th>
+												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
+											</tr>
 										</thead>
 										<tbody>
 											<?php $count = 1;?>
@@ -264,12 +264,12 @@ if (empty($todos)) {?>
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
-										<tr>
-											<th></th>
-											<th>Task</th>
-											<th>Due Date</th>
-											<th>Actions</th>
-										</tr>
+											<tr>
+												<th></th>
+												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
+											</tr>
 										</thead>
 										<tbody>
 											<?php $count = 1;?>

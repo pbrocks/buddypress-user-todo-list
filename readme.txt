@@ -4,7 +4,7 @@ Donate link: https://wbcomdesigns.com/contact/
 Tags: buddypress, cpt, todo
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,5 +26,13 @@ Just goto your member profile and you can see the Todo tab. Click on it and then
 == Screenshots ==
 
 The screenshots are present in the root of the plugin folder.
-1. screenshot-1 - is the screen that allows user to add a task in their todo panel.
-2. screenshot-2 - is the screen that allows user to manage their tasks list(edit, delete, mark complete)
+1. screenshot-1 - is the screen that shows the plugin name in Plugins list.
+2. screenshot-2 - is the screen which shows the Todo listing in admin panel.
+3. screenshot-3 - is the screen which shows the General Settings in admin panel.
+4. screenshot-4 - is the screen that allows user to manage their tasks list(edit, delete, mark complete)
+
+== Changelog ==
+= 1.0.0 =
+Initial Release
+= 1.1.0 =
+Plugin with admin options and modified todo list view in front end.
