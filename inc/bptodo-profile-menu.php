@@ -109,9 +109,7 @@ if (!class_exists('BP_Profile_Todo')) {
 			$todos = get_posts($args);
 			if( count( $todos ) != 0 ) {
 				?>
-				<div id="bptodo-export-btn" class="generic-button">
-					<a href="javascript:void(0);" id="export_my_tasks"><?php _e( 'Export', BPTODO_TEXT_DOMAIN );?></a>
-				</div>
+				<a href="javascript:void(0);" id="export_my_tasks"><i class="fa fa-download" aria-hidden="true"></i></a>
 				<?php
 			}
 		}

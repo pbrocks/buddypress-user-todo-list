@@ -18,7 +18,7 @@
 	width: 100%;
 }
 button.bptodo-item {
-	background-color: hsl(0, 0%, 87%);
+	background-color: transparent;
 	border: medium none;
 	color: hsl(0, 0%, 27%);
 	cursor: pointer;
@@ -29,10 +29,13 @@ button.bptodo-item {
 	text-align: left;
 	transition: all 0.4s ease 0s;
 	width:100%;
+	font-weight: bold;
 }
-button.bptodo-item.active, button.bptodo-item:hover {
-	background-color: hsl(207, 90%, 54%);
+button.bptodo-item:hover {
 	color:white;
+}
+button.bptodo-item.active{
+	color: #000;
 }
 div.panel {
 	padding: 0 18px;
@@ -47,15 +50,15 @@ button.bptodo-item::after {
 	content: "+";
 	float: right;
 	font-size: 13px;
-	font-weight: bold;
+	font-weight: bolder;
 	margin-left: 5px;
 }
 button.bptodo-item::after:hover {
-	color: white;
+	color: #fff;
 }
 button.bptodo-item.active::after {
 	content: "−";
-	color:white;
+	color: #000;
 }
 .bptodo-admin-row{
 	clear: both;  

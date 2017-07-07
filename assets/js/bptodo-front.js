@@ -24,14 +24,14 @@ jQuery(document).ready(function(){
 
 	//Export My Tasks
 	jQuery(document).on('click', '#export_my_tasks', function(){
-		jQuery( '#export_my_tasks' ).html( 'Exporting..' );
+		jQuery( '#export_my_tasks' ).html( '<i class="fa fa-refresh fa-spin"></i>' );
 		jQuery.post(
 			ajaxurl,
 			{
 				'action' : 'bptodo_export_my_tasks'
 			},
 			function( response ) {
-				jQuery( '#export_my_tasks' ).val( 'Exported!' );
+				jQuery( '#export_my_tasks' ).html( '<i class="fa fa-download" aria-hidden="true"></i>' );
 				tasks = response;
 				JSONToCSVConvertor( tasks, "Buddypress - My Tasks List", true );
 			},
