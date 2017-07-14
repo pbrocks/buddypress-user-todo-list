@@ -125,3 +125,7 @@ td.bp-to-do-actions ul {
 .add-todo-cat-row input {
     width: 50%;
 }
+
+.bptodo-add-cat-empty::-webkit-input-placeholder {
+    color: red;
+}
