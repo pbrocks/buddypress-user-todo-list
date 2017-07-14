@@ -8,7 +8,7 @@ global $bptodo;
 			<th scope="row"><label for="bptodo-profile-menu-label"><?php _e( 'Profile Menu Label', BPTODO_TEXT_DOMAIN );?></label></th>
 			<td>
 				<input type="text" placeholder="<?php _e( 'Label', BPTODO_TEXT_DOMAIN );?>" name="bptodo_profile_menu_label" value="<?php echo $bptodo->profile_menu_label;?>" class="regular-text" required>
-				<p class="description"><?php _e( 'This label will be seen in the profile menu.', BPTODO_TEXT_DOMAIN );?></p>
+				<p class="description"><?php _e( 'This label will be seen in the profile menu(Please make sure you enter <strong>singular</strong> text).', BPTODO_TEXT_DOMAIN );?></p>
 			</td>
 		</tr>
 

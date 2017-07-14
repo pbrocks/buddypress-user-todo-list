@@ -48,7 +48,7 @@ jQuery(document).ready(function(){
 	jQuery(document).on('click', '#add-todo-cat', function(){
 		var name = jQuery('#todo-category-name').val();
 		if( name == '' ) {
-			alert("Please name your category!");
+			jQuery('#todo-category-name').addClass('bptodo-add-cat-empty').attr('placeholder', 'Category name is required.');
 		} else {
 			jQuery( this ).val('Adding...');
 			jQuery.post(
