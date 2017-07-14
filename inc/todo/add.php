@@ -1,9 +1,7 @@
 <?php
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 $todo_cats = get_terms( 'todo_category', 'orderby=name&hide_empty=0' );
-$add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 
 global $bptodo;
 $profile_menu_label = $bptodo->profile_menu_label;
@@ -67,7 +65,7 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 							<?php }?>
 						<?php }?>
 					</select>
-					<a href="javascript:void(0);" class="add-todo-category"><img src="<?php echo esc_url( $add_img );?>"></a>
+					<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
 				</div>
 				<div class="add-todo-cat-row">
 					<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label.' category', BPTODO_TEXT_DOMAIN);?>">

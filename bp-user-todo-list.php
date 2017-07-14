@@ -35,8 +35,6 @@ function run_wp_bptodo_list() {
 	//Initialize globals class
 	global $bptodo;
 	$bptodo = new Bptodo_Globals();
-
-	
 }
 
 //Settings link for this plugin
@@ -70,9 +68,7 @@ function bptodo_plugin_admin_notice() {
 	$bptodo_plugin = __( 'BP User Todo List', BPTODO_TEXT_DOMAIN );
 	$bp_plugin = __( 'BuddyPress', BPTODO_TEXT_DOMAIN );
 
-	echo '<div class="error"><p>'
-	. sprintf(__('%1$s is ineffective now as it requires %2$s to function correctly.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>')
-	. '</p></div>';
+	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to function correctly.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
 	if (isset($_GET['activate'])) unset($_GET['activate']);
 }
 

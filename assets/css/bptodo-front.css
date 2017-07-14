@@ -115,3 +115,13 @@ table.bp-todo-reminder tbody
 td.bp-to-do-actions ul {
     margin: 0px;
 }
+.add-todo-category i {
+    margin-left: 10px;
+    font-size: 30px;
+}
+.buddyboss-select {
+    width: 50%;
+}
+.add-todo-cat-row input {
+    width: 50%;
+}

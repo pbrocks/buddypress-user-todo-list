@@ -7,7 +7,6 @@ $profile_menu_label = $bptodo->profile_menu_label;
 $profile_menu_slug = $bptodo->profile_menu_slug;
 
 $todo_id = sanitize_text_field( $_GET['args'] );
-$add_img = BPTODO_PLUGIN_URL.'assets/images/add.png';
 
 //Update todo items
 if( isset( $_POST['todo_update'] ) && wp_verify_nonce( $_POST['save_update_todo_data_nonce'], 'wp-bp-todo' ) ) {
@@ -75,7 +74,7 @@ $todo_due_date = get_post_meta( $todo_id, 'todo_due_date', true );
 							<?php }?>
 						<?php }?>
 					</select>
-					<a href="javascript:void(0);" class="add-todo-category"><img src="<?php echo esc_url( $add_img );?>"></a>
+					<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
 				</div>
 				<div class="add-todo-cat-row">
 					<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label.' category', BPTODO_TEXT_DOMAIN);?>">

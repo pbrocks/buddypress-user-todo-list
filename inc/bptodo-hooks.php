@@ -212,22 +212,24 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 
 			if ( 'bptodo_due_date_action' === $action ) {
 				$todo = get_post( $item_id );
-				$todo_title = $todo->post_title;
-				$todo_link = get_permalink( $item_id );
-				
-				$custom_title = $profile_menu_label.' due date arrived for task: '.$todo_title;
-				$custom_link  = $todo_link;
-				$custom_text = 'Your task: '.$todo_title.' is due today. Please complete it as soon as possible.';
+				if( !empty( $todo ) ) {
+					$todo_title = $todo->post_title;
+					$todo_link = get_permalink( $item_id );
+					
+					$custom_title = $profile_menu_label.' due date arrived for task: '.$todo_title;
+					$custom_link  = $todo_link;
+					$custom_text = 'Your task: '.$todo_title.' is due today. Please complete it as soon as possible.';
 
-				// WP Toolbar
-				if ( 'string' === $format ) {
-					$return = apply_filters( 'bptodo_due_date_filter', '<a href="' . esc_url( $custom_link ) . '" title="' . esc_attr( $custom_title ) . '">' . esc_html( $custom_text ) . '</a>', $custom_text, $custom_link );
-				// Deprecated BuddyBar
-				} else {
-					$return = apply_filters( 'bptodo_due_date_filter', array( 'text' => $custom_text, 'link' => $custom_link ), $custom_link, (int) $total_items, $custom_text, $custom_title );
+					// WP Toolbar
+					if ( 'string' === $format ) {
+						$return = apply_filters( 'bptodo_due_date_filter', '<a href="' . esc_url( $custom_link ) . '" title="' . esc_attr( $custom_title ) . '">' . esc_html( $custom_text ) . '</a>', $custom_text, $custom_link );
+					// Deprecated BuddyBar
+					} else {
+						$return = apply_filters( 'bptodo_due_date_filter', array( 'text' => $custom_text, 'link' => $custom_link ), $custom_link, (int) $total_items, $custom_text, $custom_title );
+					}
+
+					return $return;
 				}
-
-				return $return;
 			}
 		}
 	}
