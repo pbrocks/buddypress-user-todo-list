@@ -79,7 +79,7 @@ if (!class_exists('BPTodoAjax')) {
 
 		//Actions performed to undo complete a todo
 		function bptodo_undo_complete_todo() {
-			if (isset($_POST['action']) && $_POST['action'] === 'bptodo_complete_todo') {
+			if (isset($_POST['action']) && $_POST['action'] === 'bptodo_undo_complete_todo') {
 				$tid = sanitize_text_field( $_POST['tid'] );
 				update_post_meta($tid, 'todo_status', 'incomplete');
 				echo 'todo-undo-completed';
