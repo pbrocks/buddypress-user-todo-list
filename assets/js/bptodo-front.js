@@ -104,8 +104,8 @@ jQuery(document).ready(function(){
 				if( response == 'todo-completed'){
 					clicked_tid.closest('tr').find("td").addClass('todo-completed');
 					clicked_tid.closest('td').prev('td').text('Completed!');
-					clicked_tid.hide();
-				}
+                    clicked_tid.closest('li').html('<a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="'+tid+'" title="Undo Complete"><i class="fa fa-undo"></i></a>');
+                }
 			}
 		);
 	});
