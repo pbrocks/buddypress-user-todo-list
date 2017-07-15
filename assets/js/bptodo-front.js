@@ -1,5 +1,4 @@
 jQuery(document).ready(function(){
-
 	//Bptodo list
 	var acc = document.getElementsByClassName("bptodo-item");
 	var i;
@@ -91,6 +90,7 @@ jQuery(document).ready(function(){
 
 	//Complete a todo
 	jQuery(document).on('click', '.bptodo-complete-todo', function(){
+		var clicked_tid = jQuery(this);
 		var tid = jQuery(this).data('tid');
 		jQuery(this).html( '<i class="fa fa-refresh fa-spin"></i>' );
 
@@ -102,7 +102,9 @@ jQuery(document).ready(function(){
 			},
 			function( response ) {
 				if( response == 'todo-completed'){
-					window.location.reload();
+					clicked_tid.closest('tr').find("td").addClass('todo-completed');
+					clicked_tid.closest('td').prev('td').text('Completed!');
+					clicked_tid.hide();
 				}
 			}
 		);
@@ -126,6 +128,16 @@ jQuery(document).ready(function(){
 			}
 		);
 	});
+
+	jQuery('#myForm').submit(function() {
+      jQuery('#myModal').show();
+    });
+    var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById('myModal');
+    // When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
 });
 
 function JSONToCSVConvertor( JSONData, ReportTitle, ShowLabel ) {

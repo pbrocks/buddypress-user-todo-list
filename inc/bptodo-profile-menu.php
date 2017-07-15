@@ -42,7 +42,7 @@ if (!class_exists('BP_Profile_Todo')) {
 						'parent_url' => $bp->loggedin_user->domain.$parent_slug.'/',
 						'parent_slug' => $parent_slug,
 						'screen_function' => array($this, 'bptodo_add_todo_show_screen'),
-						'position' => 100,
+						'position' => 200,
 						'link' => site_url()."/members/$name/$parent_slug/add/",
 					)
 				);
@@ -99,7 +99,7 @@ if (!class_exists('BP_Profile_Todo')) {
 		function list_todo_tab_function_to_show_title() {
 			global $bptodo;
 			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
-			echo __( $profile_menu_label_plural.' list', BPTODO_TEXT_DOMAIN );
+			echo __( $profile_menu_label_plural.' List', BPTODO_TEXT_DOMAIN );
 			$args = array(
 				'post_type' => 'bp-todo',
 				'author'    => bp_displayed_user_id(),

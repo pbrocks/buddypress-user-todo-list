@@ -33,12 +33,6 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 
 	wp_set_object_terms( $post_id, $cat, $taxonomy );
 
-	$str = '';
-	$str .= '<div id="message" class="updated">';
-	$str .= '<p>'.__( 'Todo item created successfully.', BPTODO_TEXT_DOMAIN ).'</p>';
-	$str .= '</div>';
-	echo $str;
-
 	$name = bp_get_displayed_user_username();
 	$url = home_url( "/members/$name/$profile_menu_slug/list/" );
 	?>
@@ -49,7 +43,24 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 	<?php
 }
 ?>
-<form action="" method="post">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  <span class="close">&times;</span>
+    <div class="modal-header">
+      
+    </div>
+    <div class="modal-body">
+      <p style="margin:15px;">To Do added Successfully!</p>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+
+</div>
+<form action="" method="post" id="myForm">
 	<table class="add-todo-block">
 		<tr>
 			<td width="20%">
@@ -105,7 +116,7 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 			<td width="20%"></td>
 			<td width="80%">
 				<?php wp_nonce_field( 'wp-bp-todo', 'save_new_todo_data_nonce'); ?>
-				<input type="submit" name="todo_create" value="<?php _e('Submit '.$profile_menu_label, BPTODO_TEXT_DOMAIN);?>">
+				<input id="bp-add-new-todo" type="submit" name="todo_create" value="<?php _e('Submit '.$profile_menu_label, BPTODO_TEXT_DOMAIN);?>">
 			</td>
 		</tr>
 	</table>

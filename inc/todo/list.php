@@ -118,7 +118,6 @@ if (empty($todos)) {?>
 					<div>
 						<button class="bptodo-item"><?php _e( 'TODAY', BPTODO_TEXT_DOMAIN );?></button>
 						<div class="panel">
-							<?php foreach( $todo_list['today'] as $tid ) {?>
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
@@ -177,7 +176,6 @@ if (empty($todos)) {?>
 										</tbody>
 									</table>
 								</div>
-							<?php }?>
 						</div>
 					</div>
 				</div>
@@ -189,7 +187,6 @@ if (empty($todos)) {?>
 					<div>
 						<button class="bptodo-item"><?php _e( 'TOMORROW', BPTODO_TEXT_DOMAIN );?></button>
 						<div class="panel">
-							<?php foreach( $todo_list['tomorrow'] as $tid ) {?>
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
@@ -248,7 +245,6 @@ if (empty($todos)) {?>
 										</tbody>
 									</table>
 								</div>
-							<?php }?>
 						</div>
 					</div>
 				</div>
@@ -260,7 +256,6 @@ if (empty($todos)) {?>
 					<div>
 						<button class="bptodo-item"><?php _e( 'SOMEDAY', BPTODO_TEXT_DOMAIN );?></button>
 						<div class="panel">
-							<?php foreach( $todo_list['future'] as $tid ) {?>
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
@@ -319,7 +314,6 @@ if (empty($todos)) {?>
 										</tbody>
 									</table>
 								</div>
-							<?php }?>
 						</div>
 					</div>
 				</div>

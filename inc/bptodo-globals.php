@@ -35,11 +35,16 @@ if( !class_exists( 'Bptodo_Globals' ) ) {
 			$settings = get_option( 'user_todo_list_settings' );
 
 			//Profile menu label
-			$this->profile_menu_label = 'Todo';
+			$this->profile_menu_label = 'To Do';
 			if( isset( $settings['profile_menu_label'] ) ) {
 				$this->profile_menu_label = $settings['profile_menu_label'];
 			}
-			$this->profile_menu_label_plural = $this->pluralize( $this->profile_menu_label );
+			if($this->profile_menu_label != 'To Do'){
+				$this->profile_menu_label_plural = $this->pluralize( $this->profile_menu_label );
+			}else{
+				$this->profile_menu_label_plural = $this->profile_menu_label;
+			}
+			
 			$this->profile_menu_slug = str_replace( ' ', '-', strtolower( $this->profile_menu_label ) );
 
 			//Send Notification
