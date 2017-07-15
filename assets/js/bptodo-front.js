@@ -1,5 +1,14 @@
 jQuery(document).ready(function(){
 	//Bptodo list
+	var acc = document.getElementsByClassName("bptodo-item")[0];
+    acc.classList.toggle("active");
+    var panel = acc.nextElementSibling;
+    if (panel.style.maxHeight){
+        panel.style.maxHeight = null;
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+    
 	var acc = document.getElementsByClassName("bptodo-item");
 	var i;
 	for (i = 0; i < acc.length; i++) {
