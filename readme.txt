@@ -14,7 +14,7 @@ This plugin allows buddypress members to add tasks in their todo list and allows
  
 == Installation ==
  
-1. Upload the entire contact-form-7 folder to the /wp-content/plugins/ directory.
+1. Upload the entire buddypress-user-todo-list folder to the /wp-content/plugins/ directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
  
 == Frequently Asked Questions ==
