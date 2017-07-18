@@ -24,7 +24,7 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			add_action( 'bp_setup_admin_bar', array( $this, 'bptodo_setup_admin_bar' ), 80 );
 			add_filter( 'manage_bp-todo_posts_columns', array( $this, 'bptodo_due_date_column_heading' ), 10);
 			add_action( 'manage_bp-todo_posts_custom_column', array( $this, 'bptodo_due_date_column_content' ), 10, 2);
-
+			add_action( 'widgets_init', array( $this, 'bptodo_register_todo_calendar_widget' ) );
 			add_filter( 'bp_notifications_get_registered_components', array( $this, 'bptodo_due_date_notifications_component' ) );
 			add_filter( 'bp_notifications_get_notifications_for_user', array( $this, 'bptodo_format_due_date_notifications' ), 10, 5 );
 		}
@@ -231,6 +231,13 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 					return $return;
 				}
 			}
+		}
+
+		/**
+		 *
+		 */
+		function bptodo_register_todo_calendar_widget() {
+			register_widget ( 'Bptodo_Widget_Todo_Calendar' );
 		}
 	}
 	new Bptodo_Custom_Hooks();

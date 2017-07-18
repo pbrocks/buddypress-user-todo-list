@@ -25,6 +25,7 @@ function run_wp_bptodo_list() {
 		'inc/bptodo-cpt.php',
 		'inc/bptodo-globals.php',
 		'inc/bptodo-hooks.php',
+		'inc/bptodo-widget.php',
 		'admin/bptodo-admin.php',
 	);
 	foreach ($include_files  as $include_file) include $include_file;

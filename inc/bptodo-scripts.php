@@ -19,12 +19,16 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 			if( strpos( $_SERVER['REQUEST_URI'], $profile_menu_slug ) !== false ) {
 				//jQuery UI Datepicker CSS
 				wp_enqueue_style('bptodo-css-ui', BPTODO_PLUGIN_URL.'assets/css/jquery-ui.min.css');
+				wp_enqueue_style('bptodo-css-fa', BPTODO_PLUGIN_URL.'assets/css/font-awesome.min.css');
 
 				wp_enqueue_script('jquery');
 				wp_enqueue_script('jquery-ui-datepicker');
+
 				wp_enqueue_script('bptodo-js-front', BPTODO_PLUGIN_URL.'assets/js/bptodo-front.js');
 				wp_enqueue_style('bptodo-front-css', BPTODO_PLUGIN_URL.'assets/css/bptodo-front.css');
 			}
+			wp_enqueue_style('bptodo-css-fa', BPTODO_PLUGIN_URL.'assets/css/bptodo-calendar.css');
+			wp_enqueue_script('bptodo-js-tempust', BPTODO_PLUGIN_URL.'assets/js/tempust.js');
 		}
 
 		//Actions performed for enqueuing scripts and styles for admin panel.
