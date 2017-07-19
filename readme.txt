@@ -30,6 +30,7 @@ The screenshots are present in the root of the plugin folder.
 2. screenshot-2 - is the screen which shows the Todo listing in admin panel.
 3. screenshot-3 - is the screen which shows the General Settings in admin panel.
 4. screenshot-4 - is the screen that allows user to manage their tasks list(edit, delete, mark complete)
+5. screenshot-5 - is the screen that shows the todo's marked on the calendar, in the sidebar
 
 == Changelog ==
 = 1.0.0 =
