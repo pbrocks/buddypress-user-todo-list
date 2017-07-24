@@ -75,7 +75,7 @@
 }
 #bptodo-tempust .day.bptodo-day {
     background-color: #CFCFCF;
-
+    margin-right: 2px;
 }
 #bptodo-tempust .header{
     text-align: center;

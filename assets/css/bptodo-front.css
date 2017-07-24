@@ -199,3 +199,10 @@ td.bp-to-do-actions ul {
     background-color: #5cb85c;
     color: white;
 }
+.add-todo-block tr td {
+    border: none;
+    /*vertical-align: top!important;*/
+}
+#bptodo-calender .buddyboss-select-inner select {
+    width: 100%!important;
+}

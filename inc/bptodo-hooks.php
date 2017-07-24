@@ -45,52 +45,54 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			$todo_items = get_posts( $args );
 			if( !empty( $todo_items ) ) {
 				foreach ( $todo_items as $key => $todo ) {
-					$author_id = $todo->post_author;
-					$curr_date = date_create(date('Y-m-d'));
-					$due_date = date_create(get_post_meta($todo->ID, 'todo_due_date', true));
-					$diff = date_diff($curr_date, $due_date);
-					$diff_days = $diff->format("%R%a");
+					$todo_status = get_post_meta( $todo->ID, 'todo_status', true );
+					if( $todo_status != 'complete' ) {
+						$author_id = $todo->post_author;
+						$curr_date = date_create(date('Y-m-d'));
+						$due_date = date_create(get_post_meta($todo->ID, 'todo_due_date', true));
+						$diff = date_diff($curr_date, $due_date);
+						$diff_days = $diff->format("%R%a");
 
-					//Check if mail sending is allowed
-					if( !empty( $bptodo->send_mail ) && $bptodo->send_mail == 'yes' ) {
-						//If today is the due date
-						if( $diff_days == 0 ) {
-							//If the mail is not sent already
-							$due_date_mail_sent = get_post_meta($todo->ID, 'todo_last_day_mail_sent', true);
-							if ( $due_date_mail_sent == 'no' ) {
-								$author = get_userdata($author_id);
-								$author_email = $author->data->user_email;
-								$subject = 'BP Task - Wordpress';
-								$messsage = 'Your task: '.$todo->post_title.' is going to exipre today. Kindly finish it up! Thanks!';
-								wp_mail($author_email, $subject, $messsage);
-								update_post_meta($todo->ID, 'todo_last_day_mail_sent', 'yes');
+						//Check if mail sending is allowed
+						if( !empty( $bptodo->send_mail ) && $bptodo->send_mail == 'yes' ) {
+							//If today is the due date
+							if( $diff_days == 0 ) {
+								//If the mail is not sent already
+								$due_date_mail_sent = get_post_meta($todo->ID, 'todo_last_day_mail_sent', true);
+								if ( $due_date_mail_sent == 'no' ) {
+									$author = get_userdata($author_id);
+									$author_email = $author->data->user_email;
+									$subject = 'BP Task - Wordpress';
+									$messsage = 'Your task: '.$todo->post_title.' is going to exipre today. Kindly finish it up! Thanks!';
+									wp_mail($author_email, $subject, $messsage);
+									update_post_meta($todo->ID, 'todo_last_day_mail_sent', 'yes');
+								}
 							}
-						}
-					}// end if sending mail is allowed
+						}// end if sending mail is allowed
 
-					//Check if notification sending is allowed
-					if( !empty( $bptodo->send_notification ) && $bptodo->send_notification == 'yes' ) {
-						//If today is the due date
-						if( $diff_days == 0 ) {
-							//If the mail is not sent already
-							$due_date_notification_sent = get_post_meta($todo->ID, 'todo_last_day_notification_sent', true);
-							if ( $due_date_notification_sent == 'no' ) {
+						//Check if notification sending is allowed
+						if( !empty( $bptodo->send_notification ) && $bptodo->send_notification == 'yes' ) {
+							//If today is the due date
+							if( $diff_days == 0 ) {
+								//If the mail is not sent already
+								$due_date_notification_sent = get_post_meta($todo->ID, 'todo_last_day_notification_sent', true);
+								if ( $due_date_notification_sent == 'no' ) {
 
-								//Send notification for appectance
-								bp_notifications_add_notification( array(
-									'user_id'           => $author_id,
-									'item_id'           => $todo->ID,
-									'secondary_item_id' => get_current_user_id(),
-									'component_name'    => 'bptodo_due_date',
-									'component_action'  => 'bptodo_due_date_action',
-									'date_notified'     => bp_core_current_time(),
-									'is_new'            => 1,
-								) );
-								update_post_meta($todo->ID, 'todo_last_day_notification_sent', 'yes');
+									//Send notification for appectance
+									bp_notifications_add_notification( array(
+										'user_id'           => $author_id,
+										'item_id'           => $todo->ID,
+										'secondary_item_id' => get_current_user_id(),
+										'component_name'    => 'bptodo_due_date',
+										'component_action'  => 'bptodo_due_date_action',
+										'date_notified'     => bp_core_current_time(),
+										'is_new'            => 1,
+									) );
+									update_post_meta($todo->ID, 'todo_last_day_notification_sent', 'yes');
+								}
 							}
-						}
-					}// end if sending mail is allowed
-
+						}// end if sending notification is allowed
+					}// end if to check if todo is incomplete
 				} // end foreach loop of todo list
 			}
 		}

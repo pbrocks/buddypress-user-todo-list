@@ -13,8 +13,24 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 	$cat = sanitize_text_field( $_POST['todo_cat'] );
 
 	$title = sanitize_text_field( $_POST['todo_title'] );
-	$summary = sanitize_text_field( $_POST['todo_summary'] );
 	$due_date = sanitize_text_field( $_POST['todo_due_date'] );
+	$curr_timestamp = time();
+	$due_date_timestamp = strtotime($due_date);
+	$secs_difference = $due_date_timestamp - $curr_timestamp;
+
+	$curr_user = get_userdata( get_current_user_id() );
+	$curr_user_email = $curr_user->data->user_email;
+	
+	wp_schedule_single_event( time() + $secs_difference, $title.'_event_mail' );
+	add_action( $title.'_event_mail', function() use ( $title ){
+		$curr_user_email = $curr_user->data->user_email;
+		$subject = 'BP Task - Wordpress';
+		$messsage = 'Your task: '.$title.' is going to exipre today. Kindly finish it up! Thanks!';
+		wp_mail($curr_user_email, $subject, $messsage);
+	});
+
+	$summary = sanitize_text_field( $_POST['todo_summary'] );
+	
 	
 	$taxonomy = 'todo_category';
 	$args = array(
@@ -45,21 +61,16 @@ if( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_dat
 ?>
 <!-- The Modal -->
 <div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-  <span class="close">&times;</span>
-    <div class="modal-header">
-      
-    </div>
-    <div class="modal-body">
-      <p style="margin:15px;">To Do added Successfully!</p>
-    </div>
-    <div class="modal-footer">
-    </div>
-  </div>
-
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<div class="modal-header"></div>
+		<div class="modal-body">
+			<p style="margin:15px;">To Do added Successfully!</p>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
 </div>
+
 <form action="" method="post" id="myForm">
 	<table class="add-todo-block">
 		<tr>
