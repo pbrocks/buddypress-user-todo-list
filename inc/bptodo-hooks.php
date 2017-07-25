@@ -153,9 +153,9 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		}
 
 		public function bptodo_due_date_column_heading( $defaults ) {
-			$defaults['due_date'] = __( 'Due Date', BPTODO_TEXT_DOMAIN );
-			$defaults['status'] = __( 'Status', BPTODO_TEXT_DOMAIN );
-			$defaults['todo_id'] = __( 'ID', BPTODO_TEXT_DOMAIN );
+			$defaults['due_date'] = 'Due Date';
+			$defaults['status'] = 'Status';
+			$defaults['todo_id'] = 'ID';
 			return $defaults;
 		}
 
@@ -211,7 +211,7 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			
 			global $bptodo;
 			$profile_menu_label = $bptodo->profile_menu_label;
-
+			
 			if ( 'bptodo_due_date_action' === $action ) {
 				$todo = get_post( $item_id );
 				if( !empty( $todo ) ) {
@@ -220,23 +220,23 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 					
 					$custom_title = $profile_menu_label.' due date arrived for task: '.$todo_title;
 					$custom_link  = $todo_link;
-					$custom_text = 'Your task: '.$todo_title.' is due today. Please complete it as soon as possible.';
+					$custom_text = 'Your '.$profile_menu_label.': '.$todo_title.' is due today. Please complete it as soon as possible.';
 
 					// WP Toolbar
 					if ( 'string' === $format ) {
-						$return = apply_filters( 'bptodo_due_date_filter', '<a href="' . esc_url( $custom_link ) . '" title="' . esc_attr( $custom_title ) . '">' . esc_html( $custom_text ) . '</a>', $custom_text, $custom_link );
-					// Deprecated BuddyBar
+						$return = '<a href="' . esc_url( $custom_link ) . '" title="' . esc_attr( $custom_title ) . '">' . esc_html( $custom_text ) . '</a>';
 					} else {
-						$return = apply_filters( 'bptodo_due_date_filter', array( 'text' => $custom_text, 'link' => $custom_link ), $custom_link, (int) $total_items, $custom_text, $custom_title );
+						// Deprecated BuddyBar
+						$return = array( 'text' => $custom_text, 'link' => $custom_link );
 					}
-
+					// echo '<pre>'; print_r( $return ); die;
 					return $return;
 				}
 			}
 		}
 
 		/**
-		 *
+		 * Register the calendar widget
 		 */
 		function bptodo_register_todo_calendar_widget() {
 			register_widget ( 'Bptodo_Widget_Todo_Calendar' );
