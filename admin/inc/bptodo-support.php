@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <div>
                    <button class="bptodo-accordion"><?php _e( 'Plugin Working?', BPTODO_TEXT_DOMAIN );?></button>
                     <div class="panel">
-                        <p><?php _e( 'This plugin creates a menu <strong>Todo</strong> in the user profile. He can add a set of tasks and can manah=ge them accordingly.', BPTODO_TEXT_DOMAIN );?></p>
+                        <p><?php _e( 'This plugin creates a menu <strong>Todo</strong> in the user profile. He can add a set of tasks and can manage them accordingly.', BPTODO_TEXT_DOMAIN );?></p>
                         <p><?php _e( 'A user can even <strong>Export</strong> his/her list.', BPTODO_TEXT_DOMAIN );?></p>
                     </div>
                 </div>
