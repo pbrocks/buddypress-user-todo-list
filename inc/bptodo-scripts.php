@@ -14,9 +14,9 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 
 		//Actions performed for enqueuing scripts and styles for front end.
 		function bptodo_custom_variables() {
-			global $bptodo;
+			global $bptodo, $post;
 			$profile_menu_slug = $bptodo->profile_menu_slug;
-			if( strpos( $_SERVER['REQUEST_URI'], $profile_menu_slug ) !== false ) {
+			if( ( strpos( $_SERVER['REQUEST_URI'], $profile_menu_slug ) !== false ) || isset($post->post_content) && has_shortcode( $post->post_content, 'bptodo_by_category' ) ) {
 				//jQuery UI Datepicker CSS
 				wp_enqueue_style('bptodo-css-ui', BPTODO_PLUGIN_URL.'assets/css/jquery-ui.min.css');
 				wp_enqueue_style('bptodo-css-fa', BPTODO_PLUGIN_URL.'assets/css/font-awesome.min.css');

@@ -11,6 +11,16 @@
  */
 defined('ABSPATH') || exit; // Exit if accessed directly
 
+//Load plugin textdomain ( @since 1.0.0 )
+add_action( 'init', 'bptodo_load_textdomain' );
+function bptodo_load_textdomain() {
+	$domain = "wb-todo";
+	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+	
+	load_textdomain( $domain, 'languages/'.$domain.'-' . $locale . '.mo' );
+	$var = load_plugin_textdomain( $domain, false, plugin_basename( dirname(__FILE__) ) . '/languages' );
+}
+
 //Constants used in the plugin
 define( 'BPTODO_PLUGIN_PATH', plugin_dir_path(__FILE__) );
 define( 'BPTODO_PLUGIN_URL', plugin_dir_url(__FILE__) );

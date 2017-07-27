@@ -27,6 +27,7 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			add_action( 'widgets_init', array( $this, 'bptodo_register_todo_calendar_widget' ) );
 			add_filter( 'bp_notifications_get_registered_components', array( $this, 'bptodo_due_date_notifications_component' ) );
 			add_filter( 'bp_notifications_get_notifications_for_user', array( $this, 'bptodo_format_due_date_notifications' ), 10, 5 );
+			add_shortcode( 'bptodo_by_category', array( $this, 'bptodo_by_categpry_template' ) );
 		}
 
 		/**
@@ -240,6 +241,17 @@ if( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		 */
 		function bptodo_register_todo_calendar_widget() {
 			register_widget ( 'Bptodo_Widget_Todo_Calendar' );
+		}
+
+		/**
+		 * Register the shortcode - bptodo_by_categpry
+		 * that will list all the todo items according to the category
+		 */
+		function bptodo_by_categpry_template( $atts ) {
+			$shortcode_template = BPTODO_PLUGIN_PATH.'inc/todo/bptodo-by-category-template.php';
+			if( file_exists( $shortcode_template ) ) {
+				include_once $shortcode_template;
+			}
 		}
 	}
 	new Bptodo_Custom_Hooks();
