@@ -14,6 +14,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			add_action( 'admin_menu', array( $this, 'bptodo_add_menu_page' ) );
 
 			add_action('admin_init', array($this, 'bptodo_register_general_settings'));
+			add_action('admin_init', array($this, 'bptodo_register_shortcode_settings'));
 			add_action('admin_init', array($this, 'bptodo_register_support_settings'));
 
 			$this->bptodo_save_general_settings();
@@ -67,9 +68,21 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			}
 		}
 
-		 function bptodo_general_settings_content() {
+		function bptodo_general_settings_content() {
 			if (file_exists(dirname(__FILE__) . '/inc/bptodo-general-settings.php')) {
 				require_once( dirname(__FILE__) . '/inc/bptodo-general-settings.php' );
+			}
+		}
+
+		function bptodo_register_shortcode_settings() {
+			$this->plugin_settings_tabs['user-todo-list-shortcodes'] = __( 'Shortcodes', BPTODO_TEXT_DOMAIN );
+			register_setting('user-todo-list-shortcodes', 'user-todo-list-shortcodes');
+			add_settings_section('section_shortcodes', ' ', array(&$this, 'bptodo_general_shortcodes_content'), 'user-todo-list-shortcodes');
+		}
+
+		function bptodo_general_shortcodes_content() {
+			if (file_exists(dirname(__FILE__) . '/inc/bptodo-shortcodes-settings.php')) {
+				require_once( dirname(__FILE__) . '/inc/bptodo-shortcodes-settings.php' );
 			}
 		}
 
