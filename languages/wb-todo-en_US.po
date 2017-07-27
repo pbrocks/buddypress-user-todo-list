@@ -1,0 +1,296 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-07-27 14:32+0530\n"
+"PO-Revision-Date: 2017-07-27 14:32+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: admin/bptodo-admin.php:24
+msgid "User Todo List Settings"
+msgstr ""
+
+#: admin/bptodo-admin.php:24 bp-user-todo-list.php:53
+msgid "Settings"
+msgstr ""
+
+#: admin/bptodo-admin.php:31
+msgid "User Todo List Settings - BuddyPress Members"
+msgstr ""
+
+#: admin/bptodo-admin.php:32
+msgid ""
+"This plugin will allow the site owner to manage todo items created by the "
+"site members."
+msgstr ""
+
+#: admin/bptodo-admin.php:53
+msgid "General"
+msgstr ""
+
+#: admin/bptodo-admin.php:59
+msgid "Support"
+msgstr ""
+
+#: admin/inc/bptodo-general-settings.php:8
+msgid "Profile Menu Label"
+msgstr ""
+
+#: admin/inc/bptodo-general-settings.php:10
+msgid "Label"
+msgstr ""
+
+#: admin/inc/bptodo-general-settings.php:11
+msgid ""
+"This label will be seen in the profile menu(Please make sure you enter "
+"<strong>singular</strong> text)."
+msgstr ""
+
+#: admin/inc/bptodo-general-settings.php:16
+msgid "Send Notification"
+msgstr ""
+
+#: admin/inc/bptodo-general-settings.php:19
+msgid ""
+"Check this option if you want to send notification to the member as a "
+"reminder for his/her task due date."
+msgstr ""
+
+#: admin/inc/bptodo-general-settings.php:24
+msgid "Send Mail"
+msgstr ""
+
+#: admin/inc/bptodo-general-settings.php:27
+msgid ""
+"Check this option if you want to send mail to the member as a reminder for "
+"his/her task due date."
+msgstr ""
+
+#: admin/inc/bptodo-support.php:8
+msgid "Have some questions?"
+msgstr ""
+
+#: admin/inc/bptodo-support.php:15
+msgid "Plugin Working?"
+msgstr ""
+
+#: admin/inc/bptodo-support.php:17
+msgid ""
+"This plugin creates a menu <strong>Todo</strong> in the user profile. He can "
+"add a set of tasks and can manah=ge them accordingly."
+msgstr ""
+
+#: admin/inc/bptodo-support.php:18
+msgid "A user can even <strong>Export</strong> his/her list."
+msgstr ""
+
+#: admin/inc/bptodo-support.php:25
+msgid "Any plugin dependency?"
+msgstr ""
+
+#: admin/inc/bptodo-support.php:27
+msgid ""
+"As the name suggests, this plugin requires <strong>BuddyPress</strong> to be "
+"installed and active."
+msgstr ""
+
+#: admin/inc/bptodo-support.php:34
+msgid "How to go for any custom development?"
+msgstr ""
+
+#: admin/inc/bptodo-support.php:36
+msgid ""
+"If you need additional help you can contact us for <a href=\"https://"
+"wbcomdesigns.com/contact/\" target=\"_blank\" title=\"Custom Development by "
+"Wbcom Designs\">Custom Development</a>."
+msgstr ""
+
+#: bp-user-todo-list.php:79
+msgid "BP User Todo List"
+msgstr ""
+
+#: bp-user-todo-list.php:80
+msgid "BuddyPress"
+msgstr ""
+
+#: bp-user-todo-list.php:82
+#, php-format
+msgid "%1$s is ineffective now as it requires %2$s to function correctly."
+msgstr ""
+
+#: inc/bptodo-hooks.php:112
+msgid "Add "
+msgstr ""
+
+#: inc/bptodo-hooks.php:134 inc/bptodo-profile-menu.php:26
+msgid " <span class=\"count\">"
+msgstr ""
+
+#: inc/bptodo-hooks.php:142
+msgid "List"
+msgstr ""
+
+#: inc/bptodo-hooks.php:150 inc/bptodo-profile-menu.php:40 inc/todo/add.php:77
+#: inc/todo/edit.php:81
+msgid "Add"
+msgstr ""
+
+#: inc/bptodo-profile-menu.php:78
+msgid "Edit "
+msgstr ""
+
+#: inc/bptodo-profile-menu.php:80
+msgid "Add a new "
+msgstr ""
+
+#: inc/bptodo-profile-menu.php:102
+msgid " List"
+msgstr ""
+
+#: inc/bptodo-widget.php:7
+msgid "Todo Calendar"
+msgstr ""
+
+#: inc/bptodo-widget.php:9
+msgid ""
+"This widget helps to get a calendar in the sidebar to reflect the todo "
+"marked in the calendar."
+msgstr ""
+
+#: inc/bptodo-widget.php:30
+msgid "New Title"
+msgstr ""
+
+#: inc/bptodo-widget.php:37 inc/todo/add.php:84 inc/todo/add.php:87
+#: inc/todo/edit.php:88 inc/todo/edit.php:91
+msgid "Title"
+msgstr ""
+
+#: inc/todo/add.php:61 inc/todo/edit.php:63
+msgid "Category"
+msgstr ""
+
+#: inc/todo/add.php:66 inc/todo/edit.php:68
+msgid "--Select--"
+msgstr ""
+
+#: inc/todo/add.php:76 inc/todo/edit.php:80
+msgid " category"
+msgstr ""
+
+#: inc/todo/add.php:93 inc/todo/add.php:96 inc/todo/edit.php:97
+#: inc/todo/edit.php:100
+msgid "Summary"
+msgstr ""
+
+#: inc/todo/add.php:102 inc/todo/add.php:105
+#: inc/todo/bptodo-by-category-template.php:56
+#: inc/todo/bptodo-by-category-template.php:126
+#: inc/todo/bptodo-by-category-template.php:195
+#: inc/todo/bptodo-by-category-template.php:264 inc/todo/edit.php:106
+#: inc/todo/edit.php:109 inc/todo/list.php:57 inc/todo/list.php:127
+#: inc/todo/list.php:196 inc/todo/list.php:265
+msgid "Due Date"
+msgstr ""
+
+#: inc/todo/add.php:113
+msgid "Submit "
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:48 inc/todo/list.php:49
+msgid "PAST"
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:55
+#: inc/todo/bptodo-by-category-template.php:125
+#: inc/todo/bptodo-by-category-template.php:194
+#: inc/todo/bptodo-by-category-template.php:263 inc/todo/list.php:56
+#: inc/todo/list.php:126 inc/todo/list.php:195 inc/todo/list.php:264
+msgid "Task"
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:57
+#: inc/todo/bptodo-by-category-template.php:127
+#: inc/todo/bptodo-by-category-template.php:196
+#: inc/todo/bptodo-by-category-template.php:265 inc/todo/list.php:58
+#: inc/todo/list.php:128 inc/todo/list.php:197 inc/todo/list.php:266
+msgid "Actions"
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:94
+#: inc/todo/bptodo-by-category-template.php:164
+#: inc/todo/bptodo-by-category-template.php:233
+#: inc/todo/bptodo-by-category-template.php:302 inc/todo/list.php:95
+#: inc/todo/list.php:165 inc/todo/list.php:234 inc/todo/list.php:303
+msgid "Remove: "
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:96
+#: inc/todo/bptodo-by-category-template.php:166
+#: inc/todo/bptodo-by-category-template.php:235
+#: inc/todo/bptodo-by-category-template.php:304 inc/todo/list.php:97
+#: inc/todo/list.php:167 inc/todo/list.php:236 inc/todo/list.php:305
+msgid "Edit: "
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:97
+#: inc/todo/bptodo-by-category-template.php:167
+#: inc/todo/bptodo-by-category-template.php:236
+#: inc/todo/bptodo-by-category-template.php:305 inc/todo/list.php:98
+#: inc/todo/list.php:168 inc/todo/list.php:237 inc/todo/list.php:306
+msgid "Complete: "
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:99
+#: inc/todo/bptodo-by-category-template.php:169
+#: inc/todo/bptodo-by-category-template.php:238
+#: inc/todo/bptodo-by-category-template.php:307 inc/todo/list.php:100
+#: inc/todo/list.php:170 inc/todo/list.php:239 inc/todo/list.php:308
+msgid "Undo Complete: "
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:118 inc/todo/list.php:119
+msgid "TODAY"
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:187 inc/todo/list.php:188
+msgid "TOMORROW"
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:256 inc/todo/list.php:257
+msgid "SOMEDAY"
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:327
+msgid "There are no todos in this category."
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:334
+msgid "Please provide a valid category ID."
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:341
+msgid "Please provide any category ID."
+msgstr ""
+
+#: inc/todo/edit.php:37
+msgid "Todo item updated successfully."
+msgstr ""
+
+#: inc/todo/edit.php:117
+msgid "Update "
+msgstr ""
+
+#: inc/todo/list.php:38
+msgid "Sorry, no "
+msgstr ""
