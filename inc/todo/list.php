@@ -28,7 +28,36 @@ if ( isset( $_POST[ 'todo_create' ] ) && wp_verify_nonce( $_POST[ 'save_new_todo
 
 	wp_set_object_terms( $post_id, $cat, $taxonomy );
 }
+//Update todo items
+if ( isset( $_POST[ 'todo_update' ] ) && wp_verify_nonce( $_POST[ 'save_update_todo_data_nonce' ], 'wp-bp-todo' ) ) {
+	$cat = sanitize_text_field( $_POST[ 'todo_cat' ] );
 
+	$title		 = sanitize_text_field( $_POST[ 'todo_title' ] );
+	$summary	 = sanitize_text_field( $_POST[ 'todo_summary' ] );
+	$due_date	 = sanitize_text_field( $_POST[ 'todo_due_date' ] );
+
+	$taxonomy	 = 'todo_category';
+	$args		 = array(
+		'ID'			 => $todo_id,
+		'post_type'		 => 'bp-todo',
+		'post_status'	 => 'publish',
+		'post_title'	 => $title,
+		'post_content'	 => $summary,
+		'post_author'	 => get_current_user_id(),
+	);
+	$post_id	 = wp_update_post( $args );
+
+	update_post_meta( $post_id, 'todo_status', 'incomplete' );
+	update_post_meta( $post_id, 'todo_due_date', $due_date );
+
+	wp_set_object_terms( $post_id, $cat, $taxonomy );
+
+//	$str = '';
+//	$str .= '<div id="message" class="updated">';
+//	$str .= '<p>' . __( 'Todo item updated successfully.', BPTODO_TEXT_DOMAIN ) . '</p>';
+//	$str .= '</div>';
+//	echo $str;
+}
 $class = "todo-completed";
 
 //List of Todo Items

@@ -138,7 +138,7 @@ jQuery( document ).ready( function () {
         );
     } );
 
-    jQuery( document ).on( 'click', '#bp-add-new-todo', function () {
+    jQuery( document ).on( 'click', '#bp-add-new-todo, #todo_update', function () {
         jQuery( '#myModal' ).show();
     } );
     var span = document.getElementsByClassName( "close" )[0];

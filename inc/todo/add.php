@@ -15,12 +15,11 @@ $url				 = home_url( "/members/$name/$profile_menu_slug" );
 		<span class="close">&times;</span>
 		<div class="modal-header"></div>
 		<div class="modal-body">
-			<p style="margin:15px;">To Do added Successfully!</p>
+			<p style="margin:15px;">To Do Added Successfully!</p>
 		</div>
 		<div class="modal-footer"></div>
 	</div>
 </div>
-
 <form action="<?php echo $url; ?>" method="post" id="myForm">
 	<table class="add-todo-block">
 		<tr>
