@@ -138,13 +138,13 @@ jQuery( document ).ready( function () {
         );
     } );
 
-    jQuery( '#myForm' ).submit( function () {
+    jQuery( document ).on( 'click', '#bp-add-new-todo', function () {
         jQuery( '#myModal' ).show();
     } );
     var span = document.getElementsByClassName( "close" )[0];
     var modal = document.getElementById( 'myModal' );
     // When the user clicks on <span> (x), close the modal
-    if (span) {
+    if ( span ) {
         span.onclick = function () {
             modal.style.display = "none";
         }
