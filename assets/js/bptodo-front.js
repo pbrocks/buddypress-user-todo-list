@@ -144,7 +144,7 @@ jQuery( document ).ready( function () {
     var span = document.getElementsByClassName( "close" )[0];
     var modal = document.getElementById( 'myModal' );
     // When the user clicks on <span> (x), close the modal
-    if ( typeof span !== 'undefined' ) {
+    if (span) {
         span.onclick = function () {
             modal.style.display = "none";
         }
