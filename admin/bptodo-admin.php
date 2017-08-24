@@ -91,6 +91,9 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 
 				//Profile menu label
 				$settings['profile_menu_label'] = sanitize_text_field( $_POST['bptodo_profile_menu_label'] );
+				if( isset( $_POST['bptodo_allow_user_add_category'] ) ) {
+					$settings['allow_user_add_category'] = sanitize_text_field( $_POST['bptodo_allow_user_add_category'] );
+				}
 				if( isset( $_POST['bptodo_send_notification'] ) ) {
 					$settings['send_notification'] = sanitize_text_field( $_POST['bptodo_send_notification'] );
 				}

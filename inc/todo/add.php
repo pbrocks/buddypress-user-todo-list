@@ -36,12 +36,16 @@ $url				 = home_url( "/members/$name/$profile_menu_slug" );
 							<?php } ?>
 						<?php } ?>
 					</select>
-					<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+					<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
+						<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+					<?php }?>
 				</div>
-				<div class="add-todo-cat-row">
-					<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label . ' category', BPTODO_TEXT_DOMAIN ); ?>">
-					<input type="button" id="add-todo-cat" value="<?php _e( 'Add', BPTODO_TEXT_DOMAIN ); ?>">
-				</div>
+				<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
+					<div class="add-todo-cat-row">
+						<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label . ' category', BPTODO_TEXT_DOMAIN ); ?>">
+						<input type="button" id="add-todo-cat" value="<?php _e( 'Add', BPTODO_TEXT_DOMAIN ); ?>">
+					</div>
+				<?php }?>
 			</td>
 		</tr>
 

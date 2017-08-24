@@ -22,9 +22,25 @@ function bptodo_load_textdomain() {
 }
 
 //Constants used in the plugin
-define( 'BPTODO_PLUGIN_PATH', plugin_dir_path(__FILE__) );
-define( 'BPTODO_PLUGIN_URL', plugin_dir_url(__FILE__) );
-define( 'BPTODO_TEXT_DOMAIN', 'wb-todo' );
+if ( !defined( 'BPTODO_PLUGIN_PATH' ) ) {
+	define( 'BPTODO_PLUGIN_PATH', plugin_dir_path(__FILE__) );
+}
+
+if ( !defined( 'BPTODO_PLUGIN_URL' ) ) {
+	define( 'BPTODO_PLUGIN_URL', plugin_dir_url(__FILE__) );
+}
+
+if ( !defined( 'BPTODO_TEXT_DOMAIN' ) ) {
+	define( 'BPTODO_TEXT_DOMAIN', 'wb-todo' );
+}
+
+if ( !defined( 'BP_ENABLE_MULTIBLOG' ) ) {
+	define( 'BP_ENABLE_MULTIBLOG', false );
+}
+
+if ( !defined( 'BP_ROOT_BLOG' ) ) {
+	define( 'BP_ROOT_BLOG', 1 );
+}
 global $bptodo;
 
 //Include needed files
@@ -49,9 +65,12 @@ function run_wp_bptodo_list() {
 }
 
 //Settings link for this plugin
-function bptodo_admin_page_link($links) {
-	$page_link = array('<a href="'.admin_url('edit.php?post_type=bp-todo&page=user-todo-list-settings').'">'.__( 'Settings', BPTODO_TEXT_DOMAIN ).'</a>');
-	return array_merge($links, $page_link);
+function bptodo_admin_page_link( $links ) {
+	$bptodo_links = array(
+		'<a href="'.admin_url('edit.php?post_type=bp-todo&page=user-todo-list-settings').'">'.__( 'Settings', BPTODO_TEXT_DOMAIN ).'</a>',
+		'<a href="https://wbcomdesigns.com/contact/" target="_blank">'.__( 'Support', BPTODO_TEXT_DOMAIN ).'</a>'
+	);
+	return array_merge( $links, $bptodo_links );
 }
 
 /**
@@ -60,26 +79,49 @@ function bptodo_admin_page_link($links) {
  */
 add_action('plugins_loaded', 'bptodo_plugin_init');
 	function bptodo_plugin_init() {
-	// If BuddyPress is NOT active
-	$bp_active = in_array('buddypress/bp-loader.php', get_option('active_plugins'));
-
-	if ( current_user_can('activate_plugins') && $bp_active !== true ) {
-		add_action('admin_notices', 'bptodo_plugin_admin_notice');
-	} else {
-		if (!defined('BPTODO_PLUGIN_BASENAME')) {
-			define('BPTODO_PLUGIN_BASENAME', plugin_basename(__FILE__));
+	if ( is_multisite() ) {
+		// Makes sure the plugin is defined before trying to use it
+		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+			require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 		}
-		run_wp_bptodo_list();
-		add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'bptodo_admin_page_link' );
-		add_action( 'bp_include', 'bptodo_create_profile_menu' );
+		if ( is_plugin_active_for_network( 'buddypress/bp-loader.php' ) === false ) {
+			add_action('network_admin_notices', 'bptodo_network_plugin_admin_notice');
+		} else {
+			run_wp_bptodo_list();
+			add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'bptodo_admin_page_link' );
+			add_action( 'bp_include', 'bptodo_create_profile_menu' );
+		}
+	} else {
+		$bp_active = in_array('buddypress/bp-loader.php', get_option('active_plugins'));
+		if ( current_user_can('activate_plugins') && $bp_active !== true ) {
+			add_action('admin_notices', 'bptodo_plugin_admin_notice');
+		} else {
+			run_wp_bptodo_list();
+			add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'bptodo_admin_page_link' );
+			add_action( 'bp_include', 'bptodo_create_profile_menu' );
+		}
 	}
 }
 
+/**
+ * Plugin notice - activate buddypress - single site
+ */
 function bptodo_plugin_admin_notice() {
 	$bptodo_plugin = __( 'BP User Todo List', BPTODO_TEXT_DOMAIN );
 	$bp_plugin = __( 'BuddyPress', BPTODO_TEXT_DOMAIN );
 
-	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to function correctly.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
+	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
+	if (isset($_GET['activate'])) unset($_GET['activate']);
+}
+
+/**
+ * Plugin notice - activate buddypress - multisite
+ */
+function bptodo_network_plugin_admin_notice() {
+	$bptodo_plugin = __( 'BP User Todo List', BPTODO_TEXT_DOMAIN );
+	$bp_plugin = __( 'BuddyPress', BPTODO_TEXT_DOMAIN );
+
+	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
 	if (isset($_GET['activate'])) unset($_GET['activate']);
 }
 

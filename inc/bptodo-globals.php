@@ -17,6 +17,7 @@ if ( !class_exists( 'Bptodo_Globals' ) ) {
 		$profile_menu_slug,
 		$send_mail,
 		$send_notification,
+		$allow_user_add_category,
 		$my_todo_items;
 
 		/**
@@ -31,7 +32,7 @@ if ( !class_exists( 'Bptodo_Globals' ) ) {
 		}
 
 		/**
-		 *
+		 * Define all the global variable values
 		 */
 		public function setup_globals() {
 			global $bptodo;
@@ -45,6 +46,12 @@ if ( !class_exists( 'Bptodo_Globals' ) ) {
 
 			$this->profile_menu_label_plural = $this->pluralize( $this->profile_menu_label );
 			$this->profile_menu_slug		 = str_replace( ' ', '-', strtolower( $this->profile_menu_label ) );
+
+			//Allow User To Add Todo Category
+			$this->allow_user_add_category = 'no';
+			if ( !empty( $settings[ 'allow_user_add_category' ] ) ) {
+				$this->allow_user_add_category = 'yes';
+			}
 
 			//Send Notification
 			$this->send_notification = 'no';
