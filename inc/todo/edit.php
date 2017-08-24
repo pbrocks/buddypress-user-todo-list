@@ -17,7 +17,7 @@ if ( !empty( $todo_cat ) && is_array( $todo_cat ) )
 	$todo_cat_id	 = $todo_cat[ 0 ]->term_id;
 $todo_due_date	 = get_post_meta( $todo_id, 'todo_due_date', true );
 ?>
-<form action="<?php echo $url; ?>" method="post">
+<form action="<?php echo $form_post_link; ?>" method="post">
 	<table class="add-todo-block">
 		<tr>
 			<td width="20%">
@@ -78,7 +78,8 @@ $todo_due_date	 = get_post_meta( $todo_id, 'todo_due_date', true );
 		<tr>
 			<td width="20%"></td>
 			<td width="80%">
-				<?php wp_nonce_field( 'wp-bp-todo', 'save_update_todo_data_nonce' ); ?>
+				<?php wp_nonce_field( 'wp-bp-todo', 'save_update_todo_data_nonce' );?>
+				<input type="hidden" name="hidden_todo_id" value="<?php echo $todo_id;?>">
 				<input type="submit" id="todo_update" name="todo_update" value="<?php _e( 'Update ' . $profile_menu_label, BPTODO_TEXT_DOMAIN ); ?>">
 			</td>
 		</tr>

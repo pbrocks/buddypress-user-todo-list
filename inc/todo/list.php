@@ -34,9 +34,10 @@ if ( isset( $_POST[ 'todo_create' ] ) && wp_verify_nonce( $_POST[ 'save_new_todo
 if ( isset( $_POST[ 'todo_update' ] ) && wp_verify_nonce( $_POST[ 'save_update_todo_data_nonce' ], 'wp-bp-todo' ) ) {
 	$cat = sanitize_text_field( $_POST[ 'todo_cat' ] );
 
-	$title		 = sanitize_text_field( $_POST[ 'todo_title' ] );
-	$summary	 = sanitize_text_field( $_POST[ 'todo_summary' ] );
-	$due_date	 = sanitize_text_field( $_POST[ 'todo_due_date' ] );
+	$title		= 	sanitize_text_field( $_POST[ 'todo_title' ] );
+	$summary	= 	sanitize_text_field( $_POST[ 'todo_summary' ] );
+	$due_date	= 	sanitize_text_field( $_POST[ 'todo_due_date' ] );
+	$todo_id 	=	sanitize_text_field( $_POST['hidden_todo_id'] );
 
 	$taxonomy	 = 'todo_category';
 	$args		 = array(
@@ -53,12 +54,6 @@ if ( isset( $_POST[ 'todo_update' ] ) && wp_verify_nonce( $_POST[ 'save_update_t
 	update_post_meta( $post_id, 'todo_due_date', $due_date );
 
 	wp_set_object_terms( $post_id, $cat, $taxonomy );
-
-//	$str = '';
-//	$str .= '<div id="message" class="updated">';
-//	$str .= '<p>' . __( 'Todo item updated successfully.', BPTODO_TEXT_DOMAIN ) . '</p>';
-//	$str .= '</div>';
-//	echo $str;
 }
 $class = "todo-completed";
 
@@ -100,6 +95,13 @@ if ( empty( $todos ) ) {
 	<?php if( isset( $_POST['todo_create'] ) ) {?>
 		<div class="bptodo-add-todo-success">
 			<p><?php _e( $profile_menu_label.' added successfully !', BPTODO_TEXT_DOMAIN );?></p>
+		</div>
+	<?php }?>
+
+	<!-- Show the successful message when todo is updated -->
+	<?php if( isset( $_POST['todo_update'] ) ) {?>
+		<div class="bptodo-add-todo-success">
+			<p><?php _e( $profile_menu_label.' updated successfully !', BPTODO_TEXT_DOMAIN );?></p>
 		</div>
 	<?php }?>
 
