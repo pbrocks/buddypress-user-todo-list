@@ -3,6 +3,8 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 global $bptodo;
 $profile_menu_slug = $bptodo->profile_menu_slug;
+$profile_menu_label = $bptodo->profile_menu_label;
+
 //Save todo items
 if ( isset( $_POST[ 'todo_create' ] ) && wp_verify_nonce( $_POST[ 'save_new_todo_data_nonce' ], 'wp-bp-todo' ) ) {
 
@@ -93,6 +95,14 @@ if ( empty( $todos ) ) {
 		<p><?php _e( 'Sorry, no ' . $profile_menu_slug . ' found.', BPTODO_TEXT_DOMAIN ); ?></p>
 	</div>
 <?php } else { ?>
+
+	<!-- Show the successful message when todo is added -->
+	<?php if( isset( $_POST['todo_create'] ) ) {?>
+		<div class="bptodo-add-todo-success">
+			<p><?php _e( $profile_menu_label.' added successfully !', BPTODO_TEXT_DOMAIN );?></p>
+		</div>
+	<?php }?>
+
 	<div class="bptodo-adming-setting">
 		<div class="bptodo-admin-settings-block">
 			<div id="bptodo-settings-tbl">

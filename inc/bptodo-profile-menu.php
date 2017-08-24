@@ -21,6 +21,10 @@ if (!class_exists('BP_Profile_Todo')) {
 				$profile_menu_slug = $bptodo->profile_menu_slug;
 				$my_todo_items = $bptodo->my_todo_items;
 
+				$displayed_uid = bp_displayed_user_id();
+				$parent_slug = $profile_menu_slug;
+				$todo_menu_link = bp_core_get_userlink( $displayed_uid, false, true ).$parent_slug;
+				
 				$name = bp_get_displayed_user_username();
 				$tab_args = array(
 					'name' => __( $profile_menu_label.' <span class="count">'.$my_todo_items.'</span>', BPTODO_TEXT_DOMAIN ),
@@ -32,18 +36,16 @@ if (!class_exists('BP_Profile_Todo')) {
 				);
 				bp_core_new_nav_item($tab_args);
 
-				$parent_slug = $profile_menu_slug;
-
 				//Add subnav add new todo item
 				bp_core_new_subnav_item(
 					array(
 						'name' => __( 'Add', BPTODO_TEXT_DOMAIN ),
 						'slug' => 'add',
-						'parent_url' => $bp->loggedin_user->domain.$parent_slug.'/',
+						'parent_url' => $todo_menu_link.'/',
 						'parent_slug' => $parent_slug,
 						'screen_function' => array($this, 'bptodo_add_todo_show_screen'),
 						'position' => 200,
-						'link' => site_url()."/members/$name/$parent_slug/add/",
+						'link' => $todo_menu_link.'/add',
 					)
 				);
 
@@ -52,11 +54,11 @@ if (!class_exists('BP_Profile_Todo')) {
 					array(
 						'name' => __( $profile_menu_label_plural, BPTODO_TEXT_DOMAIN ),
 						'slug' => 'list',
-						'parent_url' => $bp->loggedin_user->domain.$parent_slug.'/',
+						'parent_url' => $todo_menu_link.'/',
 						'parent_slug' => $parent_slug,
 						'screen_function' => array($this, 'bpchk_todo_list_show_screen'),
 						'position' => 100,
-						'link' => site_url()."/members/$name/$parent_slug/list/",
+						'link' => $todo_menu_link.'/list',
 					)
 				);
 			}

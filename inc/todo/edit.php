@@ -3,31 +3,20 @@
 defined( 'ABSPATH' ) || exit;
 
 global $bptodo;
-$profile_menu_label	 = $bptodo->profile_menu_label;
-$profile_menu_slug	 = $bptodo->profile_menu_slug;
-$name				 = bp_get_displayed_user_username();
-$url				 = home_url( "/members/$name/$profile_menu_slug" );
-$todo_id			 = sanitize_text_field( $_GET[ 'args' ] );
+$profile_menu_label	 	= $bptodo->profile_menu_label;
+$profile_menu_slug	 	= $bptodo->profile_menu_slug;
+$displayed_uid 			= bp_displayed_user_id();
+$form_post_link 		= bp_core_get_userlink( $displayed_uid, false, true ).$profile_menu_slug;
+$todo_id			 	= sanitize_text_field( $_GET[ 'args' ] );
 
-$todo_cats		 = get_terms( 'todo_category', 'orderby=name&hide_empty=0' );
-$todo			 = get_post( $todo_id );
-$todo_cat		 = wp_get_object_terms( $todo_id, 'todo_category' );
-$todo_cat_id	 = 0;
+$todo_cats		 		= get_terms( 'todo_category', 'orderby=name&hide_empty=0' );
+$todo			 		= get_post( $todo_id );
+$todo_cat		 		= wp_get_object_terms( $todo_id, 'todo_category' );
+$todo_cat_id	 		= 0;
 if ( !empty( $todo_cat ) && is_array( $todo_cat ) )
 	$todo_cat_id	 = $todo_cat[ 0 ]->term_id;
 $todo_due_date	 = get_post_meta( $todo_id, 'todo_due_date', true );
 ?>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-	<div class="modal-content">
-		<span class="close">&times;</span>
-		<div class="modal-header"></div>
-		<div class="modal-body">
-			<p style="margin:15px;">To Do Updated Successfully!</p>
-		</div>
-		<div class="modal-footer"></div>
-	</div>
-</div>
 <form action="<?php echo $url; ?>" method="post">
 	<table class="add-todo-block">
 		<tr>

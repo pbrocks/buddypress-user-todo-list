@@ -7,20 +7,11 @@ global $bptodo;
 $profile_menu_label	 = $bptodo->profile_menu_label;
 $profile_menu_slug	 = $bptodo->profile_menu_slug;
 $name				 = bp_get_displayed_user_username();
-$url				 = home_url( "/members/$name/$profile_menu_slug" );
+
+$displayed_uid = bp_displayed_user_id();
+$form_post_link = bp_core_get_userlink( $displayed_uid, false, true ).$profile_menu_slug;
 ?>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-	<div class="modal-content">
-		<span class="close">&times;</span>
-		<div class="modal-header"></div>
-		<div class="modal-body">
-			<p style="margin:15px;">To Do Added Successfully!</p>
-		</div>
-		<div class="modal-footer"></div>
-	</div>
-</div>
-<form action="<?php echo $url; ?>" method="post" id="myForm">
+<form action="<?php echo $form_post_link;?>" method="post" id="myForm">
 	<table class="add-todo-block">
 		<tr>
 			<td width="20%">

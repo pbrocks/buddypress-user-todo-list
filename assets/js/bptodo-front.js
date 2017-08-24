@@ -67,7 +67,7 @@ jQuery( document ).ready( function () {
                 },
                 function ( response ) {
                     if ( response == 'todo-category-added' ) {
-                        var html = '<option value="' + name + '">' + name + '</option>';
+                        var html = '<option value="' + name + '" selected>' + name + '</option>';
                         jQuery( '#bp_todo_categories' ).append( html );
                         jQuery( '.add-todo-cat-row' ).hide();
                     }
@@ -137,18 +137,6 @@ jQuery( document ).ready( function () {
             }
         );
     } );
-
-    jQuery( document ).on( 'click', '#bp-add-new-todo, #todo_update', function () {
-        jQuery( '#myModal' ).show();
-    } );
-    var span = document.getElementsByClassName( "close" )[0];
-    var modal = document.getElementById( 'myModal' );
-    // When the user clicks on <span> (x), close the modal
-    if ( span ) {
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-    }
 } );
 
 function JSONToCSVConvertor( JSONData, ReportTitle, ShowLabel ) {
