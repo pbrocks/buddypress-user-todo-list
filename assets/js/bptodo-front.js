@@ -31,10 +31,12 @@ jQuery( document ).ready( function () {
     //Export My Tasks
     jQuery( document ).on( 'click', '#export_my_tasks', function () {
         jQuery( '#export_my_tasks' ).html( '<i class="fa fa-refresh fa-spin"></i>' );
+        var security_nonce = jQuery( '#bptodo-export-todo-nonce' ).val();
         jQuery.post(
             ajaxurl,
             {
-                'action': 'bptodo_export_my_tasks'
+                'action'            : 'bptodo_export_my_tasks',
+                'security_nonce'    : security_nonce
             },
             function ( response ) {
                 jQuery( '#export_my_tasks' ).html( '<i class="fa fa-download" aria-hidden="true"></i>' );
@@ -48,7 +50,6 @@ jQuery( document ).ready( function () {
     //Add BP Todo Category Show Row
     jQuery( document ).on( 'click', '.add-todo-category', function(){
         jQuery( '.add-todo-cat-row' ).slideToggle( 'slow' );
-
         var element_height = jQuery('.add-todo-cat-row').css('height').match(/\d+/);
         if( element_height[0] > 5 ) {
             jQuery('.add-todo-category i').attr('class', 'fa fa-plus');
@@ -65,12 +66,14 @@ jQuery( document ).ready( function () {
         if ( name == '' ) {
             jQuery( '#todo-category-name' ).addClass( 'bptodo-add-cat-empty' ).attr( 'placeholder', 'Category name is required.' );
         } else {
+            var security_nonce = jQuery( '#bptodo-add-category-nonce' ).val();
             jQuery( this ).html( btn_text+' <i class="fa fa-refresh fa-spin"></i>' );
             jQuery.post(
                 ajaxurl,
                 {
-                    'action': 'bptodo_add_todo_category_front',
-                    'name': name
+                    'action'            : 'bptodo_add_todo_category_front',
+                    'name'              : name,
+                    'security_nonce'    : security_nonce
                 },
                 function ( response ) {
                     if ( response == 'todo-category-added' ) {

@@ -42,6 +42,8 @@ $todo_due_date	 = get_post_meta( $todo_id, 'todo_due_date', true );
 				<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
 					<div class="add-todo-cat-row">
 						<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label . ' category', BPTODO_TEXT_DOMAIN ); ?>">
+						<?php $add_cat_nonce = wp_create_nonce( 'bptodo-add-todo-category' );?>
+						<input type="hidden" id="bptodo-add-category-nonce" value="<?php echo $add_cat_nonce;?>">
 						<button type="button" id="add-todo-cat"><?php _e( 'Add', BPTODO_TEXT_DOMAIN );?></button>
 					</div>
 				<?php }?>

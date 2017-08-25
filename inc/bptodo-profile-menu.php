@@ -111,6 +111,8 @@ if (!class_exists('BP_Profile_Todo')) {
 			$todos = get_posts($args);
 			if( count( $todos ) != 0 ) {
 				?>
+				<?php $todo_export_nonce = wp_create_nonce( 'bptodo-export-todo' );?>
+				<input type="hidden" id="bptodo-export-todo-nonce" value="<?php echo $todo_export_nonce;?>">
 				<a href="javascript:void(0);" id="export_my_tasks"><i class="fa fa-download" aria-hidden="true"></i></a>
 				<?php
 			}

@@ -27,6 +27,7 @@ if (!class_exists('BPTodoAjax')) {
 		//Actions Performed To Export My Tasks
 		function bptodo_export_my_tasks() {
 			if (isset($_POST['action']) && $_POST['action'] === 'bptodo_export_my_tasks') {
+				check_ajax_referer( 'bptodo-export-todo', 'security_nonce' );
 				$args = array(
 					'post_type' => 'bp-todo',
 					'post_status' => 'publish',
@@ -85,6 +86,7 @@ if (!class_exists('BPTodoAjax')) {
 		//Actions Performed To Add BP Todo Category
 		function bptodo_add_todo_category_front() {
 			if (isset($_POST['action']) && $_POST['action'] === 'bptodo_add_todo_category_front') {
+				check_ajax_referer( 'bptodo-add-todo-category', 'security_nonce' );
 				$term = sanitize_text_field( $_POST['name'] );
 				$taxonomy = 'todo_category';
 				$termExists = term_exists($term, $taxonomy);
