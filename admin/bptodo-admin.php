@@ -98,9 +98,8 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 					$settings['send_mail'] = sanitize_text_field( $_POST['bptodo_send_mail'] );
 				}
 				
-				//echo '<pre>'; print_r( $settings ); die;
 				update_option('user_todo_list_settings', $settings);
-				echo '<div class="notice notice-success"><p>Settings Saved.</p></div>';
+				echo '<div class="notice notice-success"><p><strong>Settings Saved.</strong></p></div>';
 			}
 		}
 	}
