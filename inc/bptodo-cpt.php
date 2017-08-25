@@ -17,16 +17,16 @@ if ( !class_exists( 'BP_Todo_CPT' ) ) {
 		//Actions performed on loading init: creating cpt
 		function bptodo_create_cpt() {
 			$labels = array(
-				'name'				 => 'Todo Items',
-				'singular_name'		 => 'Todo Item',
-				'menu_name'			 => 'Todo Items',
-				'name_admin_bar'	 => 'Todo Items',
-				'view_item'			 => 'View Todo Item',
-				'all_items'			 => 'All Todo Items',
-				'search_items'		 => 'Search Todo Item',
-				'parent_item_colon'	 => 'Parent Todo Item:',
-				'not_found'			 => 'No Todo Item Found',
-				'not_found_in_trash' => 'No Todo Item Found In Trash',
+				'name'				 => __( 'Todo Items', BPTODO_TEXT_DOMAIN ),
+				'singular_name'		 => __( 'Todo Item', BPTODO_TEXT_DOMAIN ),
+				'menu_name'			 => __( 'Todo Items', BPTODO_TEXT_DOMAIN ),
+				'name_admin_bar'	 => __( 'Todo Items', BPTODO_TEXT_DOMAIN ),
+				'view_item'			 => __( 'View Todo Item', BPTODO_TEXT_DOMAIN ),
+				'all_items'			 => __( 'All Todo Items', BPTODO_TEXT_DOMAIN ),
+				'search_items'		 => __( 'Search Todo Item', BPTODO_TEXT_DOMAIN ),
+				'parent_item_colon'	 => __( 'Parent Todo Item:', BPTODO_TEXT_DOMAIN ),
+				'not_found'			 => __( 'No Todo Item Found', BPTODO_TEXT_DOMAIN ),
+				'not_found_in_trash' => __( 'No Todo Item Found In Trash', BPTODO_TEXT_DOMAIN ),
 			);
 
 			$args = array(
@@ -56,17 +56,17 @@ if ( !class_exists( 'BP_Todo_CPT' ) ) {
 		//Actions performed on loading init: creating cpt category
 		function bptodo_create_cpt_category() {
 			$tax_labels	 = array(
-				'name'				 => 'Category',
-				'singular_name'		 => 'Category',
-				'search_items'		 => 'Search Todo Items Categories',
-				'all_items'			 => 'All Todo Items Categories',
-				'parent_item'		 => 'Parent Todo Item Category',
-				'parent_item_colon'	 => 'Parent Todo Item Category:',
-				'edit_item'			 => 'Edit Category',
-				'update_item'		 => 'Update Category',
-				'add_new_item'		 => 'Add Todo Item Category',
-				'not_found'			 => 'No Todo Item Categories Found',
-				'menu_name'			 => 'Category',
+				'name'				 => __( 'Category', BPTODO_TEXT_DOMAIN ),
+				'singular_name'		 => __( 'Category', BPTODO_TEXT_DOMAIN ),
+				'search_items'		 => __( 'Search Todo Items Categories', BPTODO_TEXT_DOMAIN ),
+				'all_items'			 => __( 'All Todo Items Categories', BPTODO_TEXT_DOMAIN ),
+				'parent_item'		 => __( 'Parent Todo Item Category', BPTODO_TEXT_DOMAIN ),
+				'parent_item_colon'	 => __( 'Parent Todo Item Category:', BPTODO_TEXT_DOMAIN ),
+				'edit_item'			 => __( 'Edit Category', BPTODO_TEXT_DOMAIN ),
+				'update_item'		 => __( 'Update Category', BPTODO_TEXT_DOMAIN ),
+				'add_new_item'		 => __( 'Add Todo Item Category', BPTODO_TEXT_DOMAIN ),
+				'not_found'			 => __( 'No Todo Item Categories Found', BPTODO_TEXT_DOMAIN ),
+				'menu_name'			 => __( 'Categories', BPTODO_TEXT_DOMAIN ),
 			);
 			$tax_args	 = array(
 				'hierarchical'		 => true,
