@@ -5,7 +5,7 @@ global $bptodo;
 <table class="form-table">
 	<tbody>
 		<tr>
-			<th scope="row"><label for="bptodo-shortcode"><?php echo '[bptodo_by_category]';?></label></th>
+			<th scope="row"><label for="bptodo-shortcode-1">[bptodo_by_category category="<i>CATEGORY_ID</i>"]</label></th>
 			<td>
 				<p><?php _e( 'This shortcode will list all the '.$bptodo->profile_menu_label_plural.' category wise.', BPTODO_TEXT_DOMAIN );?></p>
 				<p class="description"><?php _e( 'Arguments accepted:', BPTODO_TEXT_DOMAIN );?></p>

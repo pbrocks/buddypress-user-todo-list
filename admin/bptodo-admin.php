@@ -29,8 +29,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			$tab = isset($_GET['tab']) ? $_GET['tab'] : 'user-todo-list-settings';
 			?>
 			<div class="wrap">
-				<h2><?php _e('User Todo List Settings - BuddyPress Members', BPTODO_TEXT_DOMAIN); ?></h2>
-				<p><?php _e('This plugin will allow the site owner to manage todo items created by the site members.', BPTODO_TEXT_DOMAIN); ?></p>
+				<h2><?php _e('User Todo List Settings', BPTODO_TEXT_DOMAIN); ?></h2>
 				<?php $this->bptodo_plugin_settings_tabs(); ?>
 				<form action="" method="POST" id="<?php echo $tab;?>-settings-form">
 					<?php do_settings_sections( $tab );?>

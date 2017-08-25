@@ -15,7 +15,7 @@ global $bptodo;
 
 		<!-- ALLOW USER TO ADD CATEGORY OF TODO -->
 		<tr>
-			<th scope="row"><label for="bptodo-allow-user-add-category"><?php _e( 'Allow User Add Category', BPTODO_TEXT_DOMAIN );?></label></th>
+			<th scope="row"><label for="bptodo-allow-user-add-category"><?php _e( 'Allow User To Add Category', BPTODO_TEXT_DOMAIN );?></label></th>
 			<td>
 				<input type="checkbox" name="bptodo_allow_user_add_category" <?php echo ( $bptodo->allow_user_add_category == 'yes' ) ? 'checked': 'unchecked';?>>
 				<p class="description"><?php _e( 'Check this option if you want to allow normal users of the site to have the ability to create the todo category.', BPTODO_TEXT_DOMAIN );?></p>
