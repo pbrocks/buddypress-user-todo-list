@@ -23,9 +23,9 @@ jQuery( document ).ready( function () {
         }
     }
 
-    jQuery( document ).on( 'click', '.bptodo-accordion', function () {
+    jQuery( document ).on( 'click', '.bptodo-accordion', function(){
         return false;
-    } );
+    });
 
     //Datepicker
     jQuery( '.todo_due_date' ).datepicker( { dateFormat: 'yy-mm-dd', minDate: 0 } );
@@ -50,6 +50,14 @@ jQuery( document ).ready( function () {
     //Add BP Todo Category Show Row
     jQuery( document ).on( 'click', '.add-todo-category', function(){
         jQuery( '.add-todo-cat-row' ).slideToggle( 'slow' );
+
+        var element_height = jQuery('.add-todo-cat-row').css('height').match(/\d+/);
+        if( element_height[0] > 5 ) {
+            jQuery('.add-todo-category i').attr('class', 'fa fa-plus');
+        } else {
+            jQuery('.add-todo-category i').attr('class', 'fa fa-minus');
+        }
+
     });
 
     //Add BP Todo Category
