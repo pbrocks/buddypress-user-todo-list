@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: BP User Todo List
+ * Plugin Name: BuddyPress Member Todo List
  * Plugin URI: https://wbcomdesigns.com/contact/
  * Description: This plugin allows users to create to do items in their profile section and manage them accordingly.
  * Version: 1.0.1

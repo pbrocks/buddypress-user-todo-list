@@ -56,8 +56,8 @@ if ( !class_exists( 'BP_Todo_CPT' ) ) {
 		//Actions performed on loading init: creating cpt category
 		function bptodo_create_cpt_category() {
 			$tax_labels	 = array(
-				'name'				 => __( 'Category', BPTODO_TEXT_DOMAIN ),
-				'singular_name'		 => __( 'Category', BPTODO_TEXT_DOMAIN ),
+				'name'				 => __( 'Todo Category', BPTODO_TEXT_DOMAIN ),
+				'singular_name'		 => __( 'Todo Category', BPTODO_TEXT_DOMAIN ),
 				'search_items'		 => __( 'Search Todo Items Categories', BPTODO_TEXT_DOMAIN ),
 				'all_items'			 => __( 'All Todo Items Categories', BPTODO_TEXT_DOMAIN ),
 				'parent_item'		 => __( 'Parent Todo Item Category', BPTODO_TEXT_DOMAIN ),
@@ -78,6 +78,14 @@ if ( !class_exists( 'BP_Todo_CPT' ) ) {
 				'rewrite'			 => array( 'slug' => 'todo_category' ),
 			);
 			register_taxonomy( 'todo_category', array( 'bp-todo' ), $tax_args );
+
+			$term = term_exists( 'Uncategorized', 'todo_category' );
+			if ( empty( $term ) ) {
+				wp_insert_term(
+					'Uncategorized',
+					'todo_category'
+				);
+			}
 		}
 
 	}
