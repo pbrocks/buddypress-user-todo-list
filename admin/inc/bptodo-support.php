@@ -22,9 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
             <div class="bptodo-admin-row">
                 <div>
-                   <button class="bptodo-accordion"><?php _e( 'Any plugin dependency?', BPTODO_TEXT_DOMAIN );?></button>
+                   <button class="bptodo-accordion"><?php _e( 'Does this plugin require any other plugin to work?', BPTODO_TEXT_DOMAIN );?></button>
                     <div class="panel">
-                        <p><?php _e( 'As the name suggests, this plugin requires <strong>BuddyPress</strong> to be installed and active.', BPTODO_TEXT_DOMAIN );?></p>
+                        <p><?php _e( 'As the name of the plugin justifies, this plugin helps manage <strong>Todo List</strong> for BuddyPress <strong>Members</strong>, this plugin requires <strong>BuddyPress</strong> plugin to be installed and active.', BPTODO_TEXT_DOMAIN );?></p>
+                        <p><?php _e( 'You\'ll also get an admin notice and the plugin will become ineffective if the required plugin will not be there.', BPTODO_TEXT_DOMAIN );?></p>
                     </div>
                 </div>
             </div>

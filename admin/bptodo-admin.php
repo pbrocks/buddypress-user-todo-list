@@ -22,18 +22,16 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 
 		//Actions performed on loading admin_menu
 		function bptodo_add_menu_page() {
-			add_submenu_page( 'edit.php?post_type=bp-todo', __( 'User Todo List Settings', BPTODO_TEXT_DOMAIN ), __( 'Settings', BPTODO_TEXT_DOMAIN ), 'manage_options', 'user-todo-list-settings', array( $this, 'bptodo_admin_options_page' ) );
+			add_submenu_page( 'edit.php?post_type=bp-todo', __( 'BuddyPress Member Todo List Settings', BPTODO_TEXT_DOMAIN ), __( 'Settings', BPTODO_TEXT_DOMAIN ), 'manage_options', 'user-todo-list-settings', array( $this, 'bptodo_admin_options_page' ) );
 		}
 
 		function bptodo_admin_options_page() {
 			$tab = isset($_GET['tab']) ? $_GET['tab'] : 'user-todo-list-settings';
 			?>
 			<div class="wrap">
-				<h2><?php _e('User Todo List Settings', BPTODO_TEXT_DOMAIN); ?></h2>
-				<?php $this->bptodo_plugin_settings_tabs(); ?>
-				<form action="" method="POST" id="<?php echo $tab;?>-settings-form">
-					<?php do_settings_sections( $tab );?>
-				</form>
+				<h2><?php _e('BuddyPress Member Todo List Settings', BPTODO_TEXT_DOMAIN);?></h2>
+				<?php $this->bptodo_plugin_settings_tabs();?>
+				<?php do_settings_sections( $tab );?>
 			</div>
 			<?php
 		}
