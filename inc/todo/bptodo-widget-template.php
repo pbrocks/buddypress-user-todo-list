@@ -18,11 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			$str = '';
 			$i = 0;
 			foreach ($todos as $todo) {
-				$post_content = $todo->post_content;
 				$due_date = get_post_meta($todo->ID, 'todo_due_date', true);
 				$date = date_create($due_date);
-				$str .= '"' . date_format($date, "Y/n/j") . '": jQuery("<div>' . esc_attr($post_content) . '</div>")';
-				if ($i != count($todos) - 1) {
+				$str .= '"' . date_format($date, "Y/n/j") . '": jQuery("<div>' . esc_attr( $todo->post_title ) . '</div>")';
+				if ($i != count( $todos ) - 1) {
 					$str .= ',';
 				}
 			}

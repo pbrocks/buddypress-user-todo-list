@@ -124,7 +124,7 @@ jQuery( document ).ready( function () {
                 if ( response == 'todo-completed' ) {
                     clicked_tid.closest( 'tr' ).find( "td" ).addClass( 'todo-completed' );
                     clicked_tid.closest( 'td' ).prev( 'td' ).text( 'Completed!' );
-                    clicked_tid.closest( 'td' ).html( '<ul><li><a href="javacript:void(0);" class="bptodo-remove-todo" data-tid="' + tid + '" title="Remove"><i class="fa fa-times"></i></a></li><li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="' + tid + '" title="Undo Complete"><i class="fa fa-undo"></i></a></li></ul>' )
+                    clicked_tid.closest( 'td' ).html( '<ul><li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="' + tid + '" title="Undo Complete"><i class="fa fa-undo"></i></a></li></ul>' )
                 }
             }
         );

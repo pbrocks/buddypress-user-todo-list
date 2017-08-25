@@ -91,14 +91,11 @@ var tempust = {
                         .attr("data-date", tempust.sds(dates[day].date))
 
                 dateBox.append(object);
-
                 if (dates[day].e) {
                     object.attr("data-event", true);
                     object.addClass("bptodo-day");
                     object.on("click", function () {
-                        var element = $(
-                                "[data-event-date='" + $(this).attr("data-date") + "']"
-                                ).slideToggle();
+                        $("[data-event-date='" + $(this).attr("data-date") + "']").slideToggle();
                     });
                     events.push({
                         date: tempust.sds(dates[day].date),
@@ -107,16 +104,15 @@ var tempust = {
                 }
 
                 weekDay++;
-
                 if (weekDay > 7) {
                     weekDay = 1;
                     events.forEach(function (event) {
                         dateBox.append(
-                                $("<div>")
-                                .append(event.details)
-                                .addClass("event")
-                                .attr("data-event-date", event.date)
-                                );
+                            $("<div>")
+                            .append(event.details)
+                            .addClass("event")
+                            .attr("data-event-date", event.date)
+                        );
                     });
                     events = [];
                 }

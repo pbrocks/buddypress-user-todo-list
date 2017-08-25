@@ -248,9 +248,16 @@ if ( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		 * that will list all the todo items according to the category
 		 */
 		function bptodo_by_categpry_template( $atts ) {
-			$shortcode_template = BPTODO_PLUGIN_PATH . 'inc/todo/bptodo-by-category-template.php';
-			if ( file_exists( $shortcode_template ) ) {
-				include_once $shortcode_template;
+			if( is_user_logged_in() ) {
+				$shortcode_template = BPTODO_PLUGIN_PATH . 'inc/todo/bptodo-by-category-template.php';
+				if ( file_exists( $shortcode_template ) ) {
+					include_once $shortcode_template;
+				}
+			} else {
+				$shortcode_template_loggedout_user = BPTODO_PLUGIN_PATH . 'inc/todo/bptodo-by-category-template-loggedout-user.php';
+				if ( file_exists( $shortcode_template_loggedout_user ) ) {
+					include_once $shortcode_template_loggedout_user;
+				}
 			}
 		}
 
