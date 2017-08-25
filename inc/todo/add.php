@@ -12,7 +12,7 @@ $displayed_uid = bp_displayed_user_id();
 $form_post_link = bp_core_get_userlink( $displayed_uid, false, true ).$profile_menu_slug;
 ?>
 <form action="<?php echo $form_post_link;?>" method="post" id="myForm">
-	<table class="add-todo-block">
+	<table class="bptodo-add-todo-tbl">
 		<tr>
 			<td width="20%">
 				<?php _e( 'Category', BPTODO_TEXT_DOMAIN ); ?>
@@ -28,13 +28,13 @@ $form_post_link = bp_core_get_userlink( $displayed_uid, false, true ).$profile_m
 						<?php } ?>
 					</select>
 					<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
-						<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+						<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus" aria-hidden="true"></i></a>
 					<?php }?>
 				</div>
 				<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
 					<div class="add-todo-cat-row">
 						<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label . ' category', BPTODO_TEXT_DOMAIN ); ?>">
-						<input type="button" id="add-todo-cat" value="<?php _e( 'Add', BPTODO_TEXT_DOMAIN ); ?>">
+						<button type="button" id="add-todo-cat"><?php _e( 'Add', BPTODO_TEXT_DOMAIN );?></button>
 					</div>
 				<?php }?>
 			</td>

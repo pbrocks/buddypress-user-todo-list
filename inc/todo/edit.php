@@ -18,7 +18,7 @@ if ( !empty( $todo_cat ) && is_array( $todo_cat ) )
 $todo_due_date	 = get_post_meta( $todo_id, 'todo_due_date', true );
 ?>
 <form action="<?php echo $form_post_link; ?>" method="post">
-	<table class="add-todo-block">
+	<table class="bptodo-add-todo-tbl">
 		<tr>
 			<td width="20%">
 				<?php _e( 'Category', BPTODO_TEXT_DOMAIN ); ?>
@@ -36,13 +36,13 @@ $todo_due_date	 = get_post_meta( $todo_id, 'todo_due_date', true );
 						<?php } ?>
 					</select>
 					<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
-						<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+						<a href="javascript:void(0);" class="add-todo-category"><i class="fa fa-plus" aria-hidden="true"></i></a>
 					<?php }?>
 				</div>
 				<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
 					<div class="add-todo-cat-row">
 						<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label . ' category', BPTODO_TEXT_DOMAIN ); ?>">
-						<input type="button" id="add-todo-cat" value="<?php _e( 'Add', BPTODO_TEXT_DOMAIN ); ?>">
+						<button type="button" id="add-todo-cat"><?php _e( 'Add', BPTODO_TEXT_DOMAIN );?></button>
 					</div>
 				<?php }?>
 			</td>

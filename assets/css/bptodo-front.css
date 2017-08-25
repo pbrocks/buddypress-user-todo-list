@@ -125,7 +125,7 @@ td.bp-to-do-actions ul {
 }
 .add-todo-category i {
     margin-left: 10px;
-    font-size: 30px;
+    font-size: 22px;
 }
 .buddyboss-select {
     width: 50%;
@@ -137,10 +137,16 @@ td.bp-to-do-actions ul {
 .bptodo-add-cat-empty::-webkit-input-placeholder {
     color: red;
 }
-.add-todo-block tr td {
+.bptodo-add-todo-tbl, .bptodo-add-todo-tbl th, .bptodo-add-todo-tbl td {
     border: none;
     /*vertical-align: top!important;*/
 }
+.bptodo-add-todo-tbl{
+    width: 70%;
+}
 #bptodo-calender .buddyboss-select-inner select {
     width: 100%!important;
+}
+.bp-user #buddypress table a {
+    color: #000 !important;
 }
