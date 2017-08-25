@@ -25,8 +25,16 @@
     float: left;
     width: 100%;
 }
+#export_my_tasks{
+    color: #000 !important;
+    margin-left: 15px;
+}
+button.bptodo-item:focus {
+    background-color: #eee;
+    outline: none;
+}
 button.bptodo-item {
-    background-color: transparent;
+    background-color: #EEE;
     border: medium none;
     color: hsl(0, 0%, 27%);
     cursor: pointer;
@@ -40,10 +48,7 @@ button.bptodo-item {
     font-weight: bold;
 }
 button.bptodo-item:hover {
-    color:white;
-}
-button.bptodo-item.active{
-    color: #000;
+    background-color: #C1C1C1 !important;
 }
 div.panel {
     padding: 0 0px;
@@ -149,4 +154,7 @@ td.bp-to-do-actions ul {
 }
 .bp-user #buddypress table a {
     color: #000 !important;
+}
+a:focus, button:focus{
+    outline: none !important;
 }
