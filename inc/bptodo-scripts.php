@@ -21,8 +21,12 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 				wp_enqueue_style('bptodo-css-ui', BPTODO_PLUGIN_URL.'assets/css/jquery-ui.min.css');
 				wp_enqueue_style('bptodo-css-fa', BPTODO_PLUGIN_URL.'assets/css/font-awesome.min.css');
 
-				wp_enqueue_script('jquery');
-				wp_enqueue_script('jquery-ui-datepicker');
+				if( !wp_script_is( 'jquery.js' ) ) {
+					wp_enqueue_script('jquery');
+				}
+				if( !wp_script_is( 'datepicker.min.js' ) ) {
+					wp_enqueue_script('jquery-ui-datepicker');
+				}
 
 				wp_enqueue_script('bptodo-js-front', BPTODO_PLUGIN_URL.'assets/js/bptodo-front.js');
 				wp_enqueue_style('bptodo-front-css', BPTODO_PLUGIN_URL.'assets/css/bptodo-front.css');

@@ -87,7 +87,6 @@ if ( !class_exists( 'BP_Todo_CPT' ) ) {
 				);
 			}
 		}
-
 	}
 
 	new BP_Todo_CPT();
