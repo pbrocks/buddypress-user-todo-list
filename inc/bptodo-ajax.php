@@ -10,23 +10,18 @@ if (!class_exists('BPTodoAjax')) {
 		function __construct() {
 			//Export My Tasks
 			add_action('wp_ajax_bptodo_export_my_tasks', array($this, 'bptodo_export_my_tasks'));
-			add_action('wp_ajax_nopriv_bptodo_export_my_tasks', array($this, 'bptodo_export_my_tasks'));
 
 			//Remove a task
 			add_action('wp_ajax_bptodo_remove_todo', array($this, 'bptodo_remove_todo'));
-			add_action('wp_ajax_nopriv_bptodo_remove_todo', array($this, 'bptodo_remove_todo'));
 
 			//Complete a task
 			add_action('wp_ajax_bptodo_complete_todo', array($this, 'bptodo_complete_todo'));
-			add_action('wp_ajax_nopriv_bptodo_complete_todo', array($this, 'bptodo_complete_todo'));
 
 			//Undo complete a task
 			add_action('wp_ajax_bptodo_undo_complete_todo', array($this, 'bptodo_undo_complete_todo'));
-			add_action('wp_ajax_nopriv_bptodo_undo_complete_todo', array($this, 'bptodo_undo_complete_todo'));
 
 			//Add BP Todo Category
 			add_action('wp_ajax_bptodo_add_todo_category_front', array($this, 'bptodo_add_todo_category_front'));
-			add_action('wp_ajax_nopriv_bptodo_add_todo_category_front', array($this, 'bptodo_add_todo_category_front'));
 		}
 
 		//Actions Performed To Export My Tasks

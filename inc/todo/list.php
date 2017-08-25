@@ -87,7 +87,7 @@ foreach ( $todos as $todo ) {
 if ( empty( $todos ) ) {
 	?>
 	<div id="message" class="info">
-		<p><?php _e( 'Sorry, no ' . $profile_menu_slug . ' found.', BPTODO_TEXT_DOMAIN ); ?></p>
+		<p><?php _e( 'Sorry, no ' . $profile_menu_slug . ' found.', BPTODO_TEXT_DOMAIN );?></p>
 	</div>
 <?php } else { ?>
 
@@ -113,20 +113,20 @@ if ( empty( $todos ) ) {
 				<?php if ( !empty( $todo_list[ 'past' ] ) ) { ?>
 					<div class="bptodo-admin-row">
 						<div>
-							<button class="bptodo-item"><?php _e( 'PAST', BPTODO_TEXT_DOMAIN ); ?></button>
+							<button class="bptodo-item"><?php _e( 'PAST', BPTODO_TEXT_DOMAIN );?></button>
 							<div class="panel">
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
 											<tr>
-												<th></th>
-												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN ); ?></th>
+												<th><?php _e( 'Sr. No.', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $count = 1; ?>
+											<?php $count = 1;?>
 											<?php foreach ( $todo_list[ 'past' ] as $tid ) { ?>
 												<?php
 												$todo			 = get_post( $tid );
@@ -153,22 +153,22 @@ if ( empty( $todos ) ) {
 													$due_date_td_class	 = '';
 												}
 												?>
-												<tr id="bptodo-row-<?php echo $tid; ?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $count++; ?></td>
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $todo_title; ?></td>
+												<tr id="bptodo-row-<?php echo $tid;?>">
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
 													if ( $todo_status == 'complete' )
 														echo $class;
-													?>"><?php echo $due_date_str; ?></td>
+													?>"><?php echo $due_date_str;?></td>
 													<td class="bp-to-do-actions">
 														<ul>
-															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-times"></i></a></li>
+															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 															<?php if ( $todo_status !== 'complete' ) { ?>
-																<li><a href="<?php echo $todo_edit_url; ?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-edit"></i></a></li>
-																<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
+																<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-check"></i></a></li>
 															<?php } else { ?>
-																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-undo"></i></a></li>
 															<?php } ?>
 														</ul>	
 													</td>
@@ -187,20 +187,20 @@ if ( empty( $todos ) ) {
 				<?php if ( !empty( $todo_list[ 'today' ] ) ) { ?>
 					<div class="bptodo-admin-row">
 						<div>
-							<button class="bptodo-item"><?php _e( 'TODAY', BPTODO_TEXT_DOMAIN ); ?></button>
+							<button class="bptodo-item"><?php _e( 'TODAY', BPTODO_TEXT_DOMAIN );?></button>
 							<div class="panel">
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
 											<tr>
-												<th></th>
-												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN ); ?></th>
+												<th><?php _e( 'Sr. No.', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $count = 1; ?>
+											<?php $count = 1;?>
 											<?php foreach ( $todo_list[ 'today' ] as $tid ) { ?>
 												<?php
 												$todo			 = get_post( $tid );
@@ -227,22 +227,22 @@ if ( empty( $todos ) ) {
 													$due_date_td_class	 = '';
 												}
 												?>
-												<tr id="bptodo-row-<?php echo $tid; ?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $count++; ?></td>
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $todo_title; ?></td>
+												<tr id="bptodo-row-<?php echo $tid;?>">
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
 													if ( $todo_status == 'complete' )
 														echo $class;
-													?>"><?php echo $due_date_str; ?></td>
+													?>"><?php echo $due_date_str;?></td>
 													<td class="bp-to-do-actions">
 														<ul>
-															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-times"></i></a></li>
+															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 															<?php if ( $todo_status !== 'complete' ) { ?>
-																<li><a href="<?php echo $todo_edit_url; ?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-edit"></i></a></li>
-																<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
+																<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-check"></i></a></li>
 															<?php } else { ?>
-																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-undo"></i></a></li>
 															<?php } ?>
 														</ul>	
 													</td>
@@ -260,20 +260,20 @@ if ( empty( $todos ) ) {
 				<?php if ( !empty( $todo_list[ 'tomorrow' ] ) ) { ?>
 					<div class="bptodo-admin-row">
 						<div>
-							<button class="bptodo-item"><?php _e( 'TOMORROW', BPTODO_TEXT_DOMAIN ); ?></button>
+							<button class="bptodo-item"><?php _e( 'TOMORROW', BPTODO_TEXT_DOMAIN );?></button>
 							<div class="panel">
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
 											<tr>
-												<th></th>
-												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN ); ?></th>
+												<th><?php _e( 'Sr. No.', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $count = 1; ?>
+											<?php $count = 1;?>
 											<?php foreach ( $todo_list[ 'tomorrow' ] as $tid ) { ?>
 												<?php
 												$todo			 = get_post( $tid );
@@ -300,22 +300,22 @@ if ( empty( $todos ) ) {
 													$due_date_td_class	 = '';
 												}
 												?>
-												<tr id="bptodo-row-<?php echo $tid; ?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $count++; ?></td>
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $todo_title; ?></td>
+												<tr id="bptodo-row-<?php echo $tid;?>">
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
 													if ( $todo_status == 'complete' )
 														echo $class;
-													?>"><?php echo $due_date_str; ?></td>
+													?>"><?php echo $due_date_str;?></td>
 													<td class="bp-to-do-actions">
 														<ul>
-															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-times"></i></a></li>
+															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 															<?php if ( $todo_status !== 'complete' ) { ?>
-																<li><a href="<?php echo $todo_edit_url; ?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-edit"></i></a></li>
-																<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
+																<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-check"></i></a></li>
 															<?php } else { ?>
-																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-undo"></i></a></li>
 															<?php } ?>
 														</ul>	
 													</td>
@@ -333,20 +333,20 @@ if ( empty( $todos ) ) {
 				<?php if ( !empty( $todo_list[ 'future' ] ) ) { ?>
 					<div class="bptodo-admin-row">
 						<div>
-							<button class="bptodo-item"><?php _e( 'SOMEDAY', BPTODO_TEXT_DOMAIN ); ?></button>
+							<button class="bptodo-item"><?php _e( 'SOMEDAY', BPTODO_TEXT_DOMAIN );?></button>
 							<div class="panel">
 								<div class="todo-detail">
 									<table class="bp-todo-reminder">
 										<thead>
 											<tr>
-												<th></th>
-												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?></th>
-												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN ); ?></th>
+												<th><?php _e( 'Sr. No.', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
+												<th><?php _e( 'Actions', BPTODO_TEXT_DOMAIN );?></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $count = 1; ?>
+											<?php $count = 1;?>
 											<?php foreach ( $todo_list[ 'future' ] as $tid ) { ?>
 												<?php
 												$todo			 = get_post( $tid );
@@ -373,22 +373,22 @@ if ( empty( $todos ) ) {
 													$due_date_td_class	 = '';
 												}
 												?>
-												<tr id="bptodo-row-<?php echo $tid; ?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $count++; ?></td>
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class; ?>"><?php echo $todo_title; ?></td>
+												<tr id="bptodo-row-<?php echo $tid;?>">
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
 													if ( $todo_status == 'complete' )
 														echo $class;
-													?>"><?php echo $due_date_str; ?></td>
+													?>"><?php echo $due_date_str;?></td>
 													<td class="bp-to-do-actions">
 														<ul>
-															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-times"></i></a></li>
+															<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 															<?php if ( $todo_status !== 'complete' ) { ?>
-																<li><a href="<?php echo $todo_edit_url; ?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-edit"></i></a></li>
-																<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
+																<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-check"></i></a></li>
 															<?php } else { ?>
-																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-undo"></i></a></li>
 																	<?php } ?>
 														</ul>	
 													</td>
