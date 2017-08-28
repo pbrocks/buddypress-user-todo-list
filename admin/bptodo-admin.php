@@ -33,8 +33,8 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 					<h2 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member Todo List Settings', BPTODO_TEXT_DOMAIN ); ?></h2>
 					<div class="bptodo-extra-actions">
 						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/contact/', '_blank');"><i class="fa fa-envelope" aria-hidden="true"></i> <?php _e( 'Email Support', BPTODO_TEXT_DOMAIN )?></button>
-						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/helpdesk/article-categories/wordpress-system-log/', '_blank');"><i class="fa fa-file" aria-hidden="true"></i> <?php _e( 'User Manual', BPTODO_TEXT_DOMAIN )?></button>
-						<button type="button" class="button button-secondary" onclick="window.open('https://wordpress.org/plugins/wp-system-log/', '_blank');"><i class="fa fa-star" aria-hidden="true"></i> <?php _e( 'Rate Us on WordPress.org', BPTODO_TEXT_DOMAIN )?></button>
+						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/helpdesk/article-categories/bp-user-to-do-list/', '_blank');"><i class="fa fa-file" aria-hidden="true"></i> <?php _e( 'User Manual', BPTODO_TEXT_DOMAIN )?></button>
+						<button type="button" class="button button-secondary" onclick="window.open('https://wordpress.org/support/plugin/bp-user-to-do-list/reviews/', '_blank');"><i class="fa fa-star" aria-hidden="true"></i> <?php _e( 'Rate Us on WordPress.org', BPTODO_TEXT_DOMAIN )?></button>
 					</div>
 				</div>
 
