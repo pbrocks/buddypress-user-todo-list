@@ -38,6 +38,7 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 		//Actions performed for enqueuing scripts and styles for admin panel.
 		function bptodo_admin_variables() {
 			if( strpos( $_SERVER['REQUEST_URI'], 'bp-todo' ) !== false ) {
+				wp_enqueue_style('bptodo-css-fa', BPTODO_PLUGIN_URL.'admin/assets/css/font-awesome.min.css');
 				wp_enqueue_style('bptodo-css-admin', BPTODO_PLUGIN_URL.'admin/assets/css/bptodo-admin.css');
 				wp_enqueue_script('bptodo-js-admin',BPTODO_PLUGIN_URL.'admin/assets/js/bptodo-admin.js', array('jquery'));
 			}
