@@ -107,7 +107,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 				}
 				
 				update_option('user_todo_list_settings', $settings);
-				echo '<div class="notice notice-success"><p><strong>Settings Saved.</strong></p></div>';
+				echo '<div class="notice notice-success is-dismissible"><p><strong>Settings Saved.</strong></p></div>';
 			}
 		}
 	}

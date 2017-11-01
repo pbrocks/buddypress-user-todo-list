@@ -1,6 +1,5 @@
 <?php
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly
-
 global $bptodo;
 $profile_menu_slug = $bptodo->profile_menu_slug;
 $profile_menu_label = $bptodo->profile_menu_label;
@@ -279,7 +278,7 @@ if ( empty( $todos ) ) {
 												$todo			 = get_post( $tid );
 												$todo_title		 = $todo->post_title;
 												$todo_edit_url	 = bp_core_get_userlink( bp_displayed_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
-
+												
 												$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
 												$due_date_str		 = $due_date_td_class	 = '';
 												$curr_date			 = date_create( date( 'Y-m-d' ) );

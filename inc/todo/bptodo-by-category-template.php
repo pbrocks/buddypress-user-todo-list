@@ -1,6 +1,5 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
 global $bptodo;
 $profile_menu_label	 = $bptodo->profile_menu_label;
 $profile_menu_slug	 = $bptodo->profile_menu_slug;
@@ -69,6 +68,8 @@ if ( !empty( $atts[ 'category' ] ) ) {
 														$todo			 = get_post( $tid );
 														$todo_title		 = $todo->post_title;
 
+														$todo_edit_url	 = bp_core_get_userlink( get_current_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
+
 														$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
 														$due_date_str		 = $due_date_td_class	 = '';
 														$curr_date			 = date_create( date( 'Y-m-d' ) );
@@ -100,7 +101,9 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
 																		<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
 																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
@@ -142,6 +145,8 @@ if ( !empty( $atts[ 'category' ] ) ) {
 														$todo			 = get_post( $tid );
 														$todo_title		 = $todo->post_title;
 
+														$todo_edit_url	 = bp_core_get_userlink( get_current_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
+
 														$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
 														$due_date_str		 = $due_date_td_class	 = '';
 														$curr_date			 = date_create( date( 'Y-m-d' ) );
@@ -173,7 +178,9 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
 																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
 																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
@@ -213,7 +220,9 @@ if ( !empty( $atts[ 'category' ] ) ) {
 														<?php
 														$todo			 = get_post( $tid );
 														$todo_title		 = $todo->post_title;
-														
+
+														$todo_edit_url	 = bp_core_get_userlink( get_current_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
+
 														$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
 														$due_date_str		 = $due_date_td_class	 = '';
 														$curr_date			 = date_create( date( 'Y-m-d' ) );
@@ -245,7 +254,9 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
 																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
 																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
@@ -285,6 +296,9 @@ if ( !empty( $atts[ 'category' ] ) ) {
 														<?php
 														$todo			 = get_post( $tid );
 														$todo_title		 = $todo->post_title;
+
+														$todo_edit_url	 = bp_core_get_userlink( get_current_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
+
 														$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
 														$due_date_str		 = $due_date_td_class	 = '';
 														$curr_date			 = date_create( date( 'Y-m-d' ) );
@@ -316,7 +330,9 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
 																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
 																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
