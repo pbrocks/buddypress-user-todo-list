@@ -5,9 +5,12 @@ jQuery( document ).ready( function () {
     for ( i = 0; i < acc.length; i++ ) {
         if ( i == 0 ) {
             var panel = acc[i].nextElementSibling;
+            var first_child = jQuery(acc[i]);
             if ( panel.style.maxHeight ) {
                 panel.style.maxHeight = null;
+                first_child.removeClass('active');
             } else {
+                first_child.addClass('active');
                 panel.style.maxHeight = panel.scrollHeight + "px";
             }
         }
@@ -15,7 +18,9 @@ jQuery( document ).ready( function () {
             var panel = this.nextElementSibling;
             if ( panel.style.maxHeight ) {
                 panel.style.maxHeight = null;
+                jQuery(this).removeClass('active');
             } else {
+                jQuery(this).addClass('active');
                 panel.style.maxHeight = panel.scrollHeight + "px";
             }
         }
@@ -92,6 +97,7 @@ jQuery( document ).ready( function () {
     jQuery( document ).on( 'click', '.bptodo-remove-todo', function () {
         if ( confirm( 'Are you sure?' ) ) {
             var tid = jQuery( this ).data( 'tid' );
+            var row = jQuery(this).closest('tr');
             jQuery( this ).html( '<i class="fa fa-refresh fa-spin"></i>' );
 
             jQuery.post(
@@ -101,9 +107,13 @@ jQuery( document ).ready( function () {
                     'tid': tid,
                 },
                 function ( response ) {
+                    var siblings = row.siblings();
                     if ( response == 'todo-removed' ) {
                         jQuery( '#bptodo-row-' + tid ).remove();
                     }
+                    siblings.each(function(index) {
+                        jQuery(this).children().first().text(index+1);
+                   });
                 }
             );
         }

@@ -22,7 +22,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 
 		//Actions performed on loading admin_menu
 		function bptodo_add_menu_page() {
-			add_submenu_page( 'edit.php?post_type=bp-todo', __( 'BuddyPress Member Todo List Settings', BPTODO_TEXT_DOMAIN ), __( 'Settings', BPTODO_TEXT_DOMAIN ), 'manage_options', 'user-todo-list-settings', array( $this, 'bptodo_admin_options_page' ) );
+			add_submenu_page( 'edit.php?post_type=bp-todo', __( 'BuddyPress Member To-Do List Settings', BPTODO_TEXT_DOMAIN ), __( 'Settings', BPTODO_TEXT_DOMAIN ), 'manage_options', 'user-todo-list-settings', array( $this, 'bptodo_admin_options_page' ) );
 		}
 
 		function bptodo_admin_options_page() {
@@ -30,7 +30,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			?>
 			<div class="wrap">
 				<div class="bptodo-header">
-					<h2 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member Todo List Settings', BPTODO_TEXT_DOMAIN ); ?></h2>
+					<h2 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member To-Do List Settings', BPTODO_TEXT_DOMAIN ); ?></h2>
 					<div class="bptodo-extra-actions">
 						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/contact/', '_blank');"><i class="fa fa-envelope" aria-hidden="true"></i> <?php _e( 'Email Support', BPTODO_TEXT_DOMAIN )?></button>
 						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/helpdesk/article-categories/bp-user-to-do-list/', '_blank');"><i class="fa fa-file" aria-hidden="true"></i> <?php _e( 'User Manual', BPTODO_TEXT_DOMAIN )?></button>

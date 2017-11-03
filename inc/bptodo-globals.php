@@ -39,7 +39,7 @@ if ( !class_exists( 'Bptodo_Globals' ) ) {
 			$settings = get_option( 'user_todo_list_settings' );
 
 			//Profile menu label
-			$this->profile_menu_label = 'Todo';
+			$this->profile_menu_label = 'To-Do';
 			if ( isset( $settings[ 'profile_menu_label' ] ) ) {
 				$this->profile_menu_label = $settings[ 'profile_menu_label' ];
 			}

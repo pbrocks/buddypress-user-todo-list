@@ -153,7 +153,7 @@ if ( empty( $todos ) ) {
 												}
 												?>
 												<tr id="bptodo-row-<?php echo $tid;?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="bptodo-sr-no <?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
 													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
@@ -227,7 +227,7 @@ if ( empty( $todos ) ) {
 												}
 												?>
 												<tr id="bptodo-row-<?php echo $tid;?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="bptodo-sr-no <?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
 													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
@@ -300,7 +300,7 @@ if ( empty( $todos ) ) {
 												}
 												?>
 												<tr id="bptodo-row-<?php echo $tid;?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="bptodo-sr-no <?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
 													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
@@ -373,7 +373,7 @@ if ( empty( $todos ) ) {
 												}
 												?>
 												<tr id="bptodo-row-<?php echo $tid;?>">
-													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
+													<td class="bptodo-sr-no <?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $count++;?></td>
 													<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 													<td class="<?php
 													echo $due_date_td_class;
