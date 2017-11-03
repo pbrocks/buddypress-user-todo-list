@@ -31,7 +31,7 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 				wp_enqueue_script('bptodo-js-front', BPTODO_PLUGIN_URL.'assets/js/bptodo-front.js');
 				wp_enqueue_style('bptodo-front-css', BPTODO_PLUGIN_URL.'assets/css/bptodo-front.css');
 			}
-			wp_enqueue_style('bptodo-css-calendar', BPTODO_PLUGIN_URL.'assets/css/bptodo-calendar.css');
+			
 			wp_enqueue_script('bptodo-js-tempust', BPTODO_PLUGIN_URL.'assets/js/tempust.js');
 		}
 
