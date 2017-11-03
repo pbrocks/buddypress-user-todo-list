@@ -130,7 +130,7 @@ if ( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 				$wp_admin_bar->add_menu( array(
 					'parent' => 'my-account-buddypress',
 					'id'	 => 'my-account-' . $profile_menu_slug,
-					'title'	 => __( $profile_menu_label_plural . ' <span class="count">' . $my_todo_items . '</span>', BPTODO_TEXT_DOMAIN ),
+					'title'	 => $profile_menu_label_plural . ' <span class="count">' . $my_todo_items . '</span>',
 					'href'	 => trailingslashit( $todo_list_url )
 				) );
 

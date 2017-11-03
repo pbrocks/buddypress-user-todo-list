@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: BuddyPress Member Todo List
+ * Plugin Name: BuddyPress Member To-Do List
  * Plugin URI: https://wbcomdesigns.com/contact/
  * Description: This plugin allows users to create to do items in their profile section and manage them accordingly.
  * Version: 1.0.1
@@ -106,7 +106,7 @@ add_action('plugins_loaded', 'bptodo_plugin_init');
  * Plugin notice - activate buddypress - single site
  */
 function bptodo_plugin_admin_notice() {
-	$bptodo_plugin = __( 'BP User Todo List', BPTODO_TEXT_DOMAIN );
+	$bptodo_plugin = __( 'BuddyPress Member To-Do List', BPTODO_TEXT_DOMAIN );
 	$bp_plugin = __( 'BuddyPress', BPTODO_TEXT_DOMAIN );
 
 	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
@@ -117,7 +117,7 @@ function bptodo_plugin_admin_notice() {
  * Plugin notice - activate buddypress - multisite
  */
 function bptodo_network_plugin_admin_notice() {
-	$bptodo_plugin = __( 'BP User Todo List', BPTODO_TEXT_DOMAIN );
+	$bptodo_plugin = __( 'BuddyPress Member To-Do List', BPTODO_TEXT_DOMAIN );
 	$bp_plugin = __( 'BuddyPress', BPTODO_TEXT_DOMAIN );
 
 	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';

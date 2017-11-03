@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: BuddyPress Member Todo List 1.0.1\n"
-"POT-Creation-Date: 2017-11-03 11:29+0530\n"
-"PO-Revision-Date: 2017-11-03 11:30+0530\n"
+"Project-Id-Version: BuddyPress Member To-Do List 1.0.1\n"
+"POT-Creation-Date: 2017-11-03 17:51+0530\n"
+"PO-Revision-Date: 2017-11-03 17:52+0530\n"
 "Last-Translator: \n"
 "Language-Team: wbcomdesigns <admin@wbcomdesigns.com>\n"
 "Language: en_US\n"
@@ -59,7 +59,7 @@ msgstr ""
 #: admin/inc/bptodo-general-settings.php:13
 msgid ""
 "This label will be seen in the profile menu(Please make sure you enter "
-"<strong>singular</strong> text)."
+"\"singular\" text)."
 msgstr ""
 
 #: admin/inc/bptodo-general-settings.php:19
@@ -126,9 +126,9 @@ msgstr ""
 
 #: admin/inc/bptodo-support.php:17
 msgid ""
-"As the name of the plugin justifies, this plugin helps manage <strong>To-Do "
-"List</strong> for BuddyPress <strong>Members</strong>, this plugin requires "
-"<strong>BuddyPress</strong> plugin to be installed and active."
+"As the name of the plugin justifies, this plugin helps manage To-Do List for "
+"BuddyPress Members, this plugin requires BuddyPress plugin to be installed "
+"and active."
 msgstr ""
 
 #: admin/inc/bptodo-support.php:18
@@ -143,12 +143,12 @@ msgstr ""
 
 #: admin/inc/bptodo-support.php:26
 msgid ""
-"This plugin creates a menu <strong>To-Do</strong> in the user profile. User "
-"can add a set of tasks and can manage them accordingly."
+"This plugin creates a menu To-Do in the user profile. User can add a set of "
+"tasks and can manage them accordingly."
 msgstr ""
 
 #: admin/inc/bptodo-support.php:27
-msgid "A user can even <strong>Export</strong> his/her list."
+msgid "A user can even Export his/her list."
 msgstr ""
 
 #: admin/inc/bptodo-support.php:33
@@ -156,14 +156,15 @@ msgid "How to go for any custom development?"
 msgstr ""
 
 #: admin/inc/bptodo-support.php:35
-msgid ""
-"If you need additional help you can contact us for <a href=\"https://"
-"wbcomdesigns.com/contact/\" target=\"_blank\" title=\"Custom Development by "
-"Wbcom Designs\">Custom Development</a>."
+msgid "If you need additional help you can contact us for"
+msgstr ""
+
+#: admin/inc/bptodo-support.php:35
+msgid "Custom Development"
 msgstr ""
 
 #: bp-user-todo-list.php:109 bp-user-todo-list.php:120
-msgid "BP User Todo List"
+msgid "BuddyPress Member To-Do List"
 msgstr ""
 
 #: bp-user-todo-list.php:110 bp-user-todo-list.php:121
@@ -251,10 +252,6 @@ msgstr ""
 msgid "Add "
 msgstr ""
 
-#: inc/bptodo-hooks.php:133 inc/bptodo-profile-menu.php:30
-msgid " <span class=\"count\">"
-msgstr ""
-
 #: inc/bptodo-hooks.php:141
 msgid "List"
 msgstr ""
@@ -262,6 +259,10 @@ msgstr ""
 #: inc/bptodo-hooks.php:149 inc/bptodo-profile-menu.php:42 inc/todo/add.php:39
 #: inc/todo/edit.php:47
 msgid "Add"
+msgstr ""
+
+#: inc/bptodo-profile-menu.php:30
+msgid " <span class=\"count\">"
 msgstr ""
 
 #: inc/bptodo-profile-menu.php:80
