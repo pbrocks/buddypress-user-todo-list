@@ -1,4 +1,4 @@
-=== BP User To Do List ===
+=== BuddyPress user ToDo List ===
 Contributors: wbcomdesigns
 Donate link: https://wbcomdesigns.com/contact/
 Tags: buddypress, cpt, todo
