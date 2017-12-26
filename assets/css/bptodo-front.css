@@ -74,7 +74,7 @@ button.bptodo-item.active::after {
     color: #000;
 }
 .bptodo-admin-row{
-    clear: both;  
+    clear: both;
     overflow: hidden;
     padding-bottom: 5px;
 }
@@ -168,4 +168,39 @@ a:focus, button:focus{
     width:25% !important;
     margin: 0px 0px 0px 5px;
     padding: 10px !important;
+}
+
+
+
+26/12/2017
+
+#bptodo-tabs {
+    background: #fff!important;
+}
+
+#bptodo-dashboard ul {
+    margin: 0!important;
+    padding: 0!important;
+}
+
+#bptodo-dashboard ul li {
+    text-align: center!important;
+    float: left!important;
+    padding: 0!important;
+    margin: 0!important;
+    margin-right: 0!important;
+    width: 30%!important;
+    margin-right: 3%!important;
+    list-style: none!important;
+    background: #fff;
+}
+
+#bptodo-dashboard * {
+    box-sizing: border-box!important;
+}
+
+#bptodo-dashboard-box{
+    display: block!important;
+    position: relative!important;
+    overflow: hidden!important;
 }

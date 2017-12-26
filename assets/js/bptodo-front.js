@@ -1,5 +1,7 @@
 jQuery( document ).ready( function () {
 
+    jQuery( "#bptodo-tabs" ).tabs({ heightStyle: "content" });
+
     var acc = document.getElementsByClassName( "bptodo-item" );
     var i;
     for ( i = 0; i < acc.length; i++ ) {
