@@ -172,10 +172,12 @@ a:focus, button:focus{
 
 
 
-26/12/2017
+/*** 26/12/2017 ***/
 
 #bptodo-tabs {
-    background: #fff!important;
+    background: #fff;
+    margin-top: 40px;
+    border-radius: 0!important;
 }
 
 #bptodo-dashboard ul {
@@ -192,7 +194,8 @@ a:focus, button:focus{
     width: 30%!important;
     margin-right: 3%!important;
     list-style: none!important;
-    background: #fff;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
 }
 
 #bptodo-dashboard * {
@@ -203,4 +206,148 @@ a:focus, button:focus{
     display: block!important;
     position: relative!important;
     overflow: hidden!important;
+}
+
+/**** 05-01-2018 ***/
+#bptodo-settings-tbl .ui-widget-content {
+    background: #fff;
+}
+
+#bptodo-tabs .ui-widget-header {
+    background: #fff;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#bptodo-tabs.ui-tabs .ui-tabs-nav li {
+    border-radius: 0;
+    font-weight: normal;
+}
+
+#bptodo-tabs.ui-tabs .ui-tabs-nav li.ui-state-hover {
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+}
+
+#bptodo-tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+    margin-bottom: 0;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    border-top: 1px solid #000;
+    font-weight: normal;
+    background: #fff;
+}
+
+#bptodo-tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active a, #bptodo-tabs.ui-tabs .ui-tabs-nav li a {
+    color: #000;
+}
+
+.bp-todo-dashboard-at-a-glance-box h4 {
+    font-size: 35px;
+    margin-bottom: 0;
+}
+
+.bptodo-light-grey {
+    background-color: #f1f1f1;
+}
+
+.bptodo-color {
+    height: 24px;
+    width: 25%;
+    background-color: #399dff;
+}
+
+.bptodo-progress-section {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.bptodo-light-grey {
+    position: relative;
+}
+
+.bptodo-light-grey > span {
+    color: #fff;
+    min-width: 80px;
+    display: block;
+    padding-left: 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bptodo-progress-section .task-progress-task-count-wrap {
+    position: absolute;
+    top: 40px;
+    min-width: 100px;
+}
+
+.bptodo-progress-section h5 {
+    margin: 0 0 2.625rem;
+}
+
+.bptodo-progress-section .task-progress-task-count {
+    position: relative;
+    background: #616161;
+    border: 1px solid #616161;
+}
+
+.bptodo-progress-section .task-progress-task-count {
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    font-size: 10px;
+    background: #616161;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.bptodo-progress-section .task-progress-task-count::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #616161 transparent transparent transparent;
+}
+
+#bptodo-task-tabs.ui-tabs {
+    border: 0;
+    background: 0;
+}
+
+#bptodo-task-tabs .ui-widget-header {
+    border-bottom: 0;
+}
+
+#bptodo-task-tabs.ui-tabs .ui-tabs-nav li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f0f0f0;
+    font-weight: normal;
+}
+
+#bptodo-task-tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: #fff;
+    font-weight: normal;
+}
+
+#bptodo-task-tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    color: #000;
+}
+
+.bp_all_todo_count, .bp_completed_todo_count {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    padding: 3px 8px;
+    border-radius: 50%;
+    margin-left: 10px;
 }

@@ -1,6 +1,11 @@
 jQuery( document ).ready( function () {
 
     jQuery( "#bptodo-tabs" ).tabs({ heightStyle: "content" });
+    jQuery( "#bptodo-task-tabs" ).tabs({ heightStyle: "content" });
+
+    jQuery( "#bptodo-remaining-task-count" ).on('click', function() {
+        jQuery( "#bptodo-tabs" ).tabs({ active: 1 });
+    } );
 
     var acc = document.getElementsByClassName( "bptodo-item" );
     var i;
@@ -91,7 +96,7 @@ jQuery( document ).ready( function () {
                         jQuery( '#todo-category-name' ).val('');
                     }
                 }
-            );
+                );
         }
     });
 
@@ -115,9 +120,9 @@ jQuery( document ).ready( function () {
                     }
                     siblings.each(function(index) {
                         jQuery(this).children().first().text(index+1);
-                   });
+                    });
                 }
-            );
+                );
         }
     } );
 
@@ -125,22 +130,29 @@ jQuery( document ).ready( function () {
     jQuery( document ).on( 'click', '.bptodo-complete-todo', function () {
         var clicked_tid = jQuery( this );
         var tid = jQuery( this ).data( 'tid' );
+        var completed_todo = jQuery('.bp_completed_todo_count').text();
+        var all_todo = jQuery('.bp_all_todo_count').text();
         jQuery( this ).html( '<i class="fa fa-refresh fa-spin"></i>' );
-
         jQuery.post(
             ajaxurl,
             {
                 'action': 'bptodo_complete_todo',
                 'tid': tid,
+                'completed': completed_todo,
+                'all_todo': all_todo
             },
             function ( response ) {
-                if ( response == 'todo-completed' ) {
+                var response = JSON.parse( response );
+                if ( response.result == 'todo-completed' ) {
                     clicked_tid.closest( 'tr' ).find( "td" ).addClass( 'todo-completed' );
                     clicked_tid.closest( 'td' ).prev( 'td' ).text( 'Completed!' );
+                    jQuery('.bp_completed_todo_count').text( response.completed_todo );
+                    jQuery('#bptodo-completed tbody').append( response.completed_html );
+                    jQuery('.bptodo-color').css('width', response.avg_percentage+'%');
                     clicked_tid.closest( 'td' ).html( '<ul><li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="' + tid + '" title="Undo Complete"><i class="fa fa-undo"></i></a></li></ul>' )
                 }
             }
-        );
+            );
     } );
 
     //Undo complete a todo

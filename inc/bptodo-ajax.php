@@ -48,7 +48,7 @@ if (!class_exists('BPTodoAjax')) {
 						$tasks[$key] = $temp;
 					}
 				}
-				echo json_encode($tasks);
+				echo json_encode( $tasks );
 				die;
 			}
 		}
@@ -68,7 +68,59 @@ if (!class_exists('BPTodoAjax')) {
 			if (isset($_POST['action']) && $_POST['action'] === 'bptodo_complete_todo') {
 				$tid = sanitize_text_field( $_POST['tid'] );
 				update_post_meta($tid, 'todo_status', 'complete');
-				echo 'todo-completed';
+				$completed_todos = sanitize_text_field( $_POST['completed'] );
+				$all_todo = sanitize_text_field( $_POST['all_todo'] );
+				(int) $completed_todos ++;
+				$avg_percentage = ( $completed_todos * 100 ) / $all_todo;
+
+				/*** Add html of completed todo ***/
+
+				$todo			 = get_post( $tid );
+				$todo_title		 = $todo->post_title;
+				$todo_edit_url	 = bp_core_get_userlink( bp_displayed_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
+
+				$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
+				$todo_priority		 = get_post_meta( $todo->ID, 'todo_priority', true );
+				$due_date_str		 = $due_date_td_class	 = '';
+				$curr_date			 = date_create( date( 'Y-m-d' ) );
+				$due_date			 = date_create( get_post_meta( $todo->ID, 'todo_due_date', true ) );
+				$diff				 = date_diff( $curr_date, $due_date );
+				$diff_days			 = $diff->format( "%R%a" );
+				if ( $diff_days < 0 ) {
+					$due_date_str		 = 'Expired ' . abs( $diff_days ) . ' days ago!';
+					$due_date_td_class	 = 'bptodo-expired';
+				} else if ( $diff_days == 0 ) {
+					$due_date_str		 = 'Today is the last day to complete. Hurry Up!';
+					$due_date_td_class	 = 'bptodo-expires-today';
+					$all_remaining_todo++;
+				} else {
+					$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
+					$all_remaining_todo++;
+				}
+				if ( $todo_status == 'complete' ) {
+					$due_date_str		 = 'Completed!';
+					$due_date_td_class	 = '';
+					$all_completed_todo++;
+				}
+				$completed_html = '';
+				$completed_html .= '<tr id="bptodo-row-'.$tid.'">
+				<td class="bptodo-priority todo-completed">'.$todo_priority.'</td>
+				<td class="todo-completed">'.$todo_title.'</td>
+				<td class="bp-to-do-actions">
+				<ul>
+				<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="'.$tid.'" title="'. __( "Remove: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-times"></i></a></li>';
+				if ( $todo_status !== "complete" ) {
+
+					$completed_html .= '<li><a href="'.$todo_edit_url.'" title="'. __( "Edit: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-edit"></i></a></li>
+					<li id="bptodo-complete-li-'.$tid.'"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="'.$tid.'" title="'.__( "Complete: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-check"></i></a></li>';
+				} else {
+					$completed_html .=	'<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="'. $tid.'" title="'. __( "Undo Complete: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-undo"></i></a></li>';
+				}
+				$completed_html .= '</ul></td></tr>';
+				/*** End of html of completed todo ***/
+
+				$response = array( 'result'=> 'todo-completed', 'completed_todo' => $completed_todos, 'completed_html' => $completed_html, 'avg_percentage' => $avg_percentage );
+				echo json_encode( $response );
 				die;
 			}
 		}
