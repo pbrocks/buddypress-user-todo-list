@@ -149,6 +149,7 @@ jQuery( document ).ready( function () {
                     jQuery('.bp_completed_todo_count').text( response.completed_todo );
                     jQuery('#bptodo-completed tbody').append( response.completed_html );
                     jQuery('.bptodo-color').css('width', response.avg_percentage+'%');
+                    jQuery('.bptodo-light-grey b').text( response.avg_percentage+'%');
                     clicked_tid.closest( 'td' ).html( '<ul><li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="' + tid + '" title="Undo Complete"><i class="fa fa-undo"></i></a></li></ul>' )
                 }
             }

@@ -150,7 +150,7 @@ if ( empty( $todos ) ) {
 						<span class="task_breaker-total-tasks"><?php echo $all_todo_count; ?></span><?php _e(' To-Dos', BPTODO_TEXT_DOMAIN ); ?></div>
 					</div>
 					<div class="bptodo-light-grey">
-						<span><?php echo $avg_rating; ?>% <?php _e(' Completed', BPTODO_TEXT_DOMAIN ); ?></span>
+						<span><b><?php echo $avg_rating; ?>%</b><?php _e(' Completed', BPTODO_TEXT_DOMAIN ); ?></span>
 						<div class="bptodo-color" style="height:24px;width:<?php echo $avg_rating; ?>%">
 						</div>
 					</div>
