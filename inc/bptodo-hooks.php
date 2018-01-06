@@ -211,7 +211,6 @@ if ( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 
 			global $bptodo;
 			$profile_menu_label = $bptodo->profile_menu_label;
-
 			if ( 'bptodo_due_date_action' === $action ) {
 				$todo = get_post( $item_id );
 				if ( !empty( $todo ) ) {
@@ -224,15 +223,14 @@ if ( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 
 					// WP Toolbar
 					if ( 'string' === $format ) {
-						$return = '<a href="' . esc_url( $custom_link ) . '" title="' . esc_attr( $custom_title ) . '">' . esc_html( $custom_text ) . '</a>';
+						$action = '<a href="' . esc_url( $custom_link ) . '" title="' . esc_attr( $custom_title ) . '">' . esc_html( $custom_text ) . '</a>';
 					} else {
 						// Deprecated BuddyBar
-						$return = array( 'text' => $custom_text, 'link' => $custom_link );
+						$action = array( 'text' => $custom_text, 'link' => $custom_link );
 					}
-					// echo '<pre>'; print_r( $return ); die;
-					return $return;
 				}
 			}
+			return $action;
 		}
 
 		/**
