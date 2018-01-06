@@ -454,6 +454,12 @@ if ( empty( $todos ) ) {
 
 							</div>
 							<div id="bptodo-completed">
+								<?php if ( empty( $completed_todo_ids ) ) {
+								?>
+								<div id="message" class="info">
+									<p><?php _e( 'Sorry, no completed ' . $profile_menu_slug . ' found.', BPTODO_TEXT_DOMAIN );?></p>
+								</div>
+								<?php } else { ?>
 								<div id="bptodo-all">
 									<div class="bptodo-admin-row">
 										<div class="todo-panel">
@@ -520,10 +526,11 @@ if ( empty( $todos ) ) {
 										</div>
 									</div>
 								</div>
+								<?php } ?>
 							</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<?php
-	}?>
+	} ?>
