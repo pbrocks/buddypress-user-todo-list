@@ -15,7 +15,7 @@ if (!class_exists('BP_Profile_Todo')) {
 		function bptodo_member_profile_todo_tab() {
 			if (bp_is_my_profile()) {
 				global $bp, $bptodo;
-				
+
 				$profile_menu_label = $bptodo->profile_menu_label;
 				$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
 				$profile_menu_slug = $bptodo->profile_menu_slug;
@@ -24,7 +24,7 @@ if (!class_exists('BP_Profile_Todo')) {
 				$displayed_uid = bp_displayed_user_id();
 				$parent_slug = $profile_menu_slug;
 				$todo_menu_link = bp_core_get_userlink( $displayed_uid, false, true ).$parent_slug;
-				
+
 				$name = bp_get_displayed_user_username();
 				$tab_args = array(
 					'name' => __( $profile_menu_label.' <span class="count">'.$my_todo_items.'</span>', BPTODO_TEXT_DOMAIN ),
@@ -101,6 +101,7 @@ if (!class_exists('BP_Profile_Todo')) {
 		function list_todo_tab_function_to_show_title() {
 			global $bptodo;
 			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
+			echo "<h4>";
 			echo __( $profile_menu_label_plural.' List', BPTODO_TEXT_DOMAIN );
 			$args = array(
 				'post_type' => 'bp-todo',
@@ -116,6 +117,7 @@ if (!class_exists('BP_Profile_Todo')) {
 				<a href="javascript:void(0);" id="export_my_tasks"><i class="fa fa-download" aria-hidden="true"></i></a>
 				<?php
 			}
+			echo "</h4>";
 		}
 
 		function list_todo_tab_function_to_show_content() {

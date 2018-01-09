@@ -3,10 +3,6 @@ jQuery( document ).ready( function () {
     jQuery( "#bptodo-tabs" ).tabs({ heightStyle: "content" });
     jQuery( "#bptodo-task-tabs" ).tabs({ heightStyle: "content" });
 
-    jQuery( "#bptodo-remaining-task-count" ).on('click', function() {
-        jQuery( "#bptodo-tabs" ).tabs({ active: 1 });
-    } );
-
     var acc = document.getElementsByClassName( "bptodo-item" );
     var i;
     for ( i = 0; i < acc.length; i++ ) {

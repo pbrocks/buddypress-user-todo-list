@@ -174,26 +174,22 @@ if ( empty( $todos ) ) {
 								</div>
 							</li>
 
-							<li>
-								<a href="#bptodo-todos" class="bp-todo-dashboard-at-a-glance-box" id="bptodo-remaining-task-count">
-									<h4>
-										<span id="bp-todo-remaining-tasks-count" class="bp-todo-remaining-tasks-count">
-											<?php echo $all_remaining_todo; ?>
-										</span>
-									</h4>
-									<p><?php _e('Todo(s) remaining', BPTODO_TEXT_DOMAIN ); ?></p>
-								</a>
+							<li class="bp-todo-dashboard-at-a-glance-box" id="bptodo-remaining-task-count">
+								<h4>
+									<span id="bp-todo-remaining-tasks-count" class="bp-todo-remaining-tasks-count">
+										<?php echo $all_remaining_todo; ?>
+									</span>
+								</h4>
+								<p><?php _e('Todo(s) remaining', BPTODO_TEXT_DOMAIN ); ?></p>
 							</li>
 
-							<li>
-								<a href="#tasks/completed" class="bp-todo-dashboard-at-a-glance-box">
-									<h4>
-										<span id="task-progress-completed-count" class="task-progress-completed">
-											<?php echo $all_completed_todo; ?>
-										</span>
-									</h4>
-									<p><?php _e('Todo(s) Completed', BPTODO_TEXT_DOMAIN ); ?></p>
-								</a>
+							<li class="bp-todo-dashboard-at-a-glance-box" id="bptodo-remaining-task-count">
+								<h4>
+									<span id="task-progress-completed-count" class="task-progress-completed">
+										<?php echo $all_completed_todo; ?>
+									</span>
+								</h4>
+								<p><?php _e('Todo(s) Completed', BPTODO_TEXT_DOMAIN ); ?></p>
 							</li>
 
 						</ul>
@@ -236,6 +232,7 @@ if ( empty( $todos ) ) {
 														$due_date			 = date_create( get_post_meta( $todo->ID, 'todo_due_date', true ) );
 														$diff				 = date_diff( $curr_date, $due_date );
 														$diff_days			 = $diff->format( "%R%a" );
+														$priority_class      = '';
 														if ( $diff_days < 0 ) {
 															$due_date_str		 = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class	 = 'bptodo-expired';
@@ -250,9 +247,18 @@ if ( empty( $todos ) ) {
 															$due_date_td_class	 = '';
 															$all_completed_todo++;
 														}
+														if( !empty( $todo_priority ) ) {
+															if( $todo_priority == 'critical' ) {
+																$priority_class = 'bptodo-priority-critical';
+															} else if( $todo_priority == 'high' ) {
+																$priority_class = 'bptodo-priority-high';
+															} else {
+																$priority_class = 'bptodo-priority-normal';
+															}
+														}
 														?>
 														<tr id="bptodo-row-<?php echo $tid;?>">
-															<td class="bptodo-priority"><?php echo $todo_priority;?></td>
+															<td class="bptodo-priority"><span class="<?php echo $priority_class; ?>"><?php echo $todo_priority;?></span></td>
 															<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 															<td class="<?php
 															echo $due_date_td_class;
@@ -306,9 +312,18 @@ if ( empty( $todos ) ) {
 															$due_date_td_class	 = '';
 															$all_completed_todo++;
 														}
+														if( !empty( $todo_priority ) ) {
+															if( $todo_priority == 'critical' ) {
+																$priority_class = 'bptodo-priority-critical';
+															} else if( $todo_priority == 'high' ) {
+																$priority_class = 'bptodo-priority-high';
+															} else {
+																$priority_class = 'bptodo-priority-normal';
+															}
+														}
 														?>
 														<tr id="bptodo-row-<?php echo $tid;?>">
-															<td class="bptodo-priority"><?php echo $todo_priority;?></td>
+															<td class="bptodo-priority"><span class="<?php echo $priority_class; ?>"><?php echo $todo_priority;?></span></td>
 															<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 															<td class="<?php
 															echo $due_date_td_class;
@@ -363,9 +378,18 @@ if ( empty( $todos ) ) {
 															$due_date_td_class	 = '';
 															$all_completed_todo++;
 														}
+														if( !empty( $todo_priority ) ) {
+															if( $todo_priority == 'critical' ) {
+																$priority_class = 'bptodo-priority-critical';
+															} else if( $todo_priority == 'high' ) {
+																$priority_class = 'bptodo-priority-high';
+															} else {
+																$priority_class = 'bptodo-priority-normal';
+															}
+														}
 														?>
 														<tr id="bptodo-row-<?php echo $tid;?>">
-															<td class="bptodo-priority"><?php echo $todo_priority;?></td>
+															<td class="bptodo-priority"><span class="<?php echo $priority_class; ?>"><?php echo $todo_priority;?></span></td>
 															<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 															<td class="<?php
 															echo $due_date_td_class;
@@ -420,9 +444,18 @@ if ( empty( $todos ) ) {
 															$due_date_td_class	 = '';
 															$all_completed_todo++;
 														}
+														if( !empty( $todo_priority ) ) {
+															if( $todo_priority == 'critical' ) {
+																$priority_class = 'bptodo-priority-critical';
+															} else if( $todo_priority == 'high' ) {
+																$priority_class = 'bptodo-priority-high';
+															} else {
+																$priority_class = 'bptodo-priority-normal';
+															}
+														}
 														?>
 														<tr id="bptodo-row-<?php echo $tid;?>">
-															<td class="bptodo-priority"><?php echo $todo_priority;?></td>
+															<td class="bptodo-priority"><span class="<?php echo $priority_class; ?>"><?php echo $todo_priority;?></span></td>
 															<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 															<td class="<?php
 															echo $due_date_td_class;
@@ -469,61 +502,70 @@ if ( empty( $todos ) ) {
 													<tbody>
 														<?php if ( !empty( $completed_todo_ids ) ) { ?>
 														<?php foreach ( $completed_todo_ids as $tid ) {
-														$todo			 = get_post( $tid );
-														$todo_title		 = $todo->post_title;
-														$todo_edit_url	 = bp_core_get_userlink( bp_displayed_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
+															$todo			 = get_post( $tid );
+															$todo_title		 = $todo->post_title;
+															$todo_edit_url	 = bp_core_get_userlink( bp_displayed_user_id(), false, true ) . $profile_menu_slug . '/add?args=' . $tid;
 
-														$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
-														$todo_priority		 = get_post_meta( $todo->ID, 'todo_priority', true );
-														$due_date_str		 = $due_date_td_class	 = '';
-														$curr_date			 = date_create( date( 'Y-m-d' ) );
-														$due_date			 = date_create( get_post_meta( $todo->ID, 'todo_due_date', true ) );
-														$diff				 = date_diff( $curr_date, $due_date );
-														$diff_days			 = $diff->format( "%R%a" );
-														if ( $diff_days < 0 ) {
-															$due_date_str		 = 'Expired ' . abs( $diff_days ) . ' days ago!';
-															$due_date_td_class	 = 'bptodo-expired';
-														} else if ( $diff_days == 0 ) {
-															$due_date_str		 = 'Today is the last day to complete. Hurry Up!';
-															$due_date_td_class	 = 'bptodo-expires-today';
-															$all_remaining_todo++;
-														} else {
-															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
-															$all_remaining_todo++;
-														}
-														if ( $todo_status == 'complete' ) {
-															$due_date_str		 = 'Completed!';
-															$due_date_td_class	 = '';
-															$all_completed_todo++;
-														}
-														?>
-														<tr id="bptodo-row-<?php echo $tid;?>">
-															<td class="bptodo-priority"><?php echo $todo_priority;?></td>
-															<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
-															<td class="bp-to-do-actions">
-																<ul>
-																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
-																	<?php if ( $todo_status !== 'complete' ) { ?>
-																	<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
-																	<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-check"></i></a></li>
-																	<?php } else { ?>
-																	<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-undo"></i></a></li>
-																	<?php } ?>
-																</ul>
-															</td>
-														</tr>
-														<?php } ?>
-														<?php } ?>
-													</tbody>
-												</table>
+															$todo_status		 = get_post_meta( $todo->ID, 'todo_status', true );
+															$todo_priority		 = get_post_meta( $todo->ID, 'todo_priority', true );
+															$due_date_str		 = $due_date_td_class	 = '';
+															$curr_date			 = date_create( date( 'Y-m-d' ) );
+															$due_date			 = date_create( get_post_meta( $todo->ID, 'todo_due_date', true ) );
+															$diff				 = date_diff( $curr_date, $due_date );
+															$diff_days			 = $diff->format( "%R%a" );
+															if ( $diff_days < 0 ) {
+																$due_date_str		 = 'Expired ' . abs( $diff_days ) . ' days ago!';
+																$due_date_td_class	 = 'bptodo-expired';
+															} else if ( $diff_days == 0 ) {
+																$due_date_str		 = 'Today is the last day to complete. Hurry Up!';
+																$due_date_td_class	 = 'bptodo-expires-today';
+																$all_remaining_todo++;
+															} else {
+																$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
+																$all_remaining_todo++;
+															}
+															if ( $todo_status == 'complete' ) {
+																$due_date_str		 = 'Completed!';
+																$due_date_td_class	 = '';
+																$all_completed_todo++;
+															}
+															if( !empty( $todo_priority ) ) {
+																if( $todo_priority == 'critical' ) {
+																	$priority_class = 'bptodo-priority-critical';
+																} else if( $todo_priority == 'high' ) {
+																	$priority_class = 'bptodo-priority-high';
+																} else {
+																	$priority_class = 'bptodo-priority-normal';
+																}
+															}
+															?>
+															<tr id="bptodo-row-<?php echo $tid;?>">
+																<td class="bptodo-priority "><span class="<?php echo $priority_class; ?>"><?php echo $todo_priority;?></span></td>
+																<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
+																<td class="bp-to-do-actions">
+																	<ul>
+																		<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
+																		<?php if ( $todo_status !== 'complete' ) { ?>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
+																		<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-check"></i></a></li>
+																		<?php } else { ?>
+																		<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-undo"></i></a></li>
+																		<?php } ?>
+																	</ul>
+																</td>
+															</tr>
+															<?php } ?>
+															<?php } ?>
+														</tbody>
+													</table>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<?php
-	} ?>
+				<?php
+			} ?>

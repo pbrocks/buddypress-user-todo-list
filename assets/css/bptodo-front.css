@@ -372,3 +372,28 @@ a:focus, button:focus{
     border-radius: 10px;
     font-size: 11px;
 }
+
+/*** To-do Priority css ***/
+.bptodo-priority .bptodo-priority-critical {
+    display: block;
+    width: 55px;
+    margin: 0 auto;
+    color: #fff;
+    background: #f44336;
+}
+
+.bptodo-priority .bptodo-priority-high {
+    display: block;
+    width: 55px;
+    margin: 0 auto;
+    color: #fff;
+    background: #FB8C00;
+}
+
+.bptodo-priority .bptodo-priority-normal {
+    display: block;
+    width: 55px;
+    margin: 0 auto;
+    color: #fff;
+    background: #4CAF50;
+}

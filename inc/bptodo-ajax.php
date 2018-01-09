@@ -102,9 +102,18 @@ if (!class_exists('BPTodoAjax')) {
 					$due_date_td_class	 = '';
 					$all_completed_todo++;
 				}
+				if( !empty( $todo_priority ) ) {
+					if( $todo_priority == 'critical' ) {
+						$priority_class = 'bptodo-priority-critical';
+					} else if( $todo_priority == 'high' ) {
+						$priority_class = 'bptodo-priority-high';
+					} else {
+						$priority_class = 'bptodo-priority-normal';
+					}
+				}
 				$completed_html = '';
 				$completed_html .= '<tr id="bptodo-row-'.$tid.'">
-				<td class="bptodo-priority todo-completed">'.$todo_priority.'</td>
+				<td class="bptodo-priority"><span class="'.$priority_class.'">'.$todo_priority.'</span></td>
 				<td class="todo-completed">'.$todo_title.'</td>
 				<td class="bp-to-do-actions">
 				<ul>
