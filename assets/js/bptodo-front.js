@@ -90,6 +90,7 @@ jQuery( document ).ready( function () {
                         jQuery( '.add-todo-cat-row' ).hide();
                         jQuery( '#add-todo-cat' ).html( btn_text );
                         jQuery( '#todo-category-name' ).val('');
+                        jQuery('.add-todo-category i').attr('class', 'fa fa-plus');
                     }
                 }
                 );

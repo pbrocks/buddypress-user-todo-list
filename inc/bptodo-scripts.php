@@ -16,7 +16,6 @@ if( !class_exists( 'BP_Todo_Scripts_Styles' ) ) {
 		function bptodo_custom_variables() {
 			global $bptodo, $post;
 			$profile_menu_slug = $bptodo->profile_menu_slug;
-			$version =
 			if( ( strpos( $_SERVER['REQUEST_URI'], $profile_menu_slug ) !== false ) || isset($post->post_content) && has_shortcode( $post->post_content, 'bptodo_by_category' ) ) {
 				//jQuery UI Datepicker CSS
 				wp_enqueue_style('bptodo-css-ui', BPTODO_PLUGIN_URL.'assets/css/jquery-ui.min.css');
