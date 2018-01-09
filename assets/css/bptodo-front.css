@@ -230,7 +230,6 @@ a:focus, button:focus{
 }
 
 #bptodo-tabs.ui-tabs .ui-tabs-nav li.ui-state-hover {
-    border: 1px solid #ddd;
     background: #f9f9f9;
 }
 
