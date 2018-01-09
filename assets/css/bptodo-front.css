@@ -147,7 +147,7 @@ td.bp-to-do-actions ul {
     /*vertical-align: top!important;*/
 }
 .bptodo-add-todo-tbl{
-    width: 70%;
+    width: 100%;
 }
 #bptodo-calender .buddyboss-select-inner select {
     width: 100%!important;
@@ -176,8 +176,9 @@ a:focus, button:focus{
 
 #bptodo-tabs {
     background: #fff;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 0!important;
+    border: 0;
 }
 
 #bptodo-dashboard ul {
@@ -186,16 +187,18 @@ a:focus, button:focus{
 }
 
 #bptodo-dashboard ul li {
-    text-align: center!important;
-    float: left!important;
-    padding: 0!important;
-    margin: 0!important;
-    margin-right: 0!important;
-    width: 30%!important;
-    margin-right: 3%!important;
-    list-style: none!important;
+    width: 32.8%;
+    font-size: 14px;
+    text-align: center;
     border: 1px solid #ddd;
     background: #f9f9f9;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#bptodo-dashboard ul li p {
+    margin-bottom: 5px;
 }
 
 #bptodo-dashboard * {
@@ -217,6 +220,8 @@ a:focus, button:focus{
     background: #fff;
     border: 0;
     border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
 }
 
 #bptodo-tabs.ui-tabs .ui-tabs-nav li {
@@ -233,17 +238,20 @@ a:focus, button:focus{
     margin-bottom: 0;
     border: 1px solid #ddd;
     border-radius: 0;
-    border-top: 1px solid #000;
+    border-top: 2px solid #399dff;
     font-weight: normal;
     background: #fff;
+    border-bottom: 0;
+    margin-bottom: -1px;
 }
 
 #bptodo-tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active a, #bptodo-tabs.ui-tabs .ui-tabs-nav li a {
-    color: #000;
+    font-size: 14px;
+    color: #399dff;
 }
 
 .bp-todo-dashboard-at-a-glance-box h4 {
-    font-size: 35px;
+    font-size: 30px;
     margin-bottom: 0;
 }
 
@@ -258,8 +266,7 @@ a:focus, button:focus{
 }
 
 .bptodo-progress-section {
-    padding: 10px 20px;
-    border: 1px solid #ccc;
+    padding: 10px 0;
     position: relative;
 }
 
@@ -321,33 +328,47 @@ a:focus, button:focus{
     background: 0;
 }
 
+#bptodo-task-tabs.ui-tabs .ui-tabs-panel {
+    border: 0 !important;
+}
+
 #bptodo-task-tabs .ui-widget-header {
     border-bottom: 0;
 }
 
 #bptodo-task-tabs.ui-tabs .ui-tabs-nav li {
-    border: 1px solid #ccc;
+    font-size: 14px;
+    border: 1px solid #3a9dfb;
     border-radius: 5px;
-    background: #f0f0f0;
+    background: #fff;
     font-weight: normal;
 }
 
+#bptodo-task-tabs.ui-tabs .ui-tabs-nav li a {
+    color: #000;
+}
+
 #bptodo-task-tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active {
-    border: 1px solid #000;
+    border: 1px solid #3a9dfb;
     border-radius: 5px;
     background: #fff;
     font-weight: normal;
 }
 
 #bptodo-task-tabs.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
-    color: #000;
+    color: #3a9dfb;
 }
 
 .bp_all_todo_count, .bp_completed_todo_count {
-    background: #fff;
-    border: 1px solid #000;
-    color: #000;
-    padding: 3px 8px;
-    border-radius: 50%;
-    margin-left: 10px;
+    display: inline-block;
+    background-color: #d54e21;
+    color: #fff;
+    line-height: 17px;
+    font-weight: 500;
+    margin: 1px 0 0 5px;
+    padding: 0 5px;
+    vertical-align: top;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 11px;
 }
