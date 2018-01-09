@@ -16,7 +16,7 @@ add_action( 'init', 'bptodo_load_textdomain' );
 function bptodo_load_textdomain() {
 	$domain = "wb-todo";
 	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-	
+
 	load_textdomain( $domain, 'languages/'.$domain.'-' . $locale . '.mo' );
 	$var = load_plugin_textdomain( $domain, false, plugin_basename( dirname(__FILE__) ) . '/languages' );
 }
@@ -29,6 +29,10 @@ if ( !defined( 'BPTODO_PLUGIN_PATH' ) ) {
 if ( !defined( 'BPTODO_PLUGIN_URL' ) ) {
 	define( 'BPTODO_PLUGIN_URL', plugin_dir_url(__FILE__) );
 }
+
+// if ( !defined( 'BPTODO_VERSION' ) ) {
+// 	define( 'BPTODO_VERSION', get_plugin_data( plugin_dir_url(__FILE__) ) );
+// }
 
 if ( !defined( 'BPTODO_TEXT_DOMAIN' ) ) {
 	define( 'BPTODO_TEXT_DOMAIN', 'wb-todo' );
@@ -57,7 +61,7 @@ function run_wp_bptodo_list() {
 
 	//Initialize admin class
 	new Bptodo_Admin();
-	
+
 	//Initialize globals class
 	global $bptodo;
 	$bptodo = new Bptodo_Globals();

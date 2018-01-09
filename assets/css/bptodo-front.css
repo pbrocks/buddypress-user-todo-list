@@ -257,6 +257,8 @@ a:focus, button:focus{
 
 .bptodo-light-grey {
     background-color: #f1f1f1;
+    position: relative;
+    margin-top: 5%;
 }
 
 .bptodo-color {
@@ -267,10 +269,6 @@ a:focus, button:focus{
 
 .bptodo-progress-section {
     padding: 10px 0;
-    position: relative;
-}
-
-.bptodo-light-grey {
     position: relative;
 }
 
