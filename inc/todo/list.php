@@ -540,7 +540,7 @@ if ( empty( $todos ) ) {
 															}
 															?>
 															<tr id="bptodo-row-<?php echo $tid;?>">
-																<td class="bptodo-priority "><span class="<?php echo $priority_class; ?>"><?php echo $todo_priority;?></span></td>
+																<td class="bptodo-priority"><span class="<?php echo $priority_class; ?>"><?php echo $todo_priority;?></span></td>
 																<td class="<?php if ( $todo_status == 'complete' ) echo $class;?>"><?php echo $todo_title;?></td>
 																<td class="bp-to-do-actions">
 																	<ul>

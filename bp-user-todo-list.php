@@ -30,9 +30,9 @@ if ( !defined( 'BPTODO_PLUGIN_URL' ) ) {
 	define( 'BPTODO_PLUGIN_URL', plugin_dir_url(__FILE__) );
 }
 
-// if ( !defined( 'BPTODO_VERSION' ) ) {
-// 	define( 'BPTODO_VERSION', get_plugin_data( plugin_dir_url(__FILE__) ) );
-// }
+if ( !defined( 'BPTODO_VERSION' ) ) {
+	define( 'BPTODO_VERSION', '1.0.1' );
+}
 
 if ( !defined( 'BPTODO_TEXT_DOMAIN' ) ) {
 	define( 'BPTODO_TEXT_DOMAIN', 'wb-todo' );
