@@ -107,8 +107,9 @@ foreach ( $todos as $todo ) {
 
 	$all_todo_count++;
 }
-
-$avg_rating = ( $all_completed_todo * 100 ) / $all_todo_count;
+if( $all_todo_count > 0 ) {
+	$avg_rating = ( $all_completed_todo * 100 ) / $all_todo_count;
+}
 
 $completed_todo_args	 = array(
 	'post_type'		 => 'bp-todo',

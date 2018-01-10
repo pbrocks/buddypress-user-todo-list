@@ -4,7 +4,7 @@ Donate link: https://wbcomdesigns.com/contact/
 Tags: buddypress, cpt, todo
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,9 +30,15 @@ The screenshots are present in the root of the plugin folder.
 2. screenshot-2 - is the screen which shows the shortcode example in admin panel to list to-do of specific category.
 3. screenshot-3 - is the screen which shows support section at admin panel.
 4. screenshot-4 - is the screen which shows form to create a to-do.
-4. screenshot-5 - is the screen that shows member's to-do list.
+5. screenshot-5 - is the screen that shows member's to-do list dashboard.
+6. screenshot-6 - is the screen that shows member's all to-do list.
 
 == Changelog ==
+= 1.0.2 =
+* Added To-do dashboard
+* Added To-do priority
+* Changed UI
+
 = 1.0.1 =
 Plugin with admin options and modified todo list view in front end.
 = 1.0.0 =

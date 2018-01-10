@@ -3,7 +3,7 @@
  * Plugin Name: BuddyPress Member To-Do List
  * Plugin URI: https://wbcomdesigns.com/contact/
  * Description: This plugin allows users to create to do items in their profile section and manage them accordingly.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Wbcom Designs
  * Author URI: http://wbcomdesigns.com
  * License: GPLv2+
