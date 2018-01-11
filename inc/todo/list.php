@@ -148,7 +148,7 @@ if ( empty( $todos ) ) {
 				<h5><?php _e('Task Progress', BPTODO_TEXT_DOMAIN ); ?></h5>
 				<div class="task-progress-task-count-wrap">
 					<div class="task-progress-task-count">
-						<span class="task_breaker-total-tasks"><?php echo $all_todo_count; ?></span><?php echo $profile_menu_label; ?></div>
+						<span class="task_breaker-total-tasks"><?php echo $all_todo_count; ?></span><?php echo ' '.$profile_menu_label; ?></div>
 					</div>
 					<div class="bptodo-light-grey">
 						<span><b><?php echo $avg_rating; ?>%</b><?php _e(' Completed', BPTODO_TEXT_DOMAIN ); ?></span>
