@@ -16,8 +16,6 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			add_action('admin_init', array($this, 'bptodo_register_general_settings'));
 			add_action('admin_init', array($this, 'bptodo_register_shortcode_settings'));
 			add_action('admin_init', array($this, 'bptodo_register_support_settings'));
-
-			$this->bptodo_save_general_settings();
 		}
 
 		//Actions performed on loading admin_menu
@@ -30,7 +28,8 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			?>
 			<div class="wrap">
 				<div class="bptodo-header">
-					<h2 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member To-Do List Settings', BPTODO_TEXT_DOMAIN ); ?></h2>
+					<h1 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member To-Do List Settings', BPTODO_TEXT_DOMAIN ); ?></h1>
+					<?php $this->bptodo_save_general_settings(); ?>
 					<div class="bptodo-extra-actions">
 						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/contact/', '_blank');"><i class="fa fa-envelope" aria-hidden="true"></i> <?php _e( 'Email Support', BPTODO_TEXT_DOMAIN )?></button>
 						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/helpdesk/article-categories/bp-user-to-do-list/', '_blank');"><i class="fa fa-file" aria-hidden="true"></i> <?php _e( 'User Manual', BPTODO_TEXT_DOMAIN )?></button>
@@ -105,7 +104,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 				if( isset( $_POST['bptodo_send_mail'] ) ) {
 					$settings['send_mail'] = sanitize_text_field( $_POST['bptodo_send_mail'] );
 				}
-				
+
 				update_option('user_todo_list_settings', $settings);
 				echo '<div class="notice notice-success is-dismissible"><p><strong>Settings Saved.</strong></p></div>';
 			}
