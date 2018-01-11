@@ -28,6 +28,9 @@ It is built to be reliable, scalable, secure and flexible. We have worked hard t
 
 == Frequently Asked Questions ==
 
+= Where do I get support?
+We request you to use [Wbcom Designs](https://wbcomdesigns.com/contact/) for all the support questions. We love helping. Using Wbcom Designs allows us to assist you better and quicker.
+
 = How can we add a task in our todo list? =
 
 Just goto your member profile and you can see the Todo tab. Click on it and then you will see a child tab to add a task.
