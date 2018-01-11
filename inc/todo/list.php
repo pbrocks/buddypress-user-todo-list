@@ -148,7 +148,7 @@ if ( empty( $todos ) ) {
 				<h5><?php _e('Task Progress', BPTODO_TEXT_DOMAIN ); ?></h5>
 				<div class="task-progress-task-count-wrap">
 					<div class="task-progress-task-count">
-						<span class="task_breaker-total-tasks"><?php echo $all_todo_count; ?></span><?php _e(' To-Dos', BPTODO_TEXT_DOMAIN ); ?></div>
+						<span class="task_breaker-total-tasks"><?php echo $all_todo_count; ?></span><?php echo $profile_menu_label; ?></div>
 					</div>
 					<div class="bptodo-light-grey">
 						<span><b><?php echo $avg_rating; ?>%</b><?php _e(' Completed', BPTODO_TEXT_DOMAIN ); ?></span>
@@ -159,7 +159,7 @@ if ( empty( $todos ) ) {
 				<div id="bptodo-tabs">
 					<ul>
 						<li><a href="#bptodo-dashboard"><?php _e('Dashboard', BPTODO_TEXT_DOMAIN ); ?></a></li>
-						<li><a href="#bptodo-todos"><?php _e('To-Dos', BPTODO_TEXT_DOMAIN ); ?></a></li>
+						<li><a href="#bptodo-todos"><?php echo $profile_menu_label; ?></a></li>
 					</ul>
 					<div id="bptodo-dashboard">
 						<h2><?php _e('At a Glance', BPTODO_TEXT_DOMAIN ); ?></h2>
@@ -171,7 +171,7 @@ if ( empty( $todos ) ) {
 											<?php echo $all_todo_count; ?>
 										</span>
 									</h4>
-									<p><?php _e('Total Todos', BPTODO_TEXT_DOMAIN ); ?></p>
+									<p><?php _e('Total '.$profile_menu_label, BPTODO_TEXT_DOMAIN ); ?></p>
 								</div>
 							</li>
 
@@ -181,7 +181,7 @@ if ( empty( $todos ) ) {
 										<?php echo $all_remaining_todo; ?>
 									</span>
 								</h4>
-								<p><?php _e('Todo(s) remaining', BPTODO_TEXT_DOMAIN ); ?></p>
+								<p><?php _e( $profile_menu_label.'(s) remaining', BPTODO_TEXT_DOMAIN ); ?></p>
 							</li>
 
 							<li class="bp-todo-dashboard-at-a-glance-box" id="bptodo-remaining-task-count">
@@ -190,7 +190,7 @@ if ( empty( $todos ) ) {
 										<?php echo $all_completed_todo; ?>
 									</span>
 								</h4>
-								<p><?php _e('Todo(s) Completed', BPTODO_TEXT_DOMAIN ); ?></p>
+								<p><?php _e( $profile_menu_label.'(s) Completed', BPTODO_TEXT_DOMAIN ); ?></p>
 							</li>
 
 						</ul>
@@ -198,7 +198,7 @@ if ( empty( $todos ) ) {
 					<div id="bptodo-todos">
 						<div id="bptodo-task-tabs">
 							<ul>
-								<li><a href="#bptodo-all"><i class="fa fa-list" aria-hidden="true"></i><?php _e(' All Todo', BPTODO_TEXT_DOMAIN ); ?><span class="bp_all_todo_count"><?php echo $all_todo_count; ?></span></a></li>
+								<li><a href="#bptodo-all"><i class="fa fa-list" aria-hidden="true"></i><?php _e(' All '.$profile_menu_label, BPTODO_TEXT_DOMAIN ); ?><span class="bp_all_todo_count"><?php echo $all_todo_count; ?></span></a></li>
 								<li><a href="#bptodo-completed"><i class="fa fa-check"></i><?php _e(' Completed', BPTODO_TEXT_DOMAIN ); ?><span class="bp_completed_todo_count"><?php echo $all_completed_todo; ?></span></a></li>
 							</ul>
 							<div id="bptodo-all">

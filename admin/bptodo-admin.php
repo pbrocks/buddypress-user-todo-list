@@ -16,6 +16,8 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			add_action('admin_init', array($this, 'bptodo_register_general_settings'));
 			add_action('admin_init', array($this, 'bptodo_register_shortcode_settings'));
 			add_action('admin_init', array($this, 'bptodo_register_support_settings'));
+
+			$this->bptodo_save_general_settings();
 		}
 
 		//Actions performed on loading admin_menu
@@ -29,7 +31,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			<div class="wrap">
 				<div class="bptodo-header">
 					<h1 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member To-Do List Settings', BPTODO_TEXT_DOMAIN ); ?></h1>
-					<?php $this->bptodo_save_general_settings(); ?>
+					<?php $this->bptodo_show_notice(); ?>
 					<div class="bptodo-extra-actions">
 						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/contact/', '_blank');"><i class="fa fa-envelope" aria-hidden="true"></i> <?php _e( 'Email Support', BPTODO_TEXT_DOMAIN )?></button>
 						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/helpdesk/article-categories/bp-user-to-do-list/', '_blank');"><i class="fa fa-file" aria-hidden="true"></i> <?php _e( 'User Manual', BPTODO_TEXT_DOMAIN )?></button>
@@ -106,6 +108,12 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 				}
 
 				update_option('user_todo_list_settings', $settings);
+
+			}
+		}
+
+		public function bptodo_show_notice() {
+			if( isset( $_POST['bptodo-save-settings'] ) && wp_verify_nonce( $_POST['bptodo-general-settings-nonce'], 'bptodo' ) ) {
 				echo '<div class="notice notice-success is-dismissible"><p><strong>Settings Saved.</strong></p></div>';
 			}
 		}
