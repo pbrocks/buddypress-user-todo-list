@@ -1,17 +1,17 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: BuddyPress User To-Do List\n"
 "POT-Creation-Date: 2018-01-11 13:36+0530\n"
-"PO-Revision-Date: 2018-01-11 13:36+0530\n"
+"PO-Revision-Date: 2018-01-11 13:38+0530\n"
 "Last-Translator: Varun Dubey <varun@wbcomdesigns.com>\n"
 "Language-Team: Varun Dubey <varun@wbcomdesigns.com>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.5\n"
 "X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: bp-user-todo-list.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -27,15 +27,15 @@ msgstr ""
 
 #: admin/bptodo-admin.php:25 bp-user-todo-list.php:73
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
 #: admin/bptodo-admin.php:36
 msgid "Email Support"
-msgstr ""
+msgstr "Envoyer un courriel au soutien technique"
 
 #: admin/bptodo-admin.php:37
 msgid "User Manual"
-msgstr ""
+msgstr "Manual do Usuário"
 
 #: admin/bptodo-admin.php:38
 msgid "Rate Us on WordPress.org"
@@ -43,15 +43,15 @@ msgstr ""
 
 #: admin/bptodo-admin.php:60
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #: admin/bptodo-admin.php:66 bp-user-todo-list.php:74
 msgid "Support"
-msgstr ""
+msgstr "Soutien"
 
 #: admin/bptodo-admin.php:84
 msgid "Shortcodes"
-msgstr ""
+msgstr "Shortcodes"
 
 #: admin/inc/bptodo-general-settings.php:10
 msgid "Profile Menu Label"
@@ -59,7 +59,7 @@ msgstr ""
 
 #: admin/inc/bptodo-general-settings.php:12
 msgid "Label"
-msgstr ""
+msgstr "Label"
 
 #: admin/inc/bptodo-general-settings.php:13
 msgid ""
@@ -83,7 +83,7 @@ msgstr ""
 
 #: admin/inc/bptodo-general-settings.php:32
 msgid "Send Notification"
-msgstr ""
+msgstr "Oui, envoyer une notification"
 
 #: admin/inc/bptodo-general-settings.php:38
 msgid "Send a BP notification to the user whose To-Do due date has arrived."
@@ -97,7 +97,7 @@ msgstr ""
 
 #: admin/inc/bptodo-general-settings.php:45
 msgid "Send Mail"
-msgstr ""
+msgstr "Envoyer"
 
 #: admin/inc/bptodo-general-settings.php:51
 msgid "Send a mail to the user whose To-Do due date has arrived."
@@ -174,7 +174,7 @@ msgstr ""
 
 #: bp-user-todo-list.php:114 bp-user-todo-list.php:125
 msgid "BuddyPress"
-msgstr ""
+msgstr "BuddyPress"
 
 #: bp-user-todo-list.php:116 bp-user-todo-list.php:127
 #, php-format
@@ -188,7 +188,7 @@ msgstr ""
 #: inc/todo/list.php:336 inc/todo/list.php:402 inc/todo/list.php:468
 #: inc/todo/list.php:548
 msgid "Remove: "
-msgstr ""
+msgstr "Supprimer :"
 
 #: inc/bptodo-ajax.php:123 inc/todo/bptodo-by-category-template.php:106
 #: inc/todo/bptodo-by-category-template.php:183
@@ -197,7 +197,7 @@ msgstr ""
 #: inc/todo/list.php:338 inc/todo/list.php:404 inc/todo/list.php:470
 #: inc/todo/list.php:550
 msgid "Edit: "
-msgstr ""
+msgstr "Modifier :"
 
 #: inc/bptodo-ajax.php:124 inc/todo/bptodo-by-category-template.php:107
 #: inc/todo/bptodo-by-category-template.php:184
@@ -206,7 +206,7 @@ msgstr ""
 #: inc/todo/list.php:339 inc/todo/list.php:405 inc/todo/list.php:471
 #: inc/todo/list.php:551
 msgid "Complete: "
-msgstr ""
+msgstr "Achevé :"
 
 #: inc/bptodo-ajax.php:126 inc/todo/bptodo-by-category-template.php:109
 #: inc/todo/bptodo-by-category-template.php:186
@@ -271,11 +271,11 @@ msgstr ""
 
 #: inc/bptodo-cpt.php:65
 msgid "Edit Category"
-msgstr ""
+msgstr "Modifier la catégorie"
 
 #: inc/bptodo-cpt.php:66
 msgid "Update Category"
-msgstr ""
+msgstr "Mettre à jour la catégorie"
 
 #: inc/bptodo-cpt.php:67
 msgid "Add To-Do Item Category"
@@ -287,20 +287,20 @@ msgstr ""
 
 #: inc/bptodo-cpt.php:69
 msgid "Categories"
-msgstr ""
+msgstr "Marques disponibles"
 
 #: inc/bptodo-hooks.php:111
 msgid "Add "
-msgstr ""
+msgstr "Ajouter"
 
 #: inc/bptodo-hooks.php:141
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 #: inc/bptodo-hooks.php:149 inc/bptodo-profile-menu.php:42 inc/todo/add.php:39
 #: inc/todo/edit.php:49
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: inc/bptodo-profile-menu.php:30
 msgid " <span class=\"count\">"
@@ -308,7 +308,7 @@ msgstr ""
 
 #: inc/bptodo-profile-menu.php:80
 msgid "Edit "
-msgstr ""
+msgstr "Éditer"
 
 #: inc/bptodo-profile-menu.php:82
 msgid "Add a new "
@@ -316,29 +316,29 @@ msgstr ""
 
 #: inc/bptodo-profile-menu.php:105
 msgid " List"
-msgstr ""
+msgstr "liste"
 
 #: inc/todo/add.php:18 inc/todo/edit.php:26
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: inc/todo/add.php:23 inc/todo/add.php:79 inc/todo/edit.php:31
 #: inc/todo/edit.php:89
 msgid "--Select--"
-msgstr ""
+msgstr "--Sélectionner--"
 
 #: inc/todo/add.php:36 inc/todo/edit.php:46
 msgid " category"
-msgstr ""
+msgstr "catégorie"
 
 #: inc/todo/add.php:47 inc/todo/add.php:50 inc/todo/edit.php:57
 #: inc/todo/edit.php:60
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: inc/todo/add.php:56 inc/todo/edit.php:66
 msgid "Summary"
-msgstr ""
+msgstr "Résumé"
 
 #: inc/todo/add.php:66 inc/todo/add.php:69
 #: inc/todo/bptodo-by-category-template.php:60
@@ -347,28 +347,28 @@ msgstr ""
 #: inc/todo/bptodo-by-category-template.php:289 inc/todo/edit.php:76
 #: inc/todo/edit.php:79 inc/todo/list.php:214
 msgid "Due Date"
-msgstr ""
+msgstr "Date d'échéance"
 
 #: inc/todo/add.php:75 inc/todo/edit.php:85 inc/todo/list.php:212
 #: inc/todo/list.php:498
 msgid "Priority"
-msgstr ""
+msgstr "Priorité"
 
 #: inc/todo/add.php:80 inc/todo/edit.php:90
 msgid "Critical"
-msgstr ""
+msgstr "Critique"
 
 #: inc/todo/add.php:81 inc/todo/edit.php:91
 msgid "High"
-msgstr ""
+msgstr "Haut"
 
 #: inc/todo/add.php:82 inc/todo/edit.php:92
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: inc/todo/add.php:91
 msgid "Submit "
-msgstr ""
+msgstr "Envoyer"
 
 #: inc/todo/bptodo-by-category-template-loggedout-user.php:5
 msgid "You need to be loggedin to view the todo items."
@@ -376,7 +376,7 @@ msgstr ""
 
 #: inc/todo/bptodo-by-category-template.php:51
 msgid "PAST"
-msgstr ""
+msgstr "ANCIEN"
 
 #: inc/todo/bptodo-by-category-template.php:58
 #: inc/todo/bptodo-by-category-template.php:135
@@ -384,29 +384,29 @@ msgstr ""
 #: inc/todo/bptodo-by-category-template.php:287 inc/todo/list.php:213
 #: inc/todo/list.php:499
 msgid "Task"
-msgstr ""
+msgstr "Tâche"
 
 #: inc/todo/bptodo-by-category-template.php:59
 #: inc/todo/bptodo-by-category-template.php:136
 #: inc/todo/bptodo-by-category-template.php:212
 #: inc/todo/bptodo-by-category-template.php:288
 msgid "Task Description"
-msgstr ""
+msgstr "Description de tâche"
 
 #: inc/todo/bptodo-by-category-template.php:61
 #: inc/todo/bptodo-by-category-template.php:138
 #: inc/todo/bptodo-by-category-template.php:214
 #: inc/todo/bptodo-by-category-template.php:290
 msgid "Mark Complete"
-msgstr ""
+msgstr "Marquer comme complété"
 
 #: inc/todo/bptodo-by-category-template.php:128
 msgid "TODAY"
-msgstr ""
+msgstr "AUJOURD'HUI"
 
 #: inc/todo/bptodo-by-category-template.php:204
 msgid "TOMORROW"
-msgstr ""
+msgstr "DEMAIN"
 
 #: inc/todo/bptodo-by-category-template.php:280
 msgid "SOMEDAY"
@@ -414,7 +414,7 @@ msgstr ""
 
 #: inc/todo/bptodo-by-category-template.php:286
 msgid "Sr. No."
-msgstr ""
+msgstr "Sr. No."
 
 #: inc/todo/bptodo-by-category-template.php:358
 msgid "There are no todos in this category."
@@ -430,7 +430,7 @@ msgstr ""
 
 #: inc/todo/edit.php:102
 msgid "Update "
-msgstr ""
+msgstr "Mettre à jour "
 
 #: inc/todo/list.php:126
 msgid "Sorry, no "
@@ -446,23 +446,23 @@ msgstr ""
 
 #: inc/todo/list.php:148
 msgid "Task Progress"
-msgstr ""
+msgstr "Progression de la tâche"
 
 #: inc/todo/list.php:154 inc/todo/list.php:202
 msgid " Completed"
-msgstr ""
+msgstr "Terminé"
 
 #: inc/todo/list.php:161
 msgid "Dashboard"
-msgstr ""
+msgstr "Tableau de Bord"
 
 #: inc/todo/list.php:165
 msgid "At a Glance"
-msgstr ""
+msgstr "D’un coup d’œil"
 
 #: inc/todo/list.php:174
 msgid "Total "
-msgstr ""
+msgstr "Total "
 
 #: inc/todo/list.php:184
 msgid "(s) remaining"
@@ -474,11 +474,11 @@ msgstr ""
 
 #: inc/todo/list.php:201
 msgid " All "
-msgstr ""
+msgstr "Tous"
 
 #: inc/todo/list.php:215 inc/todo/list.php:500
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #. Plugin Name of the plugin/theme
 msgid "BuddyPress User To-Do List"
@@ -500,4 +500,4 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://wbcomdesigns.com"
-msgstr ""
+msgstr "http://wbcomdesigns.com"
