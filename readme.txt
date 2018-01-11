@@ -1,16 +1,25 @@
 === BuddyPress user ToDo List ===
-Contributors: wbcomdesigns
+Contributors: wbcomdesigns , vapvarun
 Donate link: https://wbcomdesigns.com/contact/
 Tags: buddypress, cpt, todo
-Requires at least: 3.0.1
-Tested up to: 4.8
-Stable tag: 1.0.2
+Requires at least: 4.0.1
+Tested up to: 4.9.1
+Stable tag: 4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This plugin allows buddypress members to add tasks in their todo list and allows them to 'edit', 'delete', 'mark-complete' the tasks. Even the due date concept has been implied that reminds the user that their due date has arived.
+Todo List is a modern task personal task management solution for BuddyPress. At the moment, BuddyPress Todo List allow your to create your personal task list with timestamp. You can mark them complete when you are done with them. It will also send reminder when you have any overdue task.
+
+It is built to be reliable, scalable, secure and flexible. We have worked hard to make it easy to use and we will love your feedback in making it better.
+
+= Links =
+
+[Wbcom Designs Site](https://wbcomdesigns.com/downloads/buddypress-user-to-do-list/ "BuddyPress User ToDo List" )
+*	[Demo]( https://demos.wbcomdesigns.com/wbcomplugins/ "BuddyPress User ToDo List Demo")
+*	[Support](https://wbcomdesigns.com/helpdesk/article-categories/bp-user-to-do-list/)
+*	[Github Development Repo](https://github.com/wbcomdesigns/buddypress-user-todo-list/)
 
 == Installation ==
 
@@ -27,13 +36,19 @@ Just goto your member profile and you can see the Todo tab. Click on it and then
 
 The screenshots are present in the root of the plugin folder.
 1. screenshot-1 - is the screen which shows the plugin settings at admin panel.
-2. screenshot-2 - is the screen which shows the shortcode example in admin panel to list to-do of specific category.
-3. screenshot-3 - is the screen which shows support section at admin panel.
+2. screenshot-2 - is the screen that shows member's to-do list dashboard.
+3. screenshot-3 - is the screen that shows member's all to-do list.
 4. screenshot-4 - is the screen which shows form to create a to-do.
-5. screenshot-5 - is the screen that shows member's to-do list dashboard.
-6. screenshot-6 - is the screen that shows member's all to-do list.
 
 == Changelog ==
+
+= 1.0.3 =
+* Enhancement - Layout changes for task management
+* Enhancement - Added Visual editor support for new task
+* Enhancement - Added tags for each task to set priorities
+* Fix - Conflict with BP reaction
+* Fix - Dedicated support for Reign theme.
+
 = 1.0.2 =
 * Added To-do dashboard
 * Added To-do priority
@@ -41,6 +56,7 @@ The screenshots are present in the root of the plugin folder.
 
 = 1.0.1 =
 Plugin with admin options and modified todo list view in front end.
+
 = 1.0.0 =
 Initial Release
 
