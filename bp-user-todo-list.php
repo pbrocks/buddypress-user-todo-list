@@ -34,10 +34,6 @@ if ( !defined( 'BPTODO_VERSION' ) ) {
 	define( 'BPTODO_VERSION', '1.0.3' );
 }
 
-if ( !defined( 'BPTODO_TEXT_DOMAIN' ) ) {
-	define( 'BPTODO_TEXT_DOMAIN', 'wb-todo' );
-}
-
 if ( !defined( 'BP_ENABLE_MULTIBLOG' ) ) {
 	define( 'BP_ENABLE_MULTIBLOG', false );
 }
@@ -70,8 +66,8 @@ function run_wp_bptodo_list() {
 //Settings link for this plugin
 function bptodo_admin_page_link( $links ) {
 	$bptodo_links = array(
-		'<a href="'.admin_url('edit.php?post_type=bp-todo&page=user-todo-list-settings').'">'.__( 'Settings', BPTODO_TEXT_DOMAIN ).'</a>',
-		'<a href="https://wbcomdesigns.com/contact/" target="_blank">'.__( 'Support', BPTODO_TEXT_DOMAIN ).'</a>'
+		'<a href="'.admin_url('edit.php?post_type=bp-todo&page=user-todo-list-settings').'">'.__( 'Settings', 'wb-todo' ).'</a>',
+		'<a href="https://wbcomdesigns.com/contact/" target="_blank">'.__( 'Support', 'wb-todo' ).'</a>'
 	);
 	return array_merge( $links, $bptodo_links );
 }
@@ -110,10 +106,10 @@ add_action('plugins_loaded', 'bptodo_plugin_init');
  * Plugin notice - activate buddypress - single site
  */
 function bptodo_plugin_admin_notice() {
-	$bptodo_plugin = __( 'BuddyPress Member To-Do List', BPTODO_TEXT_DOMAIN );
-	$bp_plugin = __( 'BuddyPress', BPTODO_TEXT_DOMAIN );
+	$bptodo_plugin = __( 'BuddyPress Member To-Do List', 'wb-todo' );
+	$bp_plugin = __( 'BuddyPress', 'wb-todo' );
 
-	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
+	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', 'wb-todo'), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
 	if (isset($_GET['activate'])) unset($_GET['activate']);
 }
 
@@ -121,10 +117,10 @@ function bptodo_plugin_admin_notice() {
  * Plugin notice - activate buddypress - multisite
  */
 function bptodo_network_plugin_admin_notice() {
-	$bptodo_plugin = __( 'BuddyPress Member To-Do List', BPTODO_TEXT_DOMAIN );
-	$bp_plugin = __( 'BuddyPress', BPTODO_TEXT_DOMAIN );
+	$bptodo_plugin = __( 'BuddyPress Member To-Do List', 'wb-todo' );
+	$bp_plugin = __( 'BuddyPress', 'wb-todo' );
 
-	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', BPTODO_TEXT_DOMAIN), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
+	echo '<div class="error"><p>' . sprintf(__('%1$s is ineffective now as it requires %2$s to be installed and active.', 'wb-todo'), '<strong>' . esc_html($bptodo_plugin) . '</strong>', '<strong>' . esc_html($bp_plugin) . '</strong>') . '</p></div>';
 	if (isset($_GET['activate'])) unset($_GET['activate']);
 }
 

@@ -108,7 +108,7 @@ if ( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 				$todo_add_url = bp_core_get_userlink( bp_displayed_user_id(), false, true ) . $profile_menu_slug . '/add';
 				?>
 				<div id="bptodo-add-todo-btn" class="generic-button">
-					<a href="<?php echo $todo_add_url; ?>" class="add-todo"><?php _e( 'Add ' . $profile_menu_label, BPTODO_TEXT_DOMAIN ); ?></a>
+					<a href="<?php echo $todo_add_url; ?>" class="add-todo"><?php _e( 'Add ' . $profile_menu_label, 'wb-todo' ); ?></a>
 				</div>
 				<?php
 			}
@@ -138,7 +138,7 @@ if ( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 				$wp_admin_bar->add_menu( array(
 					'parent' => 'my-account-' . $profile_menu_slug,
 					'id'	 => 'my-account-' . $profile_menu_slug . '-' . 'list',
-					'title'	 => __( 'List', BPTODO_TEXT_DOMAIN ),
+					'title'	 => __( 'List', 'wb-todo' ),
 					'href'	 => trailingslashit( $todo_list_url )
 				) );
 
@@ -146,7 +146,7 @@ if ( !class_exists( 'Bptodo_Custom_Hooks' ) ) {
 				$wp_admin_bar->add_menu( array(
 					'parent' => 'my-account-' . $profile_menu_slug,
 					'id'	 => 'my-account-' . $profile_menu_slug . '-' . 'add',
-					'title'	 => __( 'Add', BPTODO_TEXT_DOMAIN ),
+					'title'	 => __( 'Add', 'wb-todo' ),
 					'href'	 => trailingslashit( $todo_add_url )
 				) );
 			}

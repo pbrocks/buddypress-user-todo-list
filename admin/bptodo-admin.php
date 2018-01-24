@@ -22,7 +22,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 
 		//Actions performed on loading admin_menu
 		function bptodo_add_menu_page() {
-			add_submenu_page( 'edit.php?post_type=bp-todo', __( 'BuddyPress Member To-Do List Settings', BPTODO_TEXT_DOMAIN ), __( 'Settings', BPTODO_TEXT_DOMAIN ), 'manage_options', 'user-todo-list-settings', array( $this, 'bptodo_admin_options_page' ) );
+			add_submenu_page( 'edit.php?post_type=bp-todo', __( 'BuddyPress Member To-Do List Settings', 'wb-todo' ), __( 'Settings', 'wb-todo' ), 'manage_options', 'user-todo-list-settings', array( $this, 'bptodo_admin_options_page' ) );
 		}
 
 		function bptodo_admin_options_page() {
@@ -30,12 +30,12 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 			?>
 			<div class="wrap">
 				<div class="bptodo-header">
-					<h1 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member To-Do List Settings', BPTODO_TEXT_DOMAIN ); ?></h1>
+					<h1 class="bptodo-plugin-heading"><?php _e( 'BuddyPress Member To-Do List Settings', 'wb-todo' ); ?></h1>
 					<?php $this->bptodo_show_notice(); ?>
 					<div class="bptodo-extra-actions">
-						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/contact/', '_blank');"><i class="fa fa-envelope" aria-hidden="true"></i> <?php _e( 'Email Support', BPTODO_TEXT_DOMAIN )?></button>
-						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/helpdesk/article-categories/bp-user-to-do-list/', '_blank');"><i class="fa fa-file" aria-hidden="true"></i> <?php _e( 'User Manual', BPTODO_TEXT_DOMAIN )?></button>
-						<button type="button" class="button button-secondary" onclick="window.open('https://wordpress.org/support/plugin/bp-user-to-do-list/reviews/', '_blank');"><i class="fa fa-star" aria-hidden="true"></i> <?php _e( 'Rate Us on WordPress.org', BPTODO_TEXT_DOMAIN )?></button>
+						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/contact/', '_blank');"><i class="fa fa-envelope" aria-hidden="true"></i> <?php _e( 'Email Support', 'wb-todo' )?></button>
+						<button type="button" class="button button-secondary" onclick="window.open('https://wbcomdesigns.com/helpdesk/article-categories/bp-user-to-do-list/', '_blank');"><i class="fa fa-file" aria-hidden="true"></i> <?php _e( 'User Manual', 'wb-todo' )?></button>
+						<button type="button" class="button button-secondary" onclick="window.open('https://wordpress.org/support/plugin/bp-user-to-do-list/reviews/', '_blank');"><i class="fa fa-star" aria-hidden="true"></i> <?php _e( 'Rate Us on WordPress.org', 'wb-todo' )?></button>
 					</div>
 				</div>
 
@@ -57,13 +57,13 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 		}
 
 		function bptodo_register_general_settings() {
-			$this->plugin_settings_tabs['user-todo-list-settings'] = __( 'General', BPTODO_TEXT_DOMAIN );
+			$this->plugin_settings_tabs['user-todo-list-settings'] = __( 'General', 'wb-todo' );
 			register_setting('user-todo-list-settings', 'user-todo-list-settings');
 			add_settings_section('section_general', ' ', array(&$this, 'bptodo_general_settings_content'), 'user-todo-list-settings');
 		}
 
 		function bptodo_register_support_settings() {
-			$this->plugin_settings_tabs['bptodo-support'] = __( 'Support', BPTODO_TEXT_DOMAIN );
+			$this->plugin_settings_tabs['bptodo-support'] = __( 'Support', 'wb-todo' );
 			register_setting('bptodo-support', 'bptodo-support');
 			add_settings_section('section_support', ' ', array(&$this, 'bptodo_support_settings_content'), 'bptodo-support');
 		}
@@ -81,7 +81,7 @@ if( !class_exists( 'Bptodo_Admin' ) ) {
 		}
 
 		function bptodo_register_shortcode_settings() {
-			$this->plugin_settings_tabs['user-todo-list-shortcodes'] = __( 'Shortcodes', BPTODO_TEXT_DOMAIN );
+			$this->plugin_settings_tabs['user-todo-list-shortcodes'] = __( 'Shortcodes', 'wb-todo' );
 			register_setting('user-todo-list-shortcodes', 'user-todo-list-shortcodes');
 			add_settings_section('section_shortcodes', ' ', array(&$this, 'bptodo_general_shortcodes_content'), 'user-todo-list-shortcodes');
 		}

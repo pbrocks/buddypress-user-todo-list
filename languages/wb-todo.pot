@@ -1,31 +1,34 @@
-#, fuzzy
+# Copyright (C) 2018 
+# This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: BuddyPress User To-Do List\n"
-"POT-Creation-Date: 2018-01-11 13:36+0530\n"
-"PO-Revision-Date: 2018-01-11 13:36+0530\n"
-"Last-Translator: Varun Dubey <varun@wbcomdesigns.com>\n"
-"Language-Team: Varun Dubey <varun@wbcomdesigns.com>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-24 12:57:54+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: bp-user-todo-list.php\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Varun Dubey\n"
+"Language-Team: Wbcom Designs\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n1.0.1\n"
 
 #: admin/bptodo-admin.php:25 admin/bptodo-admin.php:33
 msgid "BuddyPress Member To-Do List Settings"
 msgstr ""
 
-#: admin/bptodo-admin.php:25 bp-user-todo-list.php:73
+#: admin/bptodo-admin.php:25 bp-user-todo-list.php:69
 msgid "Settings"
 msgstr ""
 
@@ -45,7 +48,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: admin/bptodo-admin.php:66 bp-user-todo-list.php:74
+#: admin/bptodo-admin.php:66 bp-user-todo-list.php:70
 msgid "Support"
 msgstr ""
 
@@ -109,16 +112,8 @@ msgid ""
 "his/her task due date."
 msgstr ""
 
-#: admin/inc/bptodo-shortcodes-settings.php:10
-msgid "This shortcode will list all the "
-msgstr ""
-
 #: admin/inc/bptodo-shortcodes-settings.php:11
 msgid "Arguments accepted:"
-msgstr ""
-
-#: admin/inc/bptodo-shortcodes-settings.php:13
-msgid "you need to provide the category id of which the "
 msgstr ""
 
 #: admin/inc/bptodo-support.php:8
@@ -131,9 +126,9 @@ msgstr ""
 
 #: admin/inc/bptodo-support.php:17
 msgid ""
-"As the name of the plugin justifies, this plugin helps manage To-Do List for "
-"BuddyPress Members, this plugin requires BuddyPress plugin to be installed "
-"and active."
+"As the name of the plugin justifies, this plugin helps manage To-Do List "
+"for BuddyPress Members, this plugin requires BuddyPress plugin to be "
+"installed and active."
 msgstr ""
 
 #: admin/inc/bptodo-support.php:18
@@ -168,53 +163,16 @@ msgstr ""
 msgid "Custom Development"
 msgstr ""
 
-#: bp-user-todo-list.php:113 bp-user-todo-list.php:124
+#: bp-user-todo-list.php:109 bp-user-todo-list.php:120
 msgid "BuddyPress Member To-Do List"
 msgstr ""
 
-#: bp-user-todo-list.php:114 bp-user-todo-list.php:125
+#: bp-user-todo-list.php:110 bp-user-todo-list.php:121
 msgid "BuddyPress"
 msgstr ""
 
-#: bp-user-todo-list.php:116 bp-user-todo-list.php:127
-#, php-format
+#: bp-user-todo-list.php:112 bp-user-todo-list.php:123
 msgid "%1$s is ineffective now as it requires %2$s to be installed and active."
-msgstr ""
-
-#: inc/bptodo-ajax.php:120 inc/todo/bptodo-by-category-template.php:104
-#: inc/todo/bptodo-by-category-template.php:181
-#: inc/todo/bptodo-by-category-template.php:257
-#: inc/todo/bptodo-by-category-template.php:333 inc/todo/list.php:271
-#: inc/todo/list.php:336 inc/todo/list.php:402 inc/todo/list.php:468
-#: inc/todo/list.php:548
-msgid "Remove: "
-msgstr ""
-
-#: inc/bptodo-ajax.php:123 inc/todo/bptodo-by-category-template.php:106
-#: inc/todo/bptodo-by-category-template.php:183
-#: inc/todo/bptodo-by-category-template.php:259
-#: inc/todo/bptodo-by-category-template.php:335 inc/todo/list.php:273
-#: inc/todo/list.php:338 inc/todo/list.php:404 inc/todo/list.php:470
-#: inc/todo/list.php:550
-msgid "Edit: "
-msgstr ""
-
-#: inc/bptodo-ajax.php:124 inc/todo/bptodo-by-category-template.php:107
-#: inc/todo/bptodo-by-category-template.php:184
-#: inc/todo/bptodo-by-category-template.php:260
-#: inc/todo/bptodo-by-category-template.php:336 inc/todo/list.php:274
-#: inc/todo/list.php:339 inc/todo/list.php:405 inc/todo/list.php:471
-#: inc/todo/list.php:551
-msgid "Complete: "
-msgstr ""
-
-#: inc/bptodo-ajax.php:126 inc/todo/bptodo-by-category-template.php:109
-#: inc/todo/bptodo-by-category-template.php:186
-#: inc/todo/bptodo-by-category-template.php:262
-#: inc/todo/bptodo-by-category-template.php:338 inc/todo/list.php:276
-#: inc/todo/list.php:341 inc/todo/list.php:407 inc/todo/list.php:473
-#: inc/todo/list.php:553
-msgid "Undo Complete: "
 msgstr ""
 
 #: inc/bptodo-cpt.php:20 inc/bptodo-cpt.php:22 inc/bptodo-cpt.php:23
@@ -289,10 +247,6 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: inc/bptodo-hooks.php:111
-msgid "Add "
-msgstr ""
-
 #: inc/bptodo-hooks.php:141
 msgid "List"
 msgstr ""
@@ -302,22 +256,6 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: inc/bptodo-profile-menu.php:30
-msgid " <span class=\"count\">"
-msgstr ""
-
-#: inc/bptodo-profile-menu.php:80
-msgid "Edit "
-msgstr ""
-
-#: inc/bptodo-profile-menu.php:82
-msgid "Add a new "
-msgstr ""
-
-#: inc/bptodo-profile-menu.php:105
-msgid " List"
-msgstr ""
-
 #: inc/todo/add.php:18 inc/todo/edit.php:26
 msgid "Category"
 msgstr ""
@@ -325,10 +263,6 @@ msgstr ""
 #: inc/todo/add.php:23 inc/todo/add.php:79 inc/todo/edit.php:31
 #: inc/todo/edit.php:89
 msgid "--Select--"
-msgstr ""
-
-#: inc/todo/add.php:36 inc/todo/edit.php:46
-msgid " category"
 msgstr ""
 
 #: inc/todo/add.php:47 inc/todo/add.php:50 inc/todo/edit.php:57
@@ -364,10 +298,6 @@ msgstr ""
 
 #: inc/todo/add.php:82 inc/todo/edit.php:92
 msgid "Normal"
-msgstr ""
-
-#: inc/todo/add.php:91
-msgid "Submit "
 msgstr ""
 
 #: inc/todo/bptodo-by-category-template-loggedout-user.php:5
@@ -428,22 +358,6 @@ msgstr ""
 msgid "Please provide any category ID."
 msgstr ""
 
-#: inc/todo/edit.php:102
-msgid "Update "
-msgstr ""
-
-#: inc/todo/list.php:126
-msgid "Sorry, no "
-msgstr ""
-
-#: inc/todo/list.php:133
-msgid " added successfully !"
-msgstr ""
-
-#: inc/todo/list.php:140
-msgid " updated successfully !"
-msgstr ""
-
 #: inc/todo/list.php:148
 msgid "Task Progress"
 msgstr ""
@@ -460,44 +374,6 @@ msgstr ""
 msgid "At a Glance"
 msgstr ""
 
-#: inc/todo/list.php:174
-msgid "Total "
-msgstr ""
-
-#: inc/todo/list.php:184
-msgid "(s) remaining"
-msgstr ""
-
-#: inc/todo/list.php:193
-msgid "(s) Completed"
-msgstr ""
-
-#: inc/todo/list.php:201
-msgid " All "
-msgstr ""
-
 #: inc/todo/list.php:215 inc/todo/list.php:500
 msgid "Actions"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "BuddyPress User To-Do List"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "https://wbcomdesigns.com/contact/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"This plugin allows users to create to do items in their profile section and "
-"simple interface to schedule your task."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Wbcom Designs"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://wbcomdesigns.com"
 msgstr ""

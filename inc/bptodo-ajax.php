@@ -117,13 +117,13 @@ if (!class_exists('BPTodoAjax')) {
 				<td class="todo-completed">'.$todo_title.'</td>
 				<td class="bp-to-do-actions">
 				<ul>
-				<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="'.$tid.'" title="'. __( "Remove: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-times"></i></a></li>';
+				<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="'.$tid.'" title="'. __( "Remove: " . $todo_title, 'wb-todo' ).'"><i class="fa fa-times"></i></a></li>';
 				if ( $todo_status !== "complete" ) {
 
-					$completed_html .= '<li><a href="'.$todo_edit_url.'" title="'. __( "Edit: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-edit"></i></a></li>
-					<li id="bptodo-complete-li-'.$tid.'"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="'.$tid.'" title="'.__( "Complete: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-check"></i></a></li>';
+					$completed_html .= '<li><a href="'.$todo_edit_url.'" title="'. __( "Edit: " . $todo_title, 'wb-todo' ).'"><i class="fa fa-edit"></i></a></li>
+					<li id="bptodo-complete-li-'.$tid.'"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="'.$tid.'" title="'.__( "Complete: " . $todo_title, 'wb-todo' ).'"><i class="fa fa-check"></i></a></li>';
 				} else {
-					$completed_html .=	'<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="'. $tid.'" title="'. __( "Undo Complete: " . $todo_title, BPTODO_TEXT_DOMAIN ).'"><i class="fa fa-undo"></i></a></li>';
+					$completed_html .=	'<li><a href="javascript:void(0);" class="bptodo-undo-complete-todo" data-tid="'. $tid.'" title="'. __( "Undo Complete: " . $todo_title, 'wb-todo' ).'"><i class="fa fa-undo"></i></a></li>';
 				}
 				$completed_html .= '</ul></td></tr>';
 				/*** End of html of completed todo ***/

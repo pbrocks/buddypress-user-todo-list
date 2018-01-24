@@ -48,17 +48,17 @@ if ( !empty( $atts[ 'category' ] ) ) {
 						<?php if ( !empty( $todo_list[ 'past' ] ) ) { ?>
 							<div class="bptodo-admin-row">
 								<div>
-									<button class="bptodo-item"><?php _e( 'PAST', BPTODO_TEXT_DOMAIN ); ?></button>
+									<button class="bptodo-item"><?php _e( 'PAST', 'wb-todo' ); ?></button>
 									<div class="panel">
 										<div class="todo-detail">
 											<table class="bp-todo-reminder">
 												<thead>
 													<tr>
 														<th></th>
-														<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
-														<th><?php _e( 'Task Description', BPTODO_TEXT_DOMAIN );?></th>
-														<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
-														<th><?php _e( 'Mark Complete', BPTODO_TEXT_DOMAIN );?></th>
+														<th><?php _e( 'Task', 'wb-todo' );?></th>
+														<th><?php _e( 'Task Description', 'wb-todo' );?></th>
+														<th><?php _e( 'Due Date', 'wb-todo' );?></th>
+														<th><?php _e( 'Mark Complete', 'wb-todo' );?></th>
 													</tr>
 												</thead>
 												<tbody>
@@ -101,12 +101,12 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
-																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
-																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
-																		<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-edit"></i></a></li>
+																		<li id="bptodo-complete-li-<?php echo $tid;?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
-																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-undo"></i></a></li>
 																	<?php } ?>
 																</ul>	
 															</td>
@@ -125,17 +125,17 @@ if ( !empty( $atts[ 'category' ] ) ) {
 						<?php if ( !empty( $todo_list[ 'today' ] ) ) { ?>
 							<div class="bptodo-admin-row">
 								<div>
-									<button class="bptodo-item"><?php _e( 'TODAY', BPTODO_TEXT_DOMAIN );?></button>
+									<button class="bptodo-item"><?php _e( 'TODAY', 'wb-todo' );?></button>
 									<div class="panel">
 										<div class="todo-detail">
 											<table class="bp-todo-reminder">
 												<thead>
 													<tr>
 														<th></th>
-														<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN );?></th>
-														<th><?php _e( 'Task Description', BPTODO_TEXT_DOMAIN );?></th>
-														<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN );?></th>
-														<th><?php _e( 'Mark Complete', BPTODO_TEXT_DOMAIN );?></th>
+														<th><?php _e( 'Task', 'wb-todo' );?></th>
+														<th><?php _e( 'Task Description', 'wb-todo' );?></th>
+														<th><?php _e( 'Due Date', 'wb-todo' );?></th>
+														<th><?php _e( 'Mark Complete', 'wb-todo' );?></th>
 													</tr>
 												</thead>
 												<tbody>
@@ -178,12 +178,12 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
-																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
-																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
-																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-edit"></i></a></li>
+																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
-																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-undo"></i></a></li>
 																	<?php } ?>
 																</ul>	
 															</td>
@@ -201,17 +201,17 @@ if ( !empty( $atts[ 'category' ] ) ) {
 						<?php if ( !empty( $todo_list[ 'tomorrow' ] ) ) { ?>
 							<div class="bptodo-admin-row">
 								<div>
-									<button class="bptodo-item"><?php _e( 'TOMORROW', BPTODO_TEXT_DOMAIN ); ?></button>
+									<button class="bptodo-item"><?php _e( 'TOMORROW', 'wb-todo' ); ?></button>
 									<div class="panel">
 										<div class="todo-detail">
 											<table class="bp-todo-reminder">
 												<thead>
 													<tr>
 														<th></th>
-														<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN ); ?></th>
-														<th><?php _e( 'Task Description', BPTODO_TEXT_DOMAIN ); ?></th>
-														<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?></th>
-														<th><?php _e( 'Mark Complete', BPTODO_TEXT_DOMAIN ); ?></th>
+														<th><?php _e( 'Task', 'wb-todo' ); ?></th>
+														<th><?php _e( 'Task Description', 'wb-todo' ); ?></th>
+														<th><?php _e( 'Due Date', 'wb-todo' ); ?></th>
+														<th><?php _e( 'Mark Complete', 'wb-todo' ); ?></th>
 													</tr>
 												</thead>
 												<tbody>
@@ -254,12 +254,12 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
-																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
-																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
-																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-edit"></i></a></li>
+																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
-																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-undo"></i></a></li>
 																	<?php } ?>
 																</ul>	
 															</td>
@@ -277,17 +277,17 @@ if ( !empty( $atts[ 'category' ] ) ) {
 						<?php if ( !empty( $todo_list[ 'future' ] ) ) { ?>
 							<div class="bptodo-admin-row">
 								<div>
-									<button class="bptodo-item"><?php _e( 'SOMEDAY', BPTODO_TEXT_DOMAIN ); ?></button>
+									<button class="bptodo-item"><?php _e( 'SOMEDAY', 'wb-todo' ); ?></button>
 									<div class="panel">
 										<div class="todo-detail">
 											<table class="bp-todo-reminder">
 												<thead>
 													<tr>
-														<th><?php _e( 'Sr. No.', BPTODO_TEXT_DOMAIN );?></th>
-														<th><?php _e( 'Task', BPTODO_TEXT_DOMAIN ); ?></th>
-														<th><?php _e( 'Task Description', BPTODO_TEXT_DOMAIN ); ?></th>
-														<th><?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?></th>
-														<th><?php _e( 'Mark Complete', BPTODO_TEXT_DOMAIN ); ?></th>
+														<th><?php _e( 'Sr. No.', 'wb-todo' );?></th>
+														<th><?php _e( 'Task', 'wb-todo' ); ?></th>
+														<th><?php _e( 'Task Description', 'wb-todo' ); ?></th>
+														<th><?php _e( 'Due Date', 'wb-todo' ); ?></th>
+														<th><?php _e( 'Mark Complete', 'wb-todo' ); ?></th>
 													</tr>
 												</thead>
 												<tbody>
@@ -330,12 +330,12 @@ if ( !empty( $atts[ 'category' ] ) ) {
 															?>"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
-																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-times"></i></a></li>
+																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo $tid;?>" title="<?php _e( 'Remove: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-times"></i></a></li>
 																	<?php if ( $todo_status !== 'complete' ) { ?>
-																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, BPTODO_TEXT_DOMAIN );?>"><i class="fa fa-edit"></i></a></li>
-																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-check"></i></a></li>
+																		<li><a href="<?php echo $todo_edit_url;?>" title="<?php _e( 'Edit: ' . $todo_title, 'wb-todo' );?>"><i class="fa fa-edit"></i></a></li>
+																		<li id="bptodo-complete-li-<?php echo $tid; ?>"><a href="javacript:void(0);" class="bptodo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-check"></i></a></li>
 																	<?php } else { ?>
-																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, BPTODO_TEXT_DOMAIN ); ?>"><i class="fa fa-undo"></i></a></li>
+																		<li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="<?php echo $tid; ?>" title="<?php _e( 'Undo Complete: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-undo"></i></a></li>
 																	<?php } ?>
 																</ul>	
 															</td>
@@ -355,21 +355,21 @@ if ( !empty( $atts[ 'category' ] ) ) {
 		} else {
 			?>
 			<div id="message" class="info">
-				<p><?php _e( 'There are no todos in this category.', BPTODO_TEXT_DOMAIN ); ?></p>
+				<p><?php _e( 'There are no todos in this category.', 'wb-todo' ); ?></p>
 			</div>
 			<?php
 		}
 	} else {
 		?>
 		<div id="message" class="info">
-			<p><?php _e( 'Please provide a valid category ID.', BPTODO_TEXT_DOMAIN ); ?></p>
+			<p><?php _e( 'Please provide a valid category ID.', 'wb-todo' ); ?></p>
 		</div>
 		<?php
 	}
 } else {
 	?>
 	<div id="message" class="info">
-		<p><?php _e( 'Please provide any category ID.', BPTODO_TEXT_DOMAIN ); ?></p>
+		<p><?php _e( 'Please provide any category ID.', 'wb-todo' ); ?></p>
 	</div>
 	<?php
 }

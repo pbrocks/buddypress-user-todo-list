@@ -27,7 +27,7 @@ if (!class_exists('BP_Profile_Todo')) {
 
 				$name = bp_get_displayed_user_username();
 				$tab_args = array(
-					'name' => __( $profile_menu_label.' <span class="count">'.$my_todo_items.'</span>', BPTODO_TEXT_DOMAIN ),
+					'name' => __( $profile_menu_label.' <span class="count">'.$my_todo_items.'</span>', 'wb-todo' ),
 					'slug' => $profile_menu_slug,
 					'screen_function' => array($this, 'todo_tab_function_to_show_screen'),
 					'position' => 75,
@@ -39,7 +39,7 @@ if (!class_exists('BP_Profile_Todo')) {
 				//Add subnav add new todo item
 				bp_core_new_subnav_item(
 					array(
-						'name' => __( 'Add', BPTODO_TEXT_DOMAIN ),
+						'name' => __( 'Add', 'wb-todo' ),
 						'slug' => 'add',
 						'parent_url' => $todo_menu_link.'/',
 						'parent_slug' => $parent_slug,
@@ -52,7 +52,7 @@ if (!class_exists('BP_Profile_Todo')) {
 				//Add subnav todo list items
 				bp_core_new_subnav_item(
 					array(
-						'name' => __( $profile_menu_label_plural, BPTODO_TEXT_DOMAIN ),
+						'name' => __( $profile_menu_label_plural, 'wb-todo' ),
 						'slug' => 'list',
 						'parent_url' => $todo_menu_link.'/',
 						'parent_slug' => $parent_slug,
@@ -77,9 +77,9 @@ if (!class_exists('BP_Profile_Todo')) {
 			if (isset($_GET['args'])) {
 				$todo_id = sanitize_text_field( $_GET['args'] );
 				$todo = get_post( $todo_id );
-				echo __( 'Edit '.$profile_menu_slug.': '.$todo->post_title, BPTODO_TEXT_DOMAIN );
+				echo __( 'Edit '.$profile_menu_slug.': '.$todo->post_title, 'wb-todo' );
 			} else {
-				echo __( 'Add a new '.$profile_menu_slug.' in your list', BPTODO_TEXT_DOMAIN );
+				echo __( 'Add a new '.$profile_menu_slug.' in your list', 'wb-todo' );
 			}
 		}
 
@@ -102,7 +102,7 @@ if (!class_exists('BP_Profile_Todo')) {
 			global $bptodo;
 			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
 			echo "<h4>";
-			echo __( $profile_menu_label_plural.' List', BPTODO_TEXT_DOMAIN );
+			echo __( $profile_menu_label_plural.' List', 'wb-todo' );
 			$args = array(
 				'post_type' => 'bp-todo',
 				'author'    => bp_displayed_user_id(),

@@ -23,12 +23,12 @@ $todo_priority	 = get_post_meta( $todo_id, 'todo_priority', true );
 	<table class="bptodo-add-todo-tbl">
 		<tr>
 			<td width="20%">
-				<?php _e( 'Category', BPTODO_TEXT_DOMAIN ); ?>
+				<?php _e( 'Category', 'wb-todo' ); ?>
 			</td>
 			<td width="80%">
 				<div>
 					<select name="todo_cat" id="bp_todo_categories" required>
-						<option value=""><?php _e( '--Select--', 'bptodo' ); ?></option>
+						<option value=""><?php _e( '--Select--', 'wb-todo' ); ?></option>
 						<?php if ( isset( $todo_cats ) ) { ?>
 						<?php foreach ( $todo_cats as $todo_cat ) { ?>
 						<option <?php if ( $todo_cat_id == $todo_cat->term_id ) echo 'selected="selected"'; ?> value="<?php echo esc_html( $todo_cat->name ); ?>">
@@ -43,10 +43,10 @@ $todo_priority	 = get_post_meta( $todo_id, 'todo_priority', true );
 				</div>
 				<?php if( $bptodo->allow_user_add_category == 'yes' ) {?>
 				<div class="add-todo-cat-row">
-					<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label . ' category', BPTODO_TEXT_DOMAIN ); ?>">
+					<input type="text" id="todo-category-name" placeholder="<?php _e( $profile_menu_label . ' category', 'wb-todo' ); ?>">
 					<?php $add_cat_nonce = wp_create_nonce( 'bptodo-add-todo-category' );?>
 					<input type="hidden" id="bptodo-add-category-nonce" value="<?php echo $add_cat_nonce;?>">
-					<button type="button" id="add-todo-cat"><?php _e( 'Add', BPTODO_TEXT_DOMAIN );?></button>
+					<button type="button" id="add-todo-cat"><?php _e( 'Add', 'wb-todo' );?></button>
 				</div>
 				<?php }?>
 			</td>
@@ -54,16 +54,16 @@ $todo_priority	 = get_post_meta( $todo_id, 'todo_priority', true );
 
 		<tr>
 			<td width="20%">
-				<?php _e( 'Title', BPTODO_TEXT_DOMAIN ); ?>
+				<?php _e( 'Title', 'wb-todo' ); ?>
 			</td>
 			<td width="80%">
-				<input value="<?php echo esc_html( $todo->post_title ); ?>" type="text" placeholder="<?php _e( 'Title', BPTODO_TEXT_DOMAIN ); ?>" name="todo_title" required class="bptodo-text-input">
+				<input value="<?php echo esc_html( $todo->post_title ); ?>" type="text" placeholder="<?php _e( 'Title', 'wb-todo' ); ?>" name="todo_title" required class="bptodo-text-input">
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e( 'Summary', BPTODO_TEXT_DOMAIN ); ?>
+				<?php _e( 'Summary', 'wb-todo' ); ?>
 			</td>
 			<td width="80%">
 				<?php $settings = array( 'media_buttons' => true, 'editor_height' => 200 );
@@ -73,23 +73,23 @@ $todo_priority	 = get_post_meta( $todo_id, 'todo_priority', true );
 
 		<tr>
 			<td width="20%">
-				<?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?>
+				<?php _e( 'Due Date', 'wb-todo' ); ?>
 			</td>
 			<td width="80%">
-				<input type="text" placeholder="<?php _e( 'Due Date', BPTODO_TEXT_DOMAIN ); ?>" class="todo_due_date bptodo-text-input" name="todo_due_date" value="<?php echo esc_html( $todo_due_date ); ?>" required>
+				<input type="text" placeholder="<?php _e( 'Due Date', 'wb-todo' ); ?>" class="todo_due_date bptodo-text-input" name="todo_due_date" value="<?php echo esc_html( $todo_due_date ); ?>" required>
 			</td>
 		</tr>
 
 		<tr>
 			<td width="20%">
-				<?php _e( 'Priority', BPTODO_TEXT_DOMAIN ); ?>
+				<?php _e( 'Priority', 'wb-todo' ); ?>
 			</td>
 			<td width="80%">
 				<select name="todo_priority" id="bp_todo_priority" required>
-					<option value=""><?php _e( '--Select--', BPTODO_TEXT_DOMAIN ); ?></option>
-					<option value="critical" <?php selected( $todo_priority, 'critical' ); ?>><?php _e( 'Critical', BPTODO_TEXT_DOMAIN ); ?></option>
-					<option value="high" <?php selected( $todo_priority, 'high' ); ?>><?php _e( 'High', BPTODO_TEXT_DOMAIN ); ?></option>
-					<option value="normal" <?php selected( $todo_priority, 'normal' ); ?>><?php _e( 'Normal', BPTODO_TEXT_DOMAIN ); ?></option>
+					<option value=""><?php _e( '--Select--', 'wb-todo' ); ?></option>
+					<option value="critical" <?php selected( $todo_priority, 'critical' ); ?>><?php _e( 'Critical', 'wb-todo' ); ?></option>
+					<option value="high" <?php selected( $todo_priority, 'high' ); ?>><?php _e( 'High', 'wb-todo' ); ?></option>
+					<option value="normal" <?php selected( $todo_priority, 'normal' ); ?>><?php _e( 'Normal', 'wb-todo' ); ?></option>
 				</select>
 			</td>
 		</tr>
@@ -99,7 +99,7 @@ $todo_priority	 = get_post_meta( $todo_id, 'todo_priority', true );
 			<td width="80%">
 				<?php wp_nonce_field( 'wp-bp-todo', 'save_update_todo_data_nonce' );?>
 				<input type="hidden" name="hidden_todo_id" value="<?php echo $todo_id;?>">
-				<input type="submit" id="todo_update" name="todo_update" value="<?php _e( 'Update ' . $profile_menu_label, BPTODO_TEXT_DOMAIN ); ?>">
+				<input type="submit" id="todo_update" name="todo_update" value="<?php _e( 'Update ' . $profile_menu_label, 'wb-todo' ); ?>">
 			</td>
 		</tr>
 	</table>
