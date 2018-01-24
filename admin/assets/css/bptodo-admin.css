@@ -1,21 +1,21 @@
 .bptodo-adming-setting{
 	float: left;
-    width: 90%;
+	width: 90%;
 }
 button.bptodo-accordion {
-    background-color: hsl(0, 0%, 87%);
-    border: medium none;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    color: hsl(0, 0%, 27%);
-    cursor: pointer;
-    font-size: 15px;
-    margin: 0 5%;
-    outline: medium none;
-    padding: 15px 20px;
-    text-align: left;
-    transition: all 0.4s ease 0s;
-    width: 90%;
+	background-color: hsl(0, 0%, 87%);
+	border: medium none;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	color: hsl(0, 0%, 27%);
+	cursor: pointer;
+	font-size: 15px;
+	margin: 0 5%;
+	outline: medium none;
+	padding: 15px 20px;
+	text-align: left;
+	transition: all 0.4s ease 0s;
+	width: 90%;
 }
 button.bptodo-accordion.active, button.bptodo-accordion:hover {
   background-color: hsl(207, 90%, 54%);
@@ -45,7 +45,7 @@ button.bptodo-accordion.active::after {
   color:white;
 }
 .bptodo-admin-row{
-  clear: both;  
+  clear: both;
   overflow: hidden;
   padding-bottom: 5px;
 }

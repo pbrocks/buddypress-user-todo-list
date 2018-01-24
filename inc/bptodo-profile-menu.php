@@ -1,123 +1,123 @@
 <?php
 // Exit if accessed directly
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-//Class to add admin menu to manage general settings
-if (!class_exists('BP_Profile_Todo')) {
+// Class to add admin menu to manage general settings
+if ( ! class_exists( 'BP_Profile_Todo' ) ) {
 	class BP_Profile_Todo {
 
-		//constructor
+		// constructor
 		function __construct() {
 			add_action( 'bp_setup_nav', array( $this, 'bptodo_member_profile_todo_tab' ) );
 		}
 
-		//Actions performed on loading init: creating profile menu tab
+		// Actions performed on loading init: creating profile menu tab
 		function bptodo_member_profile_todo_tab() {
-			if (bp_is_my_profile()) {
+			if ( bp_is_my_profile() ) {
 				global $bp, $bptodo;
 
-				$profile_menu_label = $bptodo->profile_menu_label;
+				$profile_menu_label        = $bptodo->profile_menu_label;
 				$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
-				$profile_menu_slug = $bptodo->profile_menu_slug;
-				$my_todo_items = $bptodo->my_todo_items;
+				$profile_menu_slug         = $bptodo->profile_menu_slug;
+				$my_todo_items             = $bptodo->my_todo_items;
 
-				$displayed_uid = bp_displayed_user_id();
-				$parent_slug = $profile_menu_slug;
-				$todo_menu_link = bp_core_get_userlink( $displayed_uid, false, true ).$parent_slug;
+				$displayed_uid  = bp_displayed_user_id();
+				$parent_slug    = $profile_menu_slug;
+				$todo_menu_link = bp_core_get_userlink( $displayed_uid, false, true ) . $parent_slug;
 
-				$name = bp_get_displayed_user_username();
+				$name     = bp_get_displayed_user_username();
 				$tab_args = array(
-					'name' => __( $profile_menu_label.' <span class="count">'.$my_todo_items.'</span>', 'wb-todo' ),
-					'slug' => $profile_menu_slug,
-					'screen_function' => array($this, 'todo_tab_function_to_show_screen'),
-					'position' => 75,
-					'default_subnav_slug' => 'list',
+					'name'                    => __( $profile_menu_label . ' <span class="count">' . $my_todo_items . '</span>', 'wb-todo' ),
+					'slug'                    => $profile_menu_slug,
+					'screen_function'         => array( $this, 'todo_tab_function_to_show_screen' ),
+					'position'                => 75,
+					'default_subnav_slug'     => 'list',
 					'show_for_displayed_user' => true,
 				);
-				bp_core_new_nav_item($tab_args);
+				bp_core_new_nav_item( $tab_args );
 
-				//Add subnav add new todo item
+				// Add subnav add new todo item
 				bp_core_new_subnav_item(
 					array(
-						'name' => __( 'Add', 'wb-todo' ),
-						'slug' => 'add',
-						'parent_url' => $todo_menu_link.'/',
-						'parent_slug' => $parent_slug,
-						'screen_function' => array($this, 'bptodo_add_todo_show_screen'),
-						'position' => 200,
-						'link' => $todo_menu_link.'/add',
+						'name'            => __( 'Add', 'wb-todo' ),
+						'slug'            => 'add',
+						'parent_url'      => $todo_menu_link . '/',
+						'parent_slug'     => $parent_slug,
+						'screen_function' => array( $this, 'bptodo_add_todo_show_screen' ),
+						'position'        => 200,
+						'link'            => $todo_menu_link . '/add',
 					)
 				);
 
-				//Add subnav todo list items
+				// Add subnav todo list items
 				bp_core_new_subnav_item(
 					array(
-						'name' => __( $profile_menu_label_plural, 'wb-todo' ),
-						'slug' => 'list',
-						'parent_url' => $todo_menu_link.'/',
-						'parent_slug' => $parent_slug,
-						'screen_function' => array($this, 'bpchk_todo_list_show_screen'),
-						'position' => 100,
-						'link' => $todo_menu_link.'/list',
+						'name'            => __( $profile_menu_label_plural, 'wb-todo' ),
+						'slug'            => 'list',
+						'parent_url'      => $todo_menu_link . '/',
+						'parent_slug'     => $parent_slug,
+						'screen_function' => array( $this, 'bpchk_todo_list_show_screen' ),
+						'position'        => 100,
+						'link'            => $todo_menu_link . '/list',
 					)
 				);
 			}
 		}
 
-		//Screen function for add todo menu item
+		// Screen function for add todo menu item
 		function bptodo_add_todo_show_screen() {
-			add_action('bp_template_title', array($this, 'add_todo_tab_function_to_show_title'));
-			add_action('bp_template_content', array($this, 'add_todo_tab_function_to_show_content'));
-			bp_core_load_template(apply_filters('bp_core_template_plugin', 'members/single/plugins'));
+			add_action( 'bp_template_title', array( $this, 'add_todo_tab_function_to_show_title' ) );
+			add_action( 'bp_template_content', array( $this, 'add_todo_tab_function_to_show_content' ) );
+			bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 		}
 
 		function add_todo_tab_function_to_show_title() {
 			global $bptodo;
 			$profile_menu_slug = $bptodo->profile_menu_slug;
-			if (isset($_GET['args'])) {
+			if ( isset( $_GET['args'] ) ) {
 				$todo_id = sanitize_text_field( $_GET['args'] );
-				$todo = get_post( $todo_id );
-				echo __( 'Edit '.$profile_menu_slug.': '.$todo->post_title, 'wb-todo' );
+				$todo    = get_post( $todo_id );
+				echo __( 'Edit ' . $profile_menu_slug . ': ' . $todo->post_title, 'wb-todo' );
 			} else {
-				echo __( 'Add a new '.$profile_menu_slug.' in your list', 'wb-todo' );
+				echo __( 'Add a new ' . $profile_menu_slug . ' in your list', 'wb-todo' );
 			}
 		}
 
 		function add_todo_tab_function_to_show_content() {
-			if (isset($_GET['args'])) {
+			if ( isset( $_GET['args'] ) ) {
 				include 'todo/edit.php';
 			} else {
 				include 'todo/add.php';
 			}
 		}
 
-		//Screen function for todo list menu item
+		// Screen function for todo list menu item
 		function bpchk_todo_list_show_screen() {
-			add_action('bp_template_title', array($this, 'list_todo_tab_function_to_show_title'));
-			add_action('bp_template_content', array($this, 'list_todo_tab_function_to_show_content'));
-			bp_core_load_template(apply_filters('bp_core_template_plugin', 'members/single/plugins'));
+			add_action( 'bp_template_title', array( $this, 'list_todo_tab_function_to_show_title' ) );
+			add_action( 'bp_template_content', array( $this, 'list_todo_tab_function_to_show_content' ) );
+			bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 		}
 
 		function list_todo_tab_function_to_show_title() {
 			global $bptodo;
 			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
-			echo "<h4>";
-			echo __( $profile_menu_label_plural.' List', 'wb-todo' );
-			$args = array(
-				'post_type' => 'bp-todo',
-				'author'    => bp_displayed_user_id(),
-				'post_staus'=> 'publish',
-				'posts_per_page' => -1
+			echo '<h4>';
+			echo __( $profile_menu_label_plural . ' List', 'wb-todo' );
+			$args  = array(
+				'post_type'      => 'bp-todo',
+				'author'         => bp_displayed_user_id(),
+				'post_staus'     => 'publish',
+				'posts_per_page' => -1,
 			);
-			$todos = get_posts($args);
-			if( count( $todos ) != 0 ) {
+			$todos = get_posts( $args );
+			if ( count( $todos ) != 0 ) {
 				?>
-				<?php $todo_export_nonce = wp_create_nonce( 'bptodo-export-todo' );?>
-				<input type="hidden" id="bptodo-export-todo-nonce" value="<?php echo $todo_export_nonce;?>">
+				<?php $todo_export_nonce = wp_create_nonce( 'bptodo-export-todo' ); ?>
+				<input type="hidden" id="bptodo-export-todo-nonce" value="<?php echo $todo_export_nonce; ?>">
 				<a href="javascript:void(0);" id="export_my_tasks"><i class="fa fa-download" aria-hidden="true"></i></a>
 				<?php
 			}
-			echo "</h4>";
+			echo '</h4>';
 		}
 
 		function list_todo_tab_function_to_show_content() {

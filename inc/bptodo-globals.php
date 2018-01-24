@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
  * @since    1.0.0
  * @author   Wbcom Designs
  */
-if ( !class_exists( 'Bptodo_Globals' ) ) {
+if ( ! class_exists( 'Bptodo_Globals' ) ) {
 
 	class Bptodo_Globals {
 
@@ -38,40 +38,41 @@ if ( !class_exists( 'Bptodo_Globals' ) ) {
 			global $bptodo;
 			$settings = get_option( 'user_todo_list_settings' );
 
-			//Profile menu label
+			// Profile menu label
 			$this->profile_menu_label = 'To-Do';
-			if ( isset( $settings[ 'profile_menu_label' ] ) ) {
-				$this->profile_menu_label = $settings[ 'profile_menu_label' ];
+			if ( isset( $settings['profile_menu_label'] ) ) {
+				$this->profile_menu_label = $settings['profile_menu_label'];
 			}
 
 			$this->profile_menu_label_plural = $this->pluralize( $this->profile_menu_label );
-			$this->profile_menu_slug		 = str_replace( ' ', '-', strtolower( $this->profile_menu_label ) );
+			$this->profile_menu_slug         = str_replace( ' ', '-', strtolower( $this->profile_menu_label ) );
 
-			//Allow User To Add Todo Category
+			// Allow User To Add Todo Category
 			$this->allow_user_add_category = 'no';
-			if ( !empty( $settings[ 'allow_user_add_category' ] ) ) {
+			if ( ! empty( $settings['allow_user_add_category'] ) ) {
 				$this->allow_user_add_category = 'yes';
 			}
 
-			//Send Notification
+			// Send Notification
 			$this->send_notification = 'no';
-			if ( !empty( $settings[ 'send_notification' ] ) ) {
+			if ( ! empty( $settings['send_notification'] ) ) {
 				$this->send_notification = 'yes';
 			}
 
-			//Send Mail
+			// Send Mail
 			$this->send_mail = 'no';
-			if ( !empty( $settings[ 'send_mail' ] ) ) {
+			if ( ! empty( $settings['send_mail'] ) ) {
 				$this->send_mail = 'yes';
 			}
 
-			//Count my todo items
+			// Count my todo items
 			$this->my_todo_items = $this->bptodo_count_my_todo_items();
 		}
 
 		public static function pluralize( $singular, $plural = null ) {
-			if ( $plural !== null )
+			if ( $plural !== null ) {
 				return $plural;
+			}
 
 			$last_letter = strtolower( $singular[ strlen( $singular ) - 1 ] );
 			switch ( $last_letter ) {
@@ -85,13 +86,13 @@ if ( !class_exists( 'Bptodo_Globals' ) ) {
 		}
 
 		private function bptodo_count_my_todo_items() {
-			$args	 = array(
-				'post_type'		 => 'bp-todo',
-				'author'		 => get_current_user_id(),
-				'post_staus'	 => 'publish',
-				'posts_per_page' => -1
+			$args  = array(
+				'post_type'      => 'bp-todo',
+				'author'         => get_current_user_id(),
+				'post_staus'     => 'publish',
+				'posts_per_page' => -1,
 			);
-			$todos	 = get_posts( $args );
+			$todos = get_posts( $args );
 			return count( $todos );
 		}
 
