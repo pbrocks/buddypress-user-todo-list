@@ -1,5 +1,13 @@
 <?php
-defined( 'ABSPATH' ) || exit; // Exit if accessed directly
+/**
+ * Exit if accessed directly.
+ *
+ * @package bp-user-todo-list
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 global $bptodo;
 ?>
 <table class="form-table">
@@ -7,10 +15,23 @@ global $bptodo;
 		<tr>
 			<th scope="row"><label for="bptodo-shortcode-1">[bptodo_by_category category="<i>CATEGORY_ID</i>"]</label></th>
 			<td>
-				<p><?php _e( 'This shortcode will list all the ' . $bptodo->profile_menu_label_plural . ' category wise.', 'wb-todo' ); ?></p>
-				<p class="description"><?php _e( 'Arguments accepted:', 'wb-todo' ); ?></p>
+				<p>
+					<?php
+						esc_html_e( 'This shortcode will list all the ', 'wb-todo' );
+						echo sprintf( esc_html( '%s', 'wb-todo' ), $bptodo->profile_menu_label_plural );
+						esc_html_e( ' category wise.', 'wb-todo' );
+					?>
+				</p>
+				<p class="description"><?php esc_html_e( 'Arguments accepted:', 'wb-todo' ); ?></p>
 				<ol type="1">
-					<li>category : <?php _e( 'you need to provide the category id of which the ' . $bptodo->profile_menu_label_plural . ' you want to show.', 'wb-todo' ); ?> </li>
+					<li>
+						<?php
+							esc_html_e( 'category : ', 'wb-todo' );
+							esc_html_e( 'you need to provide the category id of which the ', 'wb-todo' );
+							echo sprintf( esc_html( '%s', 'wb-todo' ), $bptodo->profile_menu_label_plural );
+							esc_html_e( ' you want to show.', 'wb-todo' );
+						?>
+					</li>
 				</ol>
 			</td>
 		</tr>

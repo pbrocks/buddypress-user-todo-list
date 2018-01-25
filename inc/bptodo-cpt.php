@@ -1,21 +1,45 @@
 <?php
+/**
+ * Exit if accessed directly.
+ *
+ * @package bp-user-todo-list
+ */
 
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-// Class to add admin menu to manage general settings
 if ( ! class_exists( 'BP_Todo_CPT' ) ) {
 
+	/**
+	 * Class to add admin menu to manage general settings.
+	 *
+	 * @package bp-user-todo-list
+	 * @author  wbcomdesigns
+	 * @since   1.0.0
+	 */
 	class BP_Todo_CPT {
 
-		// constructor
-		function __construct() {
+		/**
+		 * Define hook.
+		 *
+		 * @author  wbcomdesigns
+		 * @since   1.0.0
+		 * @access  public
+		 */
+		public function __construct() {
 			add_action( 'init', array( $this, 'bptodo_create_cpt' ) );
 			add_action( 'init', array( $this, 'bptodo_create_cpt_category' ) );
 		}
 
-		// Actions performed on loading init: creating cpt
-		function bptodo_create_cpt() {
+		/**
+		 * Actions performed on loading init: creating cpt.
+		 *
+		 * @author  wbcomdesigns
+		 * @since   1.0.0
+		 * @access  public
+		 */
+		public function bptodo_create_cpt() {
 			$labels = array(
 				'name'               => __( 'To-Do Items', 'wb-todo' ),
 				'singular_name'      => __( 'To-Do Item', 'wb-todo' ),
@@ -56,8 +80,14 @@ if ( ! class_exists( 'BP_Todo_CPT' ) ) {
 			flush_rewrite_rules( false );
 		}
 
-		// Actions performed on loading init: creating cpt category
-		function bptodo_create_cpt_category() {
+		/**
+		 * Actions performed on loading init: creating cpt category.
+		 *
+		 * @author  wbcomdesigns
+		 * @since   1.0.0
+		 * @access  public
+		 */
+		public function bptodo_create_cpt_category() {
 			$tax_labels = array(
 				'name'              => __( 'To-Do Category', 'wb-todo' ),
 				'singular_name'     => __( 'To-Do Category', 'wb-todo' ),
@@ -91,6 +121,5 @@ if ( ! class_exists( 'BP_Todo_CPT' ) ) {
 			}
 		}
 	}
-
 	new BP_Todo_CPT();
 }

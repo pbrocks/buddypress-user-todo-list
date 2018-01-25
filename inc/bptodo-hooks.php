@@ -1,15 +1,22 @@
 <?php
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
 /**
- * Class to add custom hooks for this plugin
+ * Exit if accessed directly.
  *
- * @since    1.0.0
- * @author   Wbcom Designs
+ * @package bp-user-todo-list
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 
+	/**
+	 * Class to add custom hooks for this plugin
+	 *
+	 * @since    1.0.0
+	 * @author   Wbcom Designs
+	 */
 	class Bptodo_Custom_Hooks {
 
 		/**
@@ -31,8 +38,11 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		}
 
 		/**
-		 * Actions performed to send mails and notifications
-		 * whose due date has arrived
+		 * Actions performed to send mails and notifications whose due date has arrived.
+		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
 		 */
 		public function bptodo_manage_todo_due_date() {
 			global $bptodo;
@@ -47,20 +57,20 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			if ( ! empty( $todo_items ) ) {
 				foreach ( $todo_items as $key => $todo ) {
 					$todo_status = get_post_meta( $todo->ID, 'todo_status', true );
-					if ( $todo_status != 'complete' ) {
+					if ( 'complete' != $todo_status ) {
 						$author_id = $todo->post_author;
 						$curr_date = date_create( date( 'Y-m-d' ) );
 						$due_date  = date_create( get_post_meta( $todo->ID, 'todo_due_date', true ) );
 						$diff      = date_diff( $curr_date, $due_date );
 						$diff_days = $diff->format( '%R%a' );
 
-						// Check if mail sending is allowed
-						if ( ! empty( $bptodo->send_mail ) && $bptodo->send_mail == 'yes' ) {
-							// If today is the due date
-							if ( $diff_days == 0 ) {
-								// If the mail is not sent already
+						/** Check if mail sending is allowed. */
+						if ( ! empty( $bptodo->send_mail ) && 'yes' == $bptodo->send_mail ) {
+							/** If today is the due date. */
+							if ( 0 == $diff_days ) {
+								/** If the mail is not sent already. */
 								$due_date_mail_sent = get_post_meta( $todo->ID, 'todo_last_day_mail_sent', true );
-								if ( $due_date_mail_sent == 'no' ) {
+								if ( 'no' == $due_date_mail_sent ) {
 									$author       = get_userdata( $author_id );
 									$author_email = $author->data->user_email;
 									$subject      = 'BP Task - WordPress';
@@ -69,16 +79,16 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 									update_post_meta( $todo->ID, 'todo_last_day_mail_sent', 'yes' );
 								}
 							}
-						}// end if sending mail is allowed
-						// Check if notification sending is allowed
-						if ( ! empty( $bptodo->send_notification ) && $bptodo->send_notification == 'yes' ) {
-							// If today is the due date
-							if ( $diff_days == 0 ) {
-								// If the mail is not sent already
-								$due_date_notification_sent = get_post_meta( $todo->ID, 'todo_last_day_notification_sent', true );
-								if ( $due_date_notification_sent == 'no' ) {
+						}
 
-									// Send notification for appectance
+						/** Check if notification sending is allowed. */
+						if ( ! empty( $bptodo->send_notification ) && $bptodo->send_notification == 'yes' ) {
+							/** If today is the due date. */
+							if ( 0 == $diff_days ) {
+								/** If the mail is not sent already. */
+								$due_date_notification_sent = get_post_meta( $todo->ID, 'todo_last_day_notification_sent', true );
+								if ( 'no' == $due_date_notification_sent ) {
+									/** Send notification for appectance. */
 									bp_notifications_add_notification(
 										array(
 											'user_id' => $author_id,
@@ -93,14 +103,18 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 									update_post_meta( $todo->ID, 'todo_last_day_notification_sent', 'yes' );
 								}
 							}
-						}// end if sending notification is allowed
-					}// end if to check if todo is incomplete
-				} // end foreach loop of todo list
+						}
+					}
+				}
 			}
 		}
 
 		/**
-		 * Actions performed to add a review button on member header
+		 * Actions performed to add a review button on member header.
+		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
 		 */
 		public function bptodo_add_review_button_on_member_header() {
 			global $bptodo;
@@ -110,14 +124,19 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 				$todo_add_url = bp_core_get_userlink( bp_displayed_user_id(), false, true ) . $profile_menu_slug . '/add';
 				?>
 				<div id="bptodo-add-todo-btn" class="generic-button">
-					<a href="<?php echo $todo_add_url; ?>" class="add-todo"><?php _e( 'Add ' . $profile_menu_label, 'wb-todo' ); ?></a>
+					<a href="<?php esc_attr_e( $todo_add_url ); ?>" class="add-todo"><?php esc_html_e( 'Add ' . $profile_menu_label, 'wb-todo' ); ?></a>
 				</div>
 				<?php
 			}
 		}
 
 		/**
+		 * Contain admin nav item.
 		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
+		 * @param    array $wp_admin_nav contain admin nav item.
 		 */
 		public function bptodo_setup_admin_bar( $wp_admin_nav = array() ) {
 			global $wp_admin_bar, $bptodo;
@@ -138,7 +157,7 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 					)
 				);
 
-				// Add add-new submenu
+				/** Add add-new submenu. */
 				$wp_admin_bar->add_menu(
 					array(
 						'parent' => 'my-account-' . $profile_menu_slug,
@@ -148,7 +167,7 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 					)
 				);
 
-				// Add add-new submenu
+				/** Add add-new submenu. */
 				$wp_admin_bar->add_menu(
 					array(
 						'parent' => 'my-account-' . $profile_menu_slug,
@@ -160,6 +179,14 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			}
 		}
 
+		/**
+		 * Contain default settings.
+		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
+		 * @param    array $defaults contain default settings.
+		 */
 		public function bptodo_due_date_column_heading( $defaults ) {
 			$defaults['due_date'] = 'Due Date';
 			$defaults['status']   = 'Status';
@@ -167,16 +194,24 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 			return $defaults;
 		}
 
+		/**
+		 * Contain default settings.
+		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
+		 * @param    array $column_name contain default settings.
+		 * @param    int   $post_id contain post id.
+		 */
 		public function bptodo_due_date_column_content( $column_name, $post_id ) {
-			if ( $column_name == 'due_date' ) {
+			if ( 'due_date' == $column_name ) {
 				$due_date = get_post_meta( $post_id, 'todo_due_date', true );
-				echo date( 'F jS, Y', strtotime( $due_date ) );
+				esc_html_e( date( 'F jS, Y', strtotime( $due_date ) ), 'wb-todo' );
 			}
 
-			if ( $column_name == 'status' ) {
-				$todo_status = get_post_meta( $post_id, 'todo_status', true );
-
-				$due_date_str = $due_date_td_class    = '';
+			if ( 'status' == $column_name ) {
+				$todo_status  = get_post_meta( $post_id, 'todo_status', true );
+				$due_date_str = $due_date_td_class = '';
 				$curr_date    = date_create( date( 'Y-m-d' ) );
 				$due_date     = date_create( get_post_meta( $post_id, 'todo_due_date', true ) );
 				$diff         = date_diff( $curr_date, $due_date );
@@ -202,9 +237,14 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		}
 
 		/**
-		 * Actions performed for adding component for due date of todo list
+		 * Actions performed for adding component for due date of todo list.
+		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
+		 * @param    array $component_names contain default settings.
 		 */
-		function bptodo_due_date_notifications_component( $component_names = array() ) {
+		public function bptodo_due_date_notifications_component( $component_names = array() ) {
 			if ( ! is_array( $component_names ) ) {
 				$component_names = array();
 			}
@@ -213,9 +253,18 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		}
 
 		/**
-		 * Actions performed for formatting the notifications of bptodo due date
+		 * Actions performed for formatting the notifications of bptodo due date.
+		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
+		 * @param    string $action contain todo action.
+		 * @param    int    $item_id contain item id.
+		 * @param    int    $secondary_item_id contain secondory id.
+		 * @param    string $total_items total items.
+		 * @param    string $format contain format.
 		 */
-		function bptodo_format_due_date_notifications( $action, $item_id, $secondary_item_id, $total_items, $format = 'string' ) {
+		public function bptodo_format_due_date_notifications( $action, $item_id, $secondary_item_id, $total_items, $format = 'string' ) {
 
 			global $bptodo;
 			$profile_menu_label = $bptodo->profile_menu_label;
@@ -229,11 +278,11 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 					$custom_link  = $todo_link;
 					$custom_text  = 'Your ' . $profile_menu_label . ': ' . $todo_title . ' is due today. Please complete it as soon as possible.';
 
-					// WP Toolbar
+					/** WP Toolbar. */
 					if ( 'string' === $format ) {
 						$action = '<a href="' . esc_url( $custom_link ) . '" title="' . esc_attr( $custom_title ) . '">' . esc_html( $custom_text ) . '</a>';
 					} else {
-						// Deprecated BuddyBar
+						/** Deprecated BuddyBar. */
 						$action = array(
 							'text' => $custom_text,
 							'link' => $custom_link,
@@ -245,10 +294,14 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 		}
 
 		/**
-		 * Register the shortcode - bptodo_by_categpry
-		 * that will list all the todo items according to the category
+		 * Register the shortcode - bptodo_by_categpry that will list all the todo items according to the category.
+		 *
+		 * @since    1.0.0
+		 * @access   public
+		 * @author   Wbcom Designs
+		 * @param    string $atts contain attribute.
 		 */
-		function bptodo_by_categpry_template( $atts ) {
+		public function bptodo_by_categpry_template( $atts ) {
 			if ( is_user_logged_in() ) {
 				$shortcode_template = BPTODO_PLUGIN_PATH . 'inc/todo/bptodo-by-category-template.php';
 				if ( file_exists( $shortcode_template ) ) {
@@ -261,8 +314,6 @@ if ( ! class_exists( 'Bptodo_Custom_Hooks' ) ) {
 				}
 			}
 		}
-
 	}
-
 	new Bptodo_Custom_Hooks();
 }
