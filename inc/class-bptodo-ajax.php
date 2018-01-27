@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'BPTodoAjax' ) ) {
+if ( ! class_exists( 'Bptodo_Ajax' ) ) {
 	/**
 	 * Class to serve AJAX Calls.
 	 *
@@ -18,7 +18,7 @@ if ( ! class_exists( 'BPTodoAjax' ) ) {
 	 * @author  wbcomdesigns
 	 * @since   1.0.0
 	 */
-	class BPTodoAjax {
+	class Bptodo_Ajax {
 
 		/**
 		 * Define hook.
@@ -53,7 +53,7 @@ if ( ! class_exists( 'BPTodoAjax' ) ) {
 		 */
 		public function bptodo_export_my_tasks() {
 			check_ajax_referer( 'bptodo-export-todo', 'security_nonce' );
-			if ( isset( $_POST['action'] ) && 'bptodo_export_my_tasks' === $_POST['action'] ) {
+			if ( isset( $_POST['action'] ) && 'bptodo_export_my_tasks' == $_POST['action'] ) {
 				$args   = array(
 					'post_type'      => 'bp-todo',
 					'post_status'    => 'publish',
@@ -88,8 +88,10 @@ if ( ! class_exists( 'BPTodoAjax' ) ) {
 		 */
 		public function bptodo_remove_todo() {
 			check_ajax_referer( 'bptodo-remove-todo-nonce', 'security_nonce' );
-			if ( isset( $_POST['action'] ) && 'bptodo_remove_todo' === $_POST['action'] ) {
-				$tid = sanitize_text_field( wp_unslash( $_POST['tid'] ) );
+			if ( isset( $_POST['action'] ) && 'bptodo_remove_todo' == $_POST['action'] ) {
+				if ( isset( $_POST['tid'] ) ) {
+					$tid = sanitize_text_field( wp_unslash( $_POST['tid'] ) );
+				}
 				wp_delete_post( $tid, true );
 				esc_html_e( 'todo-removed', 'wb-todo' );
 				die;
@@ -104,10 +106,10 @@ if ( ! class_exists( 'BPTodoAjax' ) ) {
 		 * @access  public
 		 */
 		public function bptodo_complete_todo() {
-			$due_date_str      = '';
-			$due_date_td_class = '';
 			check_ajax_referer( 'bptodo-complete-todo-nonce', 'security_nonce' );
-			if ( isset( $_POST['action'] ) && 'bptodo_complete_todo' === $_POST['action'] ) {
+			if ( isset( $_POST['action'] ) && 'bptodo_complete_todo' == $_POST['action'] ) {
+				$due_date_str      = '';
+				$due_date_td_class = '';
 				$tid = sanitize_text_field( wp_unslash( $_POST['tid'] ) );
 				update_post_meta( $tid, 'todo_status', 'complete' );
 				$completed_todos = sanitize_text_field( wp_unslash( $_POST['completed'] ) );
@@ -188,7 +190,9 @@ if ( ! class_exists( 'BPTodoAjax' ) ) {
 		public function bptodo_undo_complete_todo() {
 			check_ajax_referer( 'bptodo-undo-complete-todo-nonce', 'security_nonce' );
 			if ( isset( $_POST['action'] ) && 'bptodo_undo_complete_todo' === $_POST['action'] ) {
-				$tid = sanitize_text_field( wp_unslash( $_POST['tid'] ) );
+				if ( isset( $_POST['tid'] ) ) {
+					$tid = sanitize_text_field( wp_unslash( $_POST['tid'] ) );
+				}
 				update_post_meta( $tid, 'todo_status', 'incomplete' );
 				echo 'todo-undo-completed';
 				die;
@@ -205,7 +209,9 @@ if ( ! class_exists( 'BPTodoAjax' ) ) {
 		public function bptodo_add_todo_category_front() {
 			check_ajax_referer( 'bptodo-add-todo-category', 'security_nonce' );
 			if ( isset( $_POST['action'] ) && 'bptodo_add_todo_category_front' === $_POST['action'] ) {
-				$term        = sanitize_text_field( wp_unslash( $_POST['name'] ) );
+				if ( isset( $_POST['name'] ) ) {
+					$term = sanitize_text_field( wp_unslash( $_POST['name'] ) );
+				}
 				$taxonomy    = 'todo_category';
 				$term_exists = term_exists( $term, $taxonomy );
 				if ( 0 === $term_exists || null === $term_exists ) {
@@ -216,5 +222,5 @@ if ( ! class_exists( 'BPTodoAjax' ) ) {
 			}
 		}
 	}
-	new BPTodoAjax();
+	new Bptodo_Ajax();
 }

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'BP_Todo_CPT' ) ) {
+if ( ! class_exists( 'Bptodo_Cpt' ) ) {
 
 	/**
 	 * Class to add admin menu to manage general settings.
@@ -18,7 +18,7 @@ if ( ! class_exists( 'BP_Todo_CPT' ) ) {
 	 * @author  wbcomdesigns
 	 * @since   1.0.0
 	 */
-	class BP_Todo_CPT {
+	class Bptodo_Cpt {
 
 		/**
 		 * Define hook.
@@ -121,5 +121,5 @@ if ( ! class_exists( 'BP_Todo_CPT' ) ) {
 			}
 		}
 	}
-	new BP_Todo_CPT();
+	new Bptodo_Cpt();
 }

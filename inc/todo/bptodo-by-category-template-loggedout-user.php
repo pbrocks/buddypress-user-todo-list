@@ -1,9 +1,15 @@
 <?php
+/**
+ * Exit if accessed directly.
+ *
+ * @package bp-user-todo-list
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 ?>
 <div class="bptodo-loggedout-user-panel">
-	<p><?php _e( 'You need to be loggedin to view the todo items.', 'wb-todo' ); ?></p>
+	<p><?php esc_html_e( 'You need to be loggedin to view the todo items.', 'wb-todo' ); ?></p>
 	<?php wp_login_form(); ?>
 </div>

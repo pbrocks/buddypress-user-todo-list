@@ -205,8 +205,9 @@ if ( ! class_exists( 'Bptodo_Admin' ) ) {
 		 */
 		public function bptodo_save_general_settings() {
 			if ( isset( $_POST['bptodo-save-settings'] ) && wp_verify_nonce( $_POST['bptodo-general-settings-nonce'], 'bptodo' ) ) {
-
-				$settings['profile_menu_label'] = sanitize_text_field( wp_unslash( $_POST['bptodo_profile_menu_label'] ) );
+				if ( isset( $_POST['bptodo_profile_menu_label'] ) ) {
+					$settings['profile_menu_label'] = sanitize_text_field( wp_unslash( $_POST['bptodo_profile_menu_label'] ) );
+				}
 				if ( isset( $_POST['bptodo_allow_user_add_category'] ) ) {
 					$settings['allow_user_add_category'] = sanitize_text_field( wp_unslash( $_POST['bptodo_allow_user_add_category'] ) );
 				}

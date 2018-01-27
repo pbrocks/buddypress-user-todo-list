@@ -18,7 +18,7 @@ global $bptodo;
 				<p>
 					<?php
 						esc_html_e( 'This shortcode will list all the ', 'wb-todo' );
-						echo sprintf( esc_html( '%s', 'wb-todo' ), $bptodo->profile_menu_label_plural );
+						echo esc_html( $bptodo->profile_menu_label_plural, 'wb-todo' );
 						esc_html_e( ' category wise.', 'wb-todo' );
 					?>
 				</p>
@@ -28,7 +28,7 @@ global $bptodo;
 						<?php
 							esc_html_e( 'category : ', 'wb-todo' );
 							esc_html_e( 'you need to provide the category id of which the ', 'wb-todo' );
-							echo sprintf( esc_html( '%s', 'wb-todo' ), $bptodo->profile_menu_label_plural );
+							echo esc_html( $bptodo->profile_menu_label_plural, 'wb-todo' );
 							esc_html_e( ' you want to show.', 'wb-todo' );
 						?>
 					</li>
