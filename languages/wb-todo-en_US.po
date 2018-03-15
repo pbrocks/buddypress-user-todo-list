@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BuddyPress User To-Do List\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 16:03+0530\n"
-"PO-Revision-Date: 2018-03-15 16:12+0530\n"
+"POT-Creation-Date: 2018-03-15 16:26+0530\n"
+"PO-Revision-Date: 2018-03-15 16:27+0530\n"
 "Last-Translator: admin <ritusingh.wbcom@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -193,6 +193,66 @@ msgstr ""
 msgid "todo-removed"
 msgstr ""
 
+#: inc/class-bptodo-ajax.php:132 inc/class-bptodo-hooks.php:222
+#: inc/todo/bptodo-by-category-template.php:89
+#: inc/todo/bptodo-by-category-template.php:184
+#: inc/todo/bptodo-by-category-template.php:278
+#: inc/todo/bptodo-by-category-template.php:372 inc/todo/list.php:259
+#: inc/todo/list.php:335 inc/todo/list.php:413 inc/todo/list.php:491
+#: inc/todo/list.php:589
+#, php-format
+msgid "Expired %d days ago!"
+msgstr "oh no Expired %d days ago!"
+
+#: inc/class-bptodo-ajax.php:135 inc/class-bptodo-hooks.php:224
+#: inc/todo/bptodo-by-category-template.php:92
+#: inc/todo/bptodo-by-category-template.php:187
+#: inc/todo/bptodo-by-category-template.php:281
+#: inc/todo/bptodo-by-category-template.php:375 inc/todo/list.php:262
+#: inc/todo/list.php:338 inc/todo/list.php:416 inc/todo/list.php:494
+#: inc/todo/list.php:592
+msgid "Today is the last day to complete. Hurry Up!"
+msgstr "last day man"
+
+#: inc/class-bptodo-ajax.php:139 inc/class-bptodo-hooks.php:226
+#: inc/todo/bptodo-by-category-template.php:95
+#: inc/todo/bptodo-by-category-template.php:190
+#: inc/todo/bptodo-by-category-template.php:284
+#: inc/todo/bptodo-by-category-template.php:378 inc/todo/list.php:265
+#: inc/todo/list.php:342 inc/todo/list.php:420 inc/todo/list.php:498
+#: inc/todo/list.php:596
+#, php-format
+msgid "%d days left to complete the task!"
+msgstr "%d left days man"
+
+#: inc/class-bptodo-ajax.php:143 inc/class-bptodo-hooks.php:230
+#: inc/todo/bptodo-by-category-template.php:98
+#: inc/todo/bptodo-by-category-template.php:193
+#: inc/todo/bptodo-by-category-template.php:287
+#: inc/todo/bptodo-by-category-template.php:381 inc/todo/list.php:268
+#: inc/todo/list.php:346 inc/todo/list.php:424 inc/todo/list.php:502
+#: inc/todo/list.php:600
+msgid "Completed!"
+msgstr "Competa"
+
+#: inc/class-bptodo-ajax.php:150 inc/todo/add.php:93 inc/todo/edit.php:111
+#: inc/todo/list.php:275 inc/todo/list.php:353 inc/todo/list.php:431
+#: inc/todo/list.php:509 inc/todo/list.php:607
+msgid "Critical"
+msgstr "criticala"
+
+#: inc/class-bptodo-ajax.php:153 inc/todo/add.php:94 inc/todo/edit.php:112
+#: inc/todo/list.php:278 inc/todo/list.php:356 inc/todo/list.php:434
+#: inc/todo/list.php:512 inc/todo/list.php:610
+msgid "High"
+msgstr ""
+
+#: inc/class-bptodo-ajax.php:156 inc/todo/add.php:95 inc/todo/edit.php:113
+#: inc/todo/list.php:281 inc/todo/list.php:359 inc/todo/list.php:437
+#: inc/todo/list.php:515 inc/todo/list.php:613
+msgid "Normal"
+msgstr ""
+
 #: inc/class-bptodo-cpt.php:44 inc/class-bptodo-cpt.php:46
 #: inc/class-bptodo-cpt.php:47
 msgid "To-Do Items"
@@ -275,44 +335,6 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: inc/class-bptodo-hooks.php:222 inc/todo/bptodo-by-category-template.php:89
-#: inc/todo/bptodo-by-category-template.php:184
-#: inc/todo/bptodo-by-category-template.php:278
-#: inc/todo/bptodo-by-category-template.php:372 inc/todo/list.php:259
-#: inc/todo/list.php:334 inc/todo/list.php:412 inc/todo/list.php:490
-#: inc/todo/list.php:588
-#, php-format
-msgid "Expired %d days ago!"
-msgstr "oh no Expired %d days ago!"
-
-#: inc/class-bptodo-hooks.php:224 inc/todo/bptodo-by-category-template.php:92
-#: inc/todo/bptodo-by-category-template.php:187
-#: inc/todo/bptodo-by-category-template.php:281
-#: inc/todo/bptodo-by-category-template.php:375 inc/todo/list.php:262
-#: inc/todo/list.php:337 inc/todo/list.php:415 inc/todo/list.php:493
-#: inc/todo/list.php:591
-msgid "Today is the last day to complete. Hurry Up!"
-msgstr "last day man"
-
-#: inc/class-bptodo-hooks.php:226 inc/todo/bptodo-by-category-template.php:95
-#: inc/todo/bptodo-by-category-template.php:190
-#: inc/todo/bptodo-by-category-template.php:284
-#: inc/todo/bptodo-by-category-template.php:378 inc/todo/list.php:265
-#: inc/todo/list.php:341 inc/todo/list.php:419 inc/todo/list.php:497
-#: inc/todo/list.php:595
-#, php-format
-msgid "%d days left to complete the task!"
-msgstr "%d left days man"
-
-#: inc/class-bptodo-hooks.php:230 inc/todo/bptodo-by-category-template.php:98
-#: inc/todo/bptodo-by-category-template.php:193
-#: inc/todo/bptodo-by-category-template.php:287
-#: inc/todo/bptodo-by-category-template.php:381 inc/todo/list.php:268
-#: inc/todo/list.php:345 inc/todo/list.php:423 inc/todo/list.php:501
-#: inc/todo/list.php:599
-msgid "Completed!"
-msgstr "Competa"
-
 #: inc/class-bptodo-profile-menu.php:55
 msgid " <span class=\"count\">"
 msgstr ""
@@ -359,26 +381,8 @@ msgid "Due Date"
 msgstr ""
 
 #: inc/todo/add.php:88 inc/todo/edit.php:106 inc/todo/list.php:233
-#: inc/todo/list.php:567
+#: inc/todo/list.php:568
 msgid "Priority"
-msgstr ""
-
-#: inc/todo/add.php:93 inc/todo/edit.php:111 inc/todo/list.php:275
-#: inc/todo/list.php:352 inc/todo/list.php:430 inc/todo/list.php:508
-#: inc/todo/list.php:606
-msgid "Critical"
-msgstr "criticala"
-
-#: inc/todo/add.php:94 inc/todo/edit.php:112 inc/todo/list.php:278
-#: inc/todo/list.php:355 inc/todo/list.php:433 inc/todo/list.php:511
-#: inc/todo/list.php:609
-msgid "High"
-msgstr ""
-
-#: inc/todo/add.php:95 inc/todo/edit.php:113 inc/todo/list.php:281
-#: inc/todo/list.php:358 inc/todo/list.php:436 inc/todo/list.php:514
-#: inc/todo/list.php:612
-msgid "Normal"
 msgstr ""
 
 #: inc/todo/add.php:104
@@ -398,7 +402,7 @@ msgstr ""
 #: inc/todo/bptodo-by-category-template.php:162
 #: inc/todo/bptodo-by-category-template.php:256
 #: inc/todo/bptodo-by-category-template.php:350 inc/todo/list.php:234
-#: inc/todo/list.php:568
+#: inc/todo/list.php:569
 msgid "Task"
 msgstr ""
 
@@ -449,6 +453,11 @@ msgstr ""
 msgid "At a Glance"
 msgstr ""
 
-#: inc/todo/list.php:236 inc/todo/list.php:569
+#: inc/todo/list.php:236 inc/todo/list.php:570
 msgid "Actions"
 msgstr ""
+
+#: inc/todo/list.php:304
+#, php-format
+msgid " Remove: %s "
+msgstr "removen: %s "
