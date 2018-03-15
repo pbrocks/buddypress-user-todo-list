@@ -162,13 +162,13 @@ if ( ! class_exists( 'Bptodo_Ajax' ) ) {
 				<td class="todo-completed">' . $todo_title . '</td>
 				<td class="bp-to-do-actions">
 				<ul>
-				<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="' . esc_attr( $tid ) . '" title="' . esc_attr( 'Remove: ' . $todo_title, 'wb-todo' ) . '"><i class="fa fa-times"></i></a></li>';
+				<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="' . esc_attr( $tid ) . '" title="' . sprintf( esc_html__( 'Remove: %s ', 'wb-todo' ), $todo_title ) . '"><i class="fa fa-times"></i></a></li>';
 				if ( 'complete' !== $todo_status ) {
 
-					$completed_html .= '<li><a href="' . esc_attr( $todo_edit_url ) . '" title="' . esc_attr( 'Edit: ' . $todo_title, 'wb-todo' ) . '"><i class="fa fa-edit"></i></a></li>
-					<li id="bptodo-complete-li-' . esc_attr( $tid ) . '"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="' . esc_attr( $tid ) . '" title="' . esc_attr( 'Complete: ' . $todo_title, 'wb-todo' ) . '"><i class="fa fa-check"></i></a></li>';
+					$completed_html .= '<li><a href="' . esc_attr( $todo_edit_url ) . '" title="' . sprintf( esc_html__( 'Edit: %s ', 'wb-todo' ), $todo_title ) . '"><i class="fa fa-edit"></i></a></li>
+					<li id="bptodo-complete-li-' . esc_attr( $tid ) . '"><a href="javascript:void(0);" class="bptodo-complete-todo" data-tid="' . esc_attr( $tid ) . '" title="' . sprintf( esc_html__( 'Complete: %s ', 'wb-todo' ), $todo_title ) . '"><i class="fa fa-check"></i></a></li>';
 				} else {
-					$completed_html .= '<li><a href="" class="bptodo-undo-complete-todo" data-tid="' . $tid . '" title="' . esc_attr( 'Undo Complete: ' . $todo_title, 'wb-todo' ) . '"><i class="fa fa-undo"></i></a></li>';
+					$completed_html .= '<li><a href="" class="bptodo-undo-complete-todo" data-tid="' . $tid . '" title="' . sprintf( esc_html__( ' Undo Complete: %s ', 'wb-todo' ), $todo_title ) . '"><i class="fa fa-undo"></i></a></li>';
 				}
 				$completed_html .= '</ul></td></tr>';
 				/** End of html of completed todo. */
