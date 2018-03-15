@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BuddyPress User To-Do List\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 16:26+0530\n"
-"PO-Revision-Date: 2018-03-15 16:27+0530\n"
+"POT-Creation-Date: 2018-03-15 16:41+0530\n"
+"PO-Revision-Date: 2018-03-15 16:41+0530\n"
 "Last-Translator: admin <ritusingh.wbcom@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -420,6 +420,40 @@ msgstr ""
 msgid "Mark Complete"
 msgstr ""
 
+#: inc/todo/bptodo-by-category-template.php:131
+#: inc/todo/bptodo-by-category-template.php:226
+#: inc/todo/bptodo-by-category-template.php:320
+#: inc/todo/bptodo-by-category-template.php:414
+#, php-format
+msgid "Remove: %s "
+msgstr "reemova %s"
+
+#: inc/todo/bptodo-by-category-template.php:133
+#: inc/todo/bptodo-by-category-template.php:228
+#: inc/todo/bptodo-by-category-template.php:322
+#: inc/todo/bptodo-by-category-template.php:416
+#, php-format
+msgid "Edit: %s "
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:134
+#: inc/todo/bptodo-by-category-template.php:229
+#: inc/todo/bptodo-by-category-template.php:323
+#: inc/todo/bptodo-by-category-template.php:417
+#, php-format
+msgid "Complete: %s "
+msgstr ""
+
+#: inc/todo/bptodo-by-category-template.php:136
+#: inc/todo/bptodo-by-category-template.php:231
+#: inc/todo/bptodo-by-category-template.php:325
+#: inc/todo/bptodo-by-category-template.php:419 inc/todo/list.php:310
+#: inc/todo/list.php:387 inc/todo/list.php:465 inc/todo/list.php:543
+#: inc/todo/list.php:632
+#, php-format
+msgid " Undo Complete: %s "
+msgstr ""
+
 #: inc/todo/bptodo-by-category-template.php:249
 msgid "TOMORROW"
 msgstr ""
@@ -457,7 +491,20 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: inc/todo/list.php:304
+#: inc/todo/list.php:304 inc/todo/list.php:382 inc/todo/list.php:460
+#: inc/todo/list.php:538 inc/todo/list.php:627
 #, php-format
 msgid " Remove: %s "
 msgstr "removen: %s "
+
+#: inc/todo/list.php:307 inc/todo/list.php:384 inc/todo/list.php:462
+#: inc/todo/list.php:540 inc/todo/list.php:629
+#, php-format
+msgid " Edit: %s "
+msgstr ""
+
+#: inc/todo/list.php:308 inc/todo/list.php:385 inc/todo/list.php:463
+#: inc/todo/list.php:541 inc/todo/list.php:630
+#, php-format
+msgid " Complete: %s "
+msgstr ""
