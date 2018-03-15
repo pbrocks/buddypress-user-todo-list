@@ -19,6 +19,7 @@ if ( ! empty( $atts['category'] ) ) {
 		$args  = array(
 			'post_type'   => 'bp-todo',
 			'numberposts' => -1,
+			'author'  => get_current_user_id(),
 			'tax_query'   => array(
 				array(
 					'taxonomy'         => 'todo_category',
