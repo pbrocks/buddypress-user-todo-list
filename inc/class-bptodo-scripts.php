@@ -60,6 +60,12 @@ if ( ! class_exists( 'Bptodo_Scripts' ) ) {
 				}
 
 				wp_enqueue_script( 'bptodo-js-front', BPTODO_PLUGIN_URL . 'assets/js/bptodo-front.js', array( 'jquery' ), BPTODO_VERSION );
+				wp_localize_script(
+					'bptodo-js-front', 'todo_ajax_object', array(
+						'ajax_url'   => admin_url( 'admin-ajax.php' ),
+						'ajax_nonce' => wp_create_nonce( 'bptodo-todo-nonce' )
+					)
+				);
 				wp_enqueue_style( 'bptodo-front-css', BPTODO_PLUGIN_URL . 'assets/css/bptodo-front.css', array(), BPTODO_VERSION );
 			}
 			wp_enqueue_script( 'bptodo-js-tempust', BPTODO_PLUGIN_URL . 'assets/js/tempust.js', array( 'jquery' ), BPTODO_VERSION );

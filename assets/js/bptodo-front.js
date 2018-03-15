@@ -108,7 +108,7 @@ jQuery( document ).ready( function () {
                 ajaxurl,
                 {
                     'action': 'bptodo_remove_todo',
-                    'security_nonce' : 'bptodo-remove-todo-nonce',
+                    'ajax_nonce' : todo_ajax_object.ajax_nonce,
                     'tid': tid,
                 },
                 function ( response ) {
@@ -135,7 +135,7 @@ jQuery( document ).ready( function () {
             ajaxurl,
             {
                 'action': 'bptodo_complete_todo',
-                'security_nonce' : 'bptodo-complete-todo-nonce',
+                'ajax_nonce' : todo_ajax_object.ajax_nonce,
                 'tid': tid,
                 'completed': completed_todo,
                 'all_todo': all_todo
@@ -164,7 +164,7 @@ jQuery( document ).ready( function () {
             ajaxurl,
             {
                 'action': 'bptodo_undo_complete_todo',
-                'security_nonce' : 'bptodo-undo-complete-todo-nonce',
+                'ajax_nonce' : todo_ajax_object.ajax_nonce,
                 'tid': tid,
             },
             function ( response ) {
