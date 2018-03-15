@@ -92,7 +92,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
-															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
+															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status ) {
 															$due_date_str      = 'Completed!';
@@ -187,7 +187,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
-															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
+															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status ) {
 															$due_date_str      = 'Completed!';
@@ -220,7 +220,7 @@ if ( ! empty( $atts['category'] ) ) {
 																echo esc_attr( $class );
 															}
 															?>
-															"><?php echo esc_html( $due_date_str ); ?></td>
+															"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
 																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo esc_attr( $tid ); ?>" title="<?php echo esc_html( 'Remove: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-times"></i></a></li>
@@ -281,7 +281,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
-															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
+															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status) {
 															$due_date_str      = 'Completed!';
@@ -314,7 +314,7 @@ if ( ! empty( $atts['category'] ) ) {
 																echo esc_attr( $class );
 															}
 															?>
-															"><?php echo esc_html( $due_date_str ); ?></td>
+															"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
 																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo esc_attr( $tid ); ?>" title="<?php echo esc_html( 'Remove: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-times"></i></a></li>
@@ -375,7 +375,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
-															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
+															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status ) {
 															$due_date_str      = 'Completed!';
@@ -408,7 +408,7 @@ if ( ! empty( $atts['category'] ) ) {
 																echo esc_attr( $class );
 															}
 															?>
-															"><?php echo esc_html( $due_date_str ); ?></td>
+															"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
 																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo esc_attr( $tid ); ?>" title="<?php echo esc_attr( 'Remove: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-times"></i></a></li>

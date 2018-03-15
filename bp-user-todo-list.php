@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
-add_action( 'init', 'bptodo_load_textdomain' );
+add_action( 'bp_loaded', 'bptodo_load_textdomain' );
 
 /**
  * Load plugin textdomain.
