@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BuddyPress User To-Do List\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 13:38+0530\n"
-"PO-Revision-Date: 2018-03-15 13:38+0530\n"
+"POT-Creation-Date: 2018-03-15 13:44+0530\n"
+"PO-Revision-Date: 2018-03-15 13:44+0530\n"
 "Last-Translator: admin <ritusingh.wbcom@gmail.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -378,6 +378,16 @@ msgstr ""
 msgid "Mark Complete"
 msgstr ""
 
+#: inc/todo/bptodo-by-category-template.php:89
+#: inc/todo/bptodo-by-category-template.php:184
+#: inc/todo/bptodo-by-category-template.php:278
+#: inc/todo/bptodo-by-category-template.php:372 inc/todo/list.php:259
+#: inc/todo/list.php:334 inc/todo/list.php:412 inc/todo/list.php:490
+#: inc/todo/list.php:588
+#, php-format
+msgid "Expired %d days ago!"
+msgstr "oh no Expired %d days ago!"
+
 #: inc/todo/bptodo-by-category-template.php:92
 #: inc/todo/bptodo-by-category-template.php:187
 #: inc/todo/bptodo-by-category-template.php:281
@@ -400,7 +410,9 @@ msgstr "%d left days man"
 #: inc/todo/bptodo-by-category-template.php:98
 #: inc/todo/bptodo-by-category-template.php:193
 #: inc/todo/bptodo-by-category-template.php:287
-#: inc/todo/bptodo-by-category-template.php:381
+#: inc/todo/bptodo-by-category-template.php:381 inc/todo/list.php:268
+#: inc/todo/list.php:345 inc/todo/list.php:423 inc/todo/list.php:501
+#: inc/todo/list.php:599
 msgid "Completed!"
 msgstr "Competa"
 
