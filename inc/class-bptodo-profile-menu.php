@@ -115,13 +115,9 @@ if ( ! class_exists( 'Bptodo_Profile_Menu' ) ) {
 			if ( isset( $_GET['args'] ) ) {
 				$todo_id = sanitize_text_field( wp_unslash( $_GET['args'] ) );
 				$todo    = get_post( $todo_id );
-				esc_html_e( 'Edit ', 'wb-todo' );
-				echo esc_html( $profile_menu_slug . ' : ', 'wb-todo' );
-				echo esc_html( $todo->post_title, 'wb-todo' );
+				printf( esc_html__( ' Edit %1s : %2s ', 'wb-todo' ), $profile_menu_slug, $todo->post_title );
 			} else {
-				esc_html_e( 'Add a new ', 'wb-todo' );
-				echo esc_html( $profile_menu_slug, 'wb-todo' );
-				esc_html_e( ' in your list', 'wb-todo' );
+				printf( esc_html__( ' Add a new %s in your list ', 'wb-todo' ), $profile_menu_slug );
 			}
 		}
 

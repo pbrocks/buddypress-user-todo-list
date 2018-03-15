@@ -101,7 +101,7 @@ $form_post_link = bp_core_get_userlink( $displayed_uid, false, true ) . $profile
 			<td width="20%"></td>
 			<td width="80%">
 				<?php wp_nonce_field( 'wp-bp-todo', 'save_new_todo_data_nonce' ); ?>
-				<input id="bp-add-new-todo" type="submit" name="todo_create" value="<?php echo esc_html( 'Submit ' . $profile_menu_label, 'wb-todo' ); ?>">
+				<input id="bp-add-new-todo" type="submit" name="todo_create" value="<?php printf( esc_html__( ' Submit %s ', 'wb-todo' ), $profile_menu_label );?>">
 			</td>
 		</tr>
 	</table>

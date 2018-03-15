@@ -89,7 +89,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
 															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
@@ -184,7 +184,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
 															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
@@ -278,7 +278,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
 															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
@@ -372,7 +372,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
 															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';

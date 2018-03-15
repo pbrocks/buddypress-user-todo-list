@@ -4,7 +4,6 @@
  *
  * @package bp-user-todo-list
  */
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -260,7 +259,7 @@ if ( empty( $todos ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 														} else {
 															$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
@@ -273,15 +272,18 @@ if ( empty( $todos ) ) {
 														if ( ! empty( $todo_priority ) ) {
 															if ( 'critical' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-critical';
+																$priority_text = __('Critical','wb-todo');
 															} elseif ( 'high' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-high';
+																$priority_text = __('High','wb-todo');
 															} else {
 																$priority_class = 'bptodo-priority-normal';
+																$priority_text = __('Normal','wb-todo');
 															}
 														}
 														?>
 														<tr id="bptodo-row-<?php echo esc_attr( $tid ); ?>">
-															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo esc_html( $todo_priority, 'wb-todo' ); ?></span></td>
+															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo $priority_text; ?></span></td>
 															<td class="
 															<?php
 															if ( 'complete' == $todo_status ) {
@@ -296,7 +298,7 @@ if ( empty( $todos ) ) {
 																echo esc_attr( $class );
 															}
 															?>
-															"><?php echo esc_html( $due_date_str, 'wb-todo' ); ?></td>
+															"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
 																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo esc_attr( $tid ); ?>" title="<?php echo esc_attr( 'Remove: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-times"></i></a></li>
@@ -332,7 +334,7 @@ if ( empty( $todos ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 															$all_remaining_todo++;
 														} else {
@@ -347,15 +349,18 @@ if ( empty( $todos ) ) {
 														if ( ! empty( $todo_priority ) ) {
 															if ( 'critical' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-critical';
+																$priority_text = __('Critical','wb-todo');
 															} elseif ( 'high' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-high';
+																$priority_text = __('High','wb-todo');
 															} else {
 																$priority_class = 'bptodo-priority-normal';
+																$priority_text = __('Normal','wb-todo');
 															}
 														}
 														?>
 														<tr id="bptodo-row-<?php echo esc_attr( $tid ); ?>">
-															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo esc_html( $todo_priority, 'wb-todo' ); ?></span></td>
+															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo $priority_text; ?></span></td>
 															<td class="
 															<?php
 															if ( 'complete' == $todo_status ) {
@@ -370,7 +375,7 @@ if ( empty( $todos ) ) {
 																echo esc_attr( $class );
 															}
 															?>
-															"><?php echo esc_html( $due_date_str, 'wb-todo' ); ?></td>
+															"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
 																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo esc_attr( $tid ); ?>" title="<?php echo esc_attr( 'Remove: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-times"></i></a></li>
@@ -407,7 +412,7 @@ if ( empty( $todos ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 															$all_remaining_todo++;
 														} else {
@@ -422,15 +427,18 @@ if ( empty( $todos ) ) {
 														if ( ! empty( $todo_priority ) ) {
 															if ( 'critical' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-critical';
+																$priority_text = __('Critical','wb-todo');
 															} elseif ( 'high' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-high';
+																$priority_text = __('High','wb-todo');
 															} else {
 																$priority_class = 'bptodo-priority-normal';
+																$priority_text = __('Normal','wb-todo');
 															}
 														}
 														?>
 														<tr id="bptodo-row-<?php echo esc_attr( $tid ); ?>">
-															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo esc_html( $todo_priority, 'wb-todo' ); ?></span></td>
+															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo $priority_text; ?></span></td>
 															<td class="
 															<?php
 															if ( 'complete' == $todo_status ) {
@@ -445,7 +453,7 @@ if ( empty( $todos ) ) {
 																echo esc_attr( $class );
 															}
 															?>
-															"><?php echo esc_html( $due_date_str, 'wb-todo' ); ?></td>
+															"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
 																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo esc_attr( $tid ); ?>" title="<?php echo esc_attr( 'Remove: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-times"></i></a></li>
@@ -482,7 +490,7 @@ if ( empty( $todos ) ) {
 															$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 															$due_date_td_class = 'bptodo-expired';
 														} elseif ( 0 == $diff_days ) {
-															$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+															$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 															$due_date_td_class = 'bptodo-expires-today';
 															$all_remaining_todo++;
 														} else {
@@ -497,15 +505,18 @@ if ( empty( $todos ) ) {
 														if ( ! empty( $todo_priority ) ) {
 															if ( 'critical' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-critical';
+																$priority_text = __('Critical','wb-todo');
 															} elseif ( 'high' == $todo_priority ) {
 																$priority_class = 'bptodo-priority-high';
+																$priority_text = __('High','wb-todo');
 															} else {
 																$priority_class = 'bptodo-priority-normal';
+																$priority_text = __('Normal','wb-todo');
 															}
 														}
 														?>
 														<tr id="bptodo-row-<?php echo esc_attr( $tid ); ?>">
-															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo esc_html( $todo_priority ); ?></span></td>
+															<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo $priority_text; ?></span></td>
 															<td class="
 															<?php
 															if ( 'complete' == $todo_status ) {
@@ -520,7 +531,7 @@ if ( empty( $todos ) ) {
 																echo esc_attr( $class );
 															}
 															?>
-															"><?php echo esc_html( $due_date_str ); ?></td>
+															"><?php echo $due_date_str; ?></td>
 															<td class="bp-to-do-actions">
 																<ul>
 																	<li><a href="javascript:void(0);" class="bptodo-remove-todo" data-tid="<?php echo esc_attr( $tid ); ?>" title="<?php echo esc_attr( 'Remove: ' . $todo_title, 'wb-todo' ); ?>"><i class="fa fa-times"></i></a></li>
@@ -577,7 +588,7 @@ if ( empty( $todos ) ) {
 																$due_date_str      = 'Expired ' . abs( $diff_days ) . ' days ago!';
 																$due_date_td_class = 'bptodo-expired';
 															} elseif ( 0 == $diff_days ) {
-																$due_date_str      = 'Today is the last day to complete. Hurry Up!';
+																$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 																$due_date_td_class = 'bptodo-expires-today';
 																$all_remaining_todo++;
 															} else {
@@ -592,15 +603,18 @@ if ( empty( $todos ) ) {
 															if ( ! empty( $todo_priority ) ) {
 																if ( 'critical' == $todo_priority ) {
 																	$priority_class = 'bptodo-priority-critical';
+																	$priority_text = __('Critical','wb-todo');
 																} elseif ( 'high' == $todo_priority ) {
 																	$priority_class = 'bptodo-priority-high';
+																	$priority_text = __('High','wb-todo');
 																} else {
 																	$priority_class = 'bptodo-priority-normal';
+																	$priority_text = __('Normal','wb-todo');
 																}
 															}
 															?>
 															<tr id="bptodo-row-<?php echo esc_attr( $tid ); ?>">
-																<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo esc_html( $todo_priority ); ?></span></td>
+																<td class="bptodo-priority"><span class="<?php echo esc_attr( $priority_class ); ?>"><?php echo $priority_text; ?></span></td>
 																<td class="
 																<?php
 																if ( 'complete' == $todo_status ) {
