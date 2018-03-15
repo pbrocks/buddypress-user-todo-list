@@ -219,15 +219,15 @@ if ( ! class_exists( 'Bptodo_Hooks' ) ) {
 				$diff        = date_diff( $curr_date, $due_date );
 				$diff_days   = $diff->format( '%R%a' );
 				if ( $diff_days < 0 ) {
-					$due_date_str = 'Expired ' . abs( $diff_days ) . ' days ago!';
+					$due_date_str = sprintf( esc_html__( 'Expired %d days ago!', 'wb-todo' ), abs( $diff_days ) );
 				} elseif ( 0 == $diff_days ) {
-					$due_date_str = 'Today is the last day to complete. Hurry Up!';
+					$due_date_str      = __('Today is the last day to complete. Hurry Up!','wb-todo');
 				} else {
-					$due_date_str = abs( $diff_days ) . ' days left to complete the task!';
+					$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 				}
 
 				if ( 'complete' == $todo_status ) {
-					$due_date_str = 'Completed!';
+					$due_date_str      = __('Completed!','wb-todo');
 				}
 
 				echo esc_html( $due_date_str, 'wb-todo' );
