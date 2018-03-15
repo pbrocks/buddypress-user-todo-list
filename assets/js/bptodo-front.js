@@ -116,9 +116,6 @@ jQuery( document ).ready( function () {
                     if ( response == 'todo-removed' ) {
                         jQuery( '#bptodo-row-' + tid ).remove();
                     }
-                    // siblings.each(function(index) {
-                    //     jQuery(this).children().first().text(index+1);
-                    // });
                 }
                 );
         }
