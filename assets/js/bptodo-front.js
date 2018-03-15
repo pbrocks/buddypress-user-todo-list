@@ -140,8 +140,9 @@ jQuery( document ).ready( function () {
             function ( response ) {
                 var response = JSON.parse( response );
                 if ( response.result == 'todo-completed' ) {
+                    console.log(todo_ajax_object.due_date_str);
                     clicked_tid.closest( 'tr' ).find( "td" ).addClass( 'todo-completed' );
-                    clicked_tid.closest( 'td' ).prev( 'td' ).text( 'Completed!' );
+                    clicked_tid.closest( 'td' ).prev( 'td' ).text( response.due_date_str );
                     jQuery('.bp_completed_todo_count').text( response.completed_todo );
                     jQuery('#bptodo-completed tbody').append( response.completed_html );
                     jQuery('.bptodo-color').css('width', response.avg_percentage+'%');
