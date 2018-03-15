@@ -95,7 +95,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status ) {
-															$due_date_str      = 'Completed!';
+															$due_date_str      = __('Completed!','wb-todo');
 															$due_date_td_class = '';
 														}
 														?>
@@ -190,7 +190,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status ) {
-															$due_date_str      = 'Completed!';
+															$due_date_str      = __('Completed!','wb-todo');
 															$due_date_td_class = '';
 														}
 														?>
@@ -284,7 +284,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status) {
-															$due_date_str      = 'Completed!';
+															$due_date_str      = __('Completed!','wb-todo');
 															$due_date_td_class = '';
 														}
 														?>
@@ -378,7 +378,7 @@ if ( ! empty( $atts['category'] ) ) {
 															$due_date_str = sprintf( esc_html__( '%d days left to complete the task!', 'wb-todo' ), abs( $diff_days ) );
 														}
 														if ( 'complete' == $todo_status ) {
-															$due_date_str      = 'Completed!';
+															$due_date_str      = __('Completed!','wb-todo');
 															$due_date_td_class = '';
 														}
 														?>
