@@ -149,17 +149,17 @@ jQuery( document ).ready( function () {
                     jQuery('#bptodo-completed tbody').append( response.completed_html );
                     jQuery('.bptodo-color').css('width', response.avg_percentage+'%');
                     jQuery('.bptodo-light-grey b').text( response.avg_percentage+'%');
-                    clicked_tid.closest( 'td' ).html( '<ul><li><a href="javacript:void(0);" class="bptodo-undo-complete-todo" data-tid="' + tid + '" title="Undo Complete"><i class="fa fa-undo"></i></a></li></ul>' )
+                    clicked_tid.closest( 'td' ).html( '<ul><li><a href="" class="bptodo-undo-complete-todo" data-tid="' + tid + '" title="Undo Complete"><i class="fa fa-undo"></i></a></li></ul>' )
                 }
             }
             );
     } );
 
     //Undo complete a todo
-    jQuery( document ).on( 'click', '.bptodo-undo-complete-todo', function () {
+    jQuery( document ).on( 'click', '.bptodo-undo-complete-todo', function (event) {
+        event.preventDefault();
         var tid = jQuery( this ).data( 'tid' );
         jQuery( this ).html( '<i class="fa fa-refresh fa-spin"></i>' );
-
         jQuery.post(
             ajaxurl,
             {
@@ -168,8 +168,9 @@ jQuery( document ).ready( function () {
                 'tid': tid,
             },
             function ( response ) {
+                console.log(response);
                 if ( response == 'todo-undo-completed' ) {
-                    window.location.reload();
+                    location.reload();
                 }
             }
         );

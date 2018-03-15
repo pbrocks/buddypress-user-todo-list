@@ -191,7 +191,7 @@ if ( ! class_exists( 'Bptodo_Ajax' ) ) {
 			check_ajax_referer( 'bptodo-todo-nonce', 'ajax_nonce' );
 			if ( isset( $_POST['action'] ) && 'bptodo_undo_complete_todo' === $_POST['action'] ) {
 				if ( isset( $_POST['tid'] ) ) {
-					$tid = sanitize_text_field( wp_unslash( $_POST['tid'] ) );
+					$tid = sanitize_text_field( $_POST['tid'] );
 				}
 				update_post_meta( $tid, 'todo_status', 'incomplete' );
 				echo 'todo-undo-completed';
