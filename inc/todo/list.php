@@ -172,7 +172,7 @@ if ( empty( $todos ) ) {
 						<span class="task_breaker-total-tasks"><?php echo esc_html( $all_todo_count ); ?></span><?php echo esc_html( ' ' . $profile_menu_label, 'wb-todo' ); ?></div>
 					</div>
 					<div class="bptodo-light-grey">
-						<span><b><?php echo esc_html( $avg_rating ); ?>%</b><?php echo esc_html( ' Completed', 'wb-todo' ); ?></span>
+						<span><b><?php echo esc_html( round( $avg_rating, 2 ) ); ?>%</b><?php echo esc_html( ' Completed', 'wb-todo' ); ?></span>
 						<div class="bptodo-color" style="height:24px;width:<?php echo esc_attr( $avg_rating ); ?>%">
 						</div>
 					</div>
