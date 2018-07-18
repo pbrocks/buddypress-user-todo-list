@@ -44,6 +44,8 @@ The screenshots are present in the root of the plugin folder.
 4. screenshot-4 - is the screen which shows form to create a to-do.
 
 == Changelog ==
+= 1.0.4 =
+* Fix - BuddyPress 3.1.0 Compatible
 
 = 1.0.3 =
 * Enhancement - Layout changes for task management
