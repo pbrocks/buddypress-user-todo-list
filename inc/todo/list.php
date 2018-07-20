@@ -8,8 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 global $bptodo;
-$profile_menu_slug  = $bptodo->profile_menu_slug;
-$profile_menu_label = $bptodo->profile_menu_label;
+$profile_menu_slug         = $bptodo->profile_menu_slug;
+$profile_menu_label        = $bptodo->profile_menu_label;
+$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
 
 // Save todo items.
 if ( isset( $_POST['todo_create'] ) && wp_verify_nonce( $_POST['save_new_todo_data_nonce'], 'wp-bp-todo' ) ) {
@@ -202,7 +203,7 @@ if ( empty( $todos ) ) {
 										<?php echo esc_html( $all_remaining_todo, 'wb-todo' ); ?>
 									</span>
 								</h4>
-								<p><?php echo esc_html( $profile_menu_label . '(s) remaining', 'wb-todo' ); ?></p>
+								<p><?php echo esc_html( $profile_menu_label_plural . ' Remaining', 'wb-todo' ); ?></p>
 							</li>
 
 							<li class="bp-todo-dashboard-at-a-glance-box" id="bptodo-remaining-task-count">
@@ -211,7 +212,7 @@ if ( empty( $todos ) ) {
 										<?php echo esc_html( $all_completed_todo, 'wb-todo' ); ?>
 									</span>
 								</h4>
-								<p><?php echo esc_html( $profile_menu_label . '(s) Completed', 'wb-todo' ); ?></p>
+								<p><?php echo esc_html( $profile_menu_label_plural . ' Completed', 'wb-todo' ); ?></p>
 							</li>
 
 						</ul>

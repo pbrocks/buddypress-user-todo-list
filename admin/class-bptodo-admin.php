@@ -208,6 +208,9 @@ if ( ! class_exists( 'Bptodo_Admin' ) ) {
 				if ( isset( $_POST['bptodo_profile_menu_label'] ) ) {
 					$settings['profile_menu_label'] = sanitize_text_field( wp_unslash( $_POST['bptodo_profile_menu_label'] ) );
 				}
+				if ( isset( $_POST['bptodo_profile_menu_label_plural'] ) ) {
+					$settings['profile_menu_label_plural'] = sanitize_text_field( wp_unslash( $_POST['bptodo_profile_menu_label_plural'] ) );
+				}
 				if ( isset( $_POST['bptodo_allow_user_add_category'] ) ) {
 					$settings['allow_user_add_category'] = sanitize_text_field( wp_unslash( $_POST['bptodo_allow_user_add_category'] ) );
 				}

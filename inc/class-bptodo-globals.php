@@ -109,13 +109,17 @@ if ( ! class_exists( 'Bptodo_Globals' ) ) {
 		 */
 		public function setup_globals() {
 			global $bptodo;
-			$settings                 = get_option( 'user_todo_list_settings' );
-			$this->profile_menu_label = 'To-Do';
+			$settings                        = get_option( 'user_todo_list_settings' );
+			$this->profile_menu_label        = esc_html__( 'To-Do', 'wb-todo' );
+			$this->profile_menu_label_plural = esc_html__( 'To-Dos', 'wb-todo' );
 			if ( isset( $settings['profile_menu_label'] ) ) {
 				$this->profile_menu_label = $settings['profile_menu_label'];
 			}
 
-			$this->profile_menu_label_plural = $this->pluralize( $this->profile_menu_label );
+			if ( isset( $settings['profile_menu_label_plural'] ) ) {
+				$this->profile_menu_label_plural = $settings['profile_menu_label_plural'];
+			}
+
 			$this->profile_menu_slug         = str_replace( ' ', '-', strtolower( $this->profile_menu_label ) );
 
 			/** Allow User To Add Todo Category. */
@@ -138,31 +142,6 @@ if ( ! class_exists( 'Bptodo_Globals' ) ) {
 
 			/** Count my todo items. */
 			$this->my_todo_items = $this->bptodo_count_my_todo_items();
-		}
-
-		/**
-		 * Define all the global variable values.
-		 *
-		 * @since    1.0.0
-		 * @access   public
-		 * @author   Wbcom Designs
-		 * @param    string $singular contains label string.
-		 * @param    string $plural contains label string.
-		 */
-		public static function pluralize( $singular, $plural = null ) {
-			if ( null != $plural ) {
-				return $plural;
-			}
-
-			$last_letter = strtolower( $singular[ strlen( $singular ) - 1 ] );
-			switch ( $last_letter ) {
-				case 'y':
-					return substr( $singular, 0, -1 ) . 'ies';
-				case 's':
-					return $singular . 'es';
-				default:
-					return $singular . 's';
-			}
 		}
 
 		/**

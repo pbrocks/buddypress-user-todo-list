@@ -15,10 +15,17 @@ global $bptodo;
 		<tbody>
 			<!-- PROFILE MENU LABEL -->
 			<tr>
-				<th scope="row"><label for="bptodo-profile-menu-label"><?php esc_html_e( 'Profile Menu Label', 'wb-todo' ); ?></label></th>
+				<th scope="row"><label for="bptodo-profile-menu-label"><?php esc_html_e( 'To-do Label (Singular)', 'wb-todo' ); ?></label></th>
 				<td>
 					<input type="text" placeholder="<?php esc_html_e( 'Label', 'wb-todo' ); ?>" name="bptodo_profile_menu_label" value="<?php echo esc_html( $bptodo->profile_menu_label, 'wb-todo' ); ?>" class="regular-text" required>
-					<p class="description"><?php esc_html_e( 'This label will be seen in the profile menu(Please make sure you enter "singular" text).', 'wb-todo' ); ?></p>
+				</td>
+			</tr>
+
+			<!-- TODO MENU LABEL -->
+			<tr>
+				<th scope="row"><label for="bptodo-profile-menu-label"><?php esc_html_e( 'To-dos Label (Plural)', 'wb-todo' ); ?></label></th>
+				<td>
+					<input type="text" placeholder="<?php esc_html_e( 'To-dos', 'wb-todo' ); ?>" name="bptodo_profile_menu_label_plural" value="<?php echo esc_html( $bptodo->profile_menu_label_plural, 'wb-todo' ); ?>" class="regular-text" required>
 				</td>
 			</tr>
 

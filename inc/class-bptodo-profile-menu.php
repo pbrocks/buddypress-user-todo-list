@@ -158,9 +158,9 @@ if ( ! class_exists( 'Bptodo_Profile_Menu' ) ) {
 		 */
 		public function list_todo_tab_function_to_show_title() {
 			global $bptodo;
-			$profile_menu_label_plural = $bptodo->profile_menu_label_plural;
+			$profile_menu_label = $bptodo->profile_menu_label;
 			echo '<h4>';
-			echo esc_html( $profile_menu_label_plural, 'wb-todo' );
+			esc_html_e( $profile_menu_label, 'wb-todo' );
 			esc_html_e( ' List', 'wp-todo' );
 			$args  = array(
 				'post_type'      => 'bp-todo',
