@@ -46,6 +46,7 @@ The screenshots are present in the root of the plugin folder.
 == Changelog ==
 = 1.0.4 =
 * Fix - BuddyPress 3.1.0 Compatible
+* Fix - Added setting for todo label plural.
 
 = 1.0.3 =
 * Enhancement - Layout changes for task management
